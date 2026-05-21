@@ -35,9 +35,10 @@ export const CLIENTS = [
 ];
 
 export const PRICES = [
-  { vol: "5 м³",  price: "от 1 800 ₽", sub: "Питьевая вода",    pop: false },
-  { vol: "10 м³", price: "от 3 200 ₽", sub: "Любой тип воды",   pop: true  },
-  { vol: "20 м³", price: "от 5 500 ₽", sub: "Техническая вода", pop: false },
+  { vol: "1 м³",          price: "1 500 ₽",       sub: "Перевозка жидкостей по ГОСТ 9218-2015", pop: false },
+  { vol: "7,5 м³",        price: "5 000 ₽",       sub: "Перевозка жидкостей по ГОСТ 9218-2015", pop: true  },
+  { vol: "10 м³",         price: "7 000 ₽",       sub: "Перевозка жидкостей по ГОСТ 9218-2015", pop: false },
+  { vol: "Крупный объём", price: "По договору",    sub: "Перевозка жидкостей по ГОСТ 9218-2015", pop: false },
 ];
 
 export const FAQS = [
