@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const TRUCK_IMG = "https://cdn.poehali.dev/projects/66c3eddf-e576-4e82-b662-ae8fabc5f460/files/6843bb42-875c-49a6-8f92-7bacfbd926f1.jpg";
-const PHONE_HREF = "tel:+79880000000";
-const PHONE = "+7 (988) 000-00-00";
-const WA_LINK = "https://wa.me/79880000000?text=Здравствуйте!%20Хочу%20заказать%20доставку%20воды%20водовозом%20в%20Новороссийске";
+const PHONE_HREF = "tel:+79883174484";
+const PHONE = "+7 (988) 317-44-84";
+const WA_LINK = "https://wa.me/79883174484?text=Здравствуйте!%20Хочу%20заказать%20доставку%20воды%20водовозом%20в%20Новороссийске";
 
 const BADGES = [
   { icon: "Truck",     text: "Объёмы от 7,5 м³" },

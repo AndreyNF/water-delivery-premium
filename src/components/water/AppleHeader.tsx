@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
-const PHONE = "+7 (988) 000-00-00";
-const PHONE_HREF = "tel:+79880000000";
-const WA_LINK = "https://wa.me/79880000000?text=Здравствуйте!%20Хочу%20заказать%20воду%20в%20Новороссийске";
+const PHONE = "+7 (988) 317-44-84";
+const PHONE_HREF = "tel:+79883174484";
+const WA_LINK = "https://wa.me/79883174484?text=Здравствуйте!%20Хочу%20заказать%20воду%20в%20Новороссийске";
 
 const NAV = [
   ["Объёмы", "#volumes"],
