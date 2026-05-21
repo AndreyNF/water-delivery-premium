@@ -1,5 +1,6 @@
 import Icon from "@/components/ui/icon";
-import { useFade, Section, SectionHeader, WA_LINK } from "./shared";
+import MaxIcon from "@/components/ui/MaxIcon";
+import { useFade, Section, SectionHeader, MAX_LINK } from "./shared";
 
 const COMPARE_ROWS: [string, string, string][] = [
   ["Объём за заказ", "19–38 л (1–2 бутыли)", "От 7,5 м³ (7 500 л)"],
@@ -94,8 +95,8 @@ export function TechnicalWaterSection() {
         </div>
       </div>
 
-      <a href={WA_LINK} target="_blank" rel="noopener" className="btn-apple text-sm px-7 py-3">
-        <Icon name="MessageCircle" size={17} />
+      <a href={MAX_LINK} target="_blank" rel="noopener" className="btn-apple text-sm px-7 py-3">
+        <MaxIcon size={17} />
         Рассчитать объём в Max
       </a>
     </Section>

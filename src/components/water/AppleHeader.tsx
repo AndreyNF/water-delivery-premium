@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
-import { WA_LINK, PHONE, PHONE_HREF } from "./shared";
+import { MAX_LINK, PHONE, PHONE_HREF } from "./shared";
 
 const NAV = [
   ["Объёмы", "#volumes"],
@@ -55,8 +55,8 @@ export default function AppleHeader() {
               <Icon name="Phone" size={13} />
               {PHONE}
             </a>
-            <a href={WA_LINK} target="_blank" rel="noopener" className="btn-apple text-sm px-5 py-2.5">
-              Заказать воду
+            <a href={MAX_LINK} target="_blank" rel="noopener" className="btn-apple text-sm px-5 py-2.5">
+              Написать в Max
             </a>
           </div>
 
@@ -105,8 +105,8 @@ export default function AppleHeader() {
               </a>
             ))}
             <div className="flex flex-col gap-3 pt-5">
-              <a href={WA_LINK} target="_blank" rel="noopener" className="btn-apple w-full justify-center">
-                Заказать воду
+              <a href={MAX_LINK} target="_blank" rel="noopener" className="btn-apple w-full justify-center">
+                Написать в Max
               </a>
               <a href={PHONE_HREF} className="btn-apple-outline w-full justify-center">
                 <Icon name="Phone" size={15} /> {PHONE}

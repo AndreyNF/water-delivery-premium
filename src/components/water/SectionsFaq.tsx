@@ -1,5 +1,6 @@
 import Icon from "@/components/ui/icon";
-import { useFade, Section, WA_LINK, PHONE_HREF, PHONE } from "./shared";
+import MaxIcon from "@/components/ui/MaxIcon";
+import { useFade, Section, MAX_LINK, PHONE_HREF, PHONE } from "./shared";
 
 export type FaqItem = { q: string; a: string };
 
@@ -112,7 +113,7 @@ export function ContactSection() {
           >
             <p className="t-label mb-2" style={{ color: "rgba(255,255,255,0.45)" }}>Max</p>
             <a
-              href={WA_LINK}
+              href={MAX_LINK}
               target="_blank"
               rel="noopener"
               style={{
@@ -120,12 +121,12 @@ export function ContactSection() {
                 fontSize: 17,
                 fontWeight: 600,
                 letterSpacing: "-0.02em",
-                color: "#4ADE80",
+                color: "#C4B5FD",
                 textDecoration: "none",
                 lineHeight: 1.3,
               }}
             >
-              Написать в мессенджер
+              Написать в Max
             </a>
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginTop: 8 }}>
               Ответим за несколько минут
@@ -136,11 +137,11 @@ export function ContactSection() {
         <div ref={f2.ref} style={f2.style} className="mb-14">
           <div className="flex flex-col sm:flex-row flex-wrap gap-3">
             <a
-              href={WA_LINK} target="_blank" rel="noopener"
-              className="btn-wa sm:w-auto w-full justify-center"
+              href={MAX_LINK} target="_blank" rel="noopener"
+              className="btn-max sm:w-auto w-full justify-center"
               style={{ fontSize: 16, padding: "17px 32px", borderRadius: 16 }}
             >
-              <Icon name="MessageCircle" size={19} /> Написать в Max
+              <MaxIcon size={19} /> Написать в Max
             </a>
             <a
               href={PHONE_HREF}
@@ -209,20 +210,21 @@ export function FloatingWA() {
         <Icon name="Phone" size={22} />
       </a>
       <a
-        href={WA_LINK}
+        href={MAX_LINK}
         target="_blank"
         rel="noopener"
-        title="Написать в WhatsApp"
+        title="Написать в Max"
+        aria-label="Написать в Max"
         className="flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
         style={{
           width: 52,
           height: 52,
           borderRadius: "50%",
-          background: "#1DB954",
-          boxShadow: "0 4px 20px rgba(29,185,84,0.45)",
+          background: "var(--max)",
+          boxShadow: "0 4px 20px rgba(109, 76, 255, 0.45)",
         }}
       >
-        <Icon name="MessageCircle" size={24} />
+        <MaxIcon size={24} />
       </a>
     </div>
   );

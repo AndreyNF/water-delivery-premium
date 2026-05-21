@@ -1,7 +1,5 @@
 export const TRUCK_IMG = "https://cdn.poehali.dev/projects/66c3eddf-e576-4e82-b662-ae8fabc5f460/files/f13a39de-3ec0-452b-850b-b34126ec5ea6.jpg";
-export const WA_LINK = "https://vk.me/89883174484";
-export const PHONE = "+7 (988) 317-44-84";
-export const PHONE_HREF = "tel:+79883174484";
+export { MAX_LINK, MAX_MESSAGE, PHONE, PHONE_HREF } from "./shared";
 
 export const SERVICES = [
   { icon: "Droplets",   label: "Питьевая вода",       desc: "Чистая вода для дома, офиса, кулеров и приготовления пищи.", hot: true },
