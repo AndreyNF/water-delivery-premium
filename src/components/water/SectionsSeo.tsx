@@ -96,7 +96,7 @@ export function TechnicalWaterSection() {
 
       <a href={WA_LINK} target="_blank" rel="noopener" className="btn-apple text-sm px-7 py-3">
         <Icon name="MessageCircle" size={17} />
-        Рассчитать объём в WhatsApp
+        Рассчитать объём в Max
       </a>
     </Section>
   );

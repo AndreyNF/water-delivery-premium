@@ -93,7 +93,7 @@ export function PricingSection() {
 
       <div ref={f3.ref} style={f3.style}>
         <a href={WA_LINK} target="_blank" rel="noopener" className="btn-apple text-sm px-7 py-3">
-          Узнать цену в WhatsApp
+          Узнать цену в Max
         </a>
       </div>
     </Section>

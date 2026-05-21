@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export const WA_LINK = "https://wa.me/79883174484?text=Здравствуйте!%20Хочу%20заказать%20воду%20водовозом%20в%20Новороссийске";
+export const WA_LINK = "https://vk.me/89883174484";
 export const PHONE_HREF = "tel:+79883174484";
 export const PHONE = "+7 (988) 317-44-84";
 

@@ -67,8 +67,8 @@ export default function SiteHeader() {
             </a>
             <a href={WA_LINK} target="_blank" rel="noopener"
               className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90"
-              style={{ background: "#25D366" }}>
-              <Icon name="MessageCircle" size={15} /> WhatsApp
+              style={{ background: "#0077FF" }}>
+              <Icon name="MessageCircle" size={15} /> Max
             </a>
           </div>
 
@@ -88,8 +88,8 @@ export default function SiteHeader() {
             <div className="flex flex-col gap-2 pt-3">
               <a href={WA_LINK} target="_blank" rel="noopener"
                 className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold text-white"
-                style={{ background: "#25D366" }}>
-                <Icon name="MessageCircle" size={16} /> Написать в WhatsApp
+                style={{ background: "#0077FF" }}>
+                <Icon name="MessageCircle" size={16} /> Написать в Max
               </a>
               <a href={PHONE_HREF}
                 className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold"

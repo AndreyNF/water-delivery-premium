@@ -128,7 +128,7 @@ function PricesSection() {
               Прозрачная стоимость
             </h2>
             <p className="mt-2 text-sm" style={{ color: "#94A3B8" }}>
-              Точная цена зависит от района доставки — уточните по телефону или в WhatsApp
+              Точная цена зависит от района доставки — уточните по телефону или в Max
             </p>
           </div>
         </FadeSection>
@@ -157,8 +157,8 @@ function PricesSection() {
           <div className="mt-8 text-center">
             <a href={WA_LINK} target="_blank" rel="noopener"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90"
-              style={{ background: "#25D366" }}>
-              <Icon name="MessageCircle" size={18} /> Узнать точную цену в WhatsApp
+              style={{ background: "#0077FF" }}>
+              <Icon name="MessageCircle" size={18} /> Узнать точную цену в Max
             </a>
           </div>
         </FadeSection>
