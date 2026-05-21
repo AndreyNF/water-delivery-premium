@@ -1,7 +1,7 @@
 export const TRUCK_IMG = "https://cdn.poehali.dev/projects/66c3eddf-e576-4e82-b662-ae8fabc5f460/files/f13a39de-3ec0-452b-850b-b34126ec5ea6.jpg";
-export const WA_LINK = "https://wa.me/79880000000?text=Здравствуйте!%20Хочу%20заказать%20воду%20в%20Новороссийске";
-export const PHONE = "+7 (988) 000-00-00";
-export const PHONE_HREF = "tel:+79880000000";
+export const WA_LINK = "https://wa.me/79883174484?text=Здравствуйте!%20Хочу%20заказать%20воду%20в%20Новороссийске";
+export const PHONE = "+7 (988) 317-44-84";
+export const PHONE_HREF = "tel:+79883174484";
 
 export const SERVICES = [
   { icon: "Droplets",   label: "Питьевая вода",       desc: "Чистая вода для дома, офиса, кулеров и приготовления пищи.", hot: true },
