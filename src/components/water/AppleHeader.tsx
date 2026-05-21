@@ -60,13 +60,31 @@ export default function AppleHeader() {
             </a>
           </div>
 
-          <button
-            className="md:hidden flex items-center justify-center w-8 h-8"
-            onClick={() => setMob(!mob)}
-            style={{ color: "var(--ink)" }}
-          >
-            <Icon name={mob ? "X" : "Menu"} size={20} />
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <a
+              href={PHONE_HREF}
+              aria-label={`Позвонить ${PHONE}`}
+              className="flex items-center justify-center"
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 10,
+                background: "#EFF6FF",
+                color: "#0071E3",
+                textDecoration: "none",
+              }}
+            >
+              <Icon name="Phone" size={18} />
+            </a>
+            <button
+              className="flex items-center justify-center w-8 h-8"
+              onClick={() => setMob(!mob)}
+              style={{ color: "var(--ink)" }}
+              aria-label="Меню"
+            >
+              <Icon name={mob ? "X" : "Menu"} size={20} />
+            </button>
+          </div>
         </div>
 
         {mob && (

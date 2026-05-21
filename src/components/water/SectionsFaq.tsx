@@ -71,6 +71,68 @@ export function ContactSection() {
           </p>
         </div>
 
+        <div
+          className="mb-10 grid gap-4 sm:grid-cols-2"
+          style={{ maxWidth: 520 }}
+        >
+          <div
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              borderRadius: 16,
+              padding: "20px 22px",
+            }}
+          >
+            <p className="t-label mb-2" style={{ color: "rgba(255,255,255,0.45)" }}>Телефон</p>
+            <a
+              href={PHONE_HREF}
+              style={{
+                display: "block",
+                fontSize: "clamp(22px, 4vw, 28px)",
+                fontWeight: 600,
+                letterSpacing: "-0.03em",
+                color: "white",
+                textDecoration: "none",
+                lineHeight: 1.2,
+              }}
+            >
+              {PHONE}
+            </a>
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginTop: 8 }}>
+              Звоните — принимаем заявки 24/7
+            </p>
+          </div>
+          <div
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              borderRadius: 16,
+              padding: "20px 22px",
+            }}
+          >
+            <p className="t-label mb-2" style={{ color: "rgba(255,255,255,0.45)" }}>WhatsApp</p>
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener"
+              style={{
+                display: "block",
+                fontSize: 17,
+                fontWeight: 600,
+                letterSpacing: "-0.02em",
+                color: "#4ADE80",
+                textDecoration: "none",
+                lineHeight: 1.3,
+              }}
+            >
+              Написать в мессенджер
+            </a>
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginTop: 8 }}>
+              Ответим за несколько минут
+            </p>
+          </div>
+        </div>
+
         <div ref={f2.ref} style={f2.style} className="mb-14">
           <div className="flex flex-col sm:flex-row flex-wrap gap-3">
             <a
@@ -116,7 +178,11 @@ export function ContactSection() {
             <span style={{ fontSize: 13, fontWeight: 500, color: "rgba(255,255,255,0.55)" }}>АкваСервис Новороссийск</span>
           </div>
           <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
-            © 2026 · Доставка воды водовозом в Новороссийске · Работаем 24/7
+            © 2026 ·{" "}
+            <a href={PHONE_HREF} style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+              {PHONE}
+            </a>
+            {" · "}Доставка воды водовозом · 24/7
           </p>
         </div>
       </div>
@@ -126,10 +192,38 @@ export function ContactSection() {
 
 export function FloatingWA() {
   return (
-    <a href={WA_LINK} target="_blank" rel="noopener" title="Написать в WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
-      style={{ width: 52, height: 52, borderRadius: "50%", background: "#1DB954", boxShadow: "0 4px 20px rgba(29,185,84,0.45)" }}>
-      <Icon name="MessageCircle" size={24} />
-    </a>
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+      <a
+        href={PHONE_HREF}
+        title={`Позвонить ${PHONE}`}
+        aria-label={`Позвонить ${PHONE}`}
+        className="flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
+        style={{
+          width: 52,
+          height: 52,
+          borderRadius: "50%",
+          background: "var(--ink)",
+          boxShadow: "0 4px 20px rgba(10,15,30,0.35)",
+        }}
+      >
+        <Icon name="Phone" size={22} />
+      </a>
+      <a
+        href={WA_LINK}
+        target="_blank"
+        rel="noopener"
+        title="Написать в WhatsApp"
+        className="flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
+        style={{
+          width: 52,
+          height: 52,
+          borderRadius: "50%",
+          background: "#1DB954",
+          boxShadow: "0 4px 20px rgba(29,185,84,0.45)",
+        }}
+      >
+        <Icon name="MessageCircle" size={24} />
+      </a>
+    </div>
   );
 }
