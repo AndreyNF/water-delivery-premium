@@ -46,6 +46,8 @@
     --blue: #0071e3;
     --blue-hover: #0064cc;
     --green: #1db954;
+    --max: #6d4cff;
+    --max-hover: #5b3df0;
   }
 }
 
@@ -173,12 +175,12 @@
     background: rgba(0, 113, 227, 0.04);
   }
 
-  .btn-wa {
+  .btn-max {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 7px;
-    background: var(--green);
+    background: var(--max);
     color: white;
     font-size: 15px;
     font-weight: 500;
@@ -191,7 +193,7 @@
       opacity 0.18s ease,
       transform 0.12s ease;
   }
-  .btn-wa:hover {
+  .btn-max:hover {
     opacity: 0.88;
     transform: scale(1.012);
   }

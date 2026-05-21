@@ -1,5 +1,6 @@
 import Icon from "@/components/ui/icon";
-import { useFade, Section, SectionHeader, WA_LINK } from "./shared";
+import MaxIcon from "@/components/ui/MaxIcon";
+import { useFade, Section, SectionHeader, MAX_LINK } from "./shared";
 
 // ── 1. Volumes ────────────────────────────────────────────────────────────────
 const VOLUMES = [
@@ -196,9 +197,9 @@ export function ServicesSection() {
 const STEPS = [
   {
     num: "01",
-    icon: "MessageCircle",
+    icon: "Max",
     title: "Оставьте заявку",
-    desc: "Напишите в WhatsApp или позвоните. Скажите адрес и нужный объём — рассчитаем стоимость за минуту.",
+    desc: "Напишите в Max или позвоните. Скажите адрес и нужный объём — рассчитаем стоимость за минуту.",
   },
   {
     num: "02",
@@ -246,7 +247,11 @@ function StepCard({ s, i, delay }: { s: typeof STEPS[0]; i: number; delay: numbe
           {s.num}
         </div>
         <div style={{ width: 44, height: 44, borderRadius: 14, background: accent ? "rgba(255,255,255,0.15)" : "#EFF6FF", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <Icon name={s.icon} size={21} style={{ color: accent ? "white" : "#0071E3" }} />
+          {s.icon === "Max" ? (
+            <MaxIcon size={21} />
+          ) : (
+            <Icon name={s.icon} size={21} style={{ color: accent ? "white" : "#0071E3" }} />
+          )}
         </div>
       </div>
       <h3 style={{ fontSize: 17, fontWeight: 700, letterSpacing: "-0.03em", color: accent ? "white" : "var(--ink)", marginBottom: 10, lineHeight: 1.25 }}>
@@ -270,7 +275,7 @@ export function HowSection() {
 
       <div className="md:hidden mt-6">
         <a
-          href={WA_LINK} target="_blank" rel="noopener"
+          href={MAX_LINK} target="_blank" rel="noopener"
           className="flex items-center justify-center gap-2 w-full"
           style={{
             background: "#0071E3",
@@ -283,8 +288,8 @@ export function HowSection() {
             letterSpacing: "-0.01em",
           }}
         >
-          <Icon name="MessageCircle" size={19} />
-          Заказать водовоз
+          <MaxIcon size={19} />
+          Написать в Max
         </a>
       </div>
     </Section>

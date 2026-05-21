@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/icon";
-import { useFade, Section, SectionHeader, WA_LINK } from "./shared";
+import { useFade, Section, SectionHeader, MAX_LINK } from "./shared";
 
 // ── Why ───────────────────────────────────────────────────────────────────────
 const WHY_ITEMS = [
@@ -92,8 +92,8 @@ export function PricingSection() {
       </div>
 
       <div ref={f3.ref} style={f3.style}>
-        <a href={WA_LINK} target="_blank" rel="noopener" className="btn-apple text-sm px-7 py-3">
-          Узнать цену в WhatsApp
+        <a href={MAX_LINK} target="_blank" rel="noopener" className="btn-apple text-sm px-7 py-3">
+          Узнать цену в Max
         </a>
       </div>
     </Section>

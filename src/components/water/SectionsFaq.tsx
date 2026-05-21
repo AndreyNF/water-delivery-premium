@@ -1,14 +1,15 @@
 import Icon from "@/components/ui/icon";
-import { useFade, Section, WA_LINK, PHONE_HREF, PHONE } from "./shared";
+import MaxIcon from "@/components/ui/MaxIcon";
+import { useFade, Section, MAX_LINK, PHONE_HREF, PHONE } from "./shared";
 
 export type FaqItem = { q: string; a: string };
 
 export const FAQS: FaqItem[] = [
   { q: "Как быстро приедет водовоз?", a: "В большинстве районов Новороссийска — 1–2 часа с момента подтверждения заявки. Мысхако, Цемдолина и отдалённые посёлки — до 3 часов. Принимаем заявки круглосуточно." },
   { q: "Какой минимальный объём заказа?", a: "Минимальный рейс — 7,5 м³ (7 500 литров). Слив воды и подъезд к объекту включены в стоимость." },
-  { q: "Сколько стоит доставка водовоза?", a: "Цена зависит от объёма и адреса. Уточните стоимость в WhatsApp — ответим за несколько минут и рассчитаем точную цену." },
+  { q: "Сколько стоит доставка водовоза?", a: "Цена зависит от объёма и адреса. Уточните стоимость в Max — ответим за несколько минут и рассчитаем точную цену." },
   { q: "Чем водовоз отличается от доставки 19 литров?", a: "Бутыли 19 л — это питьевая вода небольшими партиями для дома или офиса. Водовоз АкваСервис — машина с ёмкостью от 7,5 м³: одним рейсом заполняем ёмкость на стройке, даче, в бассейне или промобъекте. Мы не доставляем бутыли 19 л." },
-  { q: "Как заказать техническую воду водовозом?", a: "Напишите в WhatsApp или позвоните: укажите адрес, нужный объём (от 7,5 м³) и задачу — стройка, промобъект, резервуар. Рассчитаем стоимость и время выезда за несколько минут." },
+  { q: "Как заказать техническую воду водовозом?", a: "Напишите в Max или позвоните: укажите адрес, нужный объём (от 7,5 м³) и задачу — стройка, промобъект, резервуар. Рассчитаем стоимость и время выезда за несколько минут." },
   { q: "Как заполнить бассейн водовозом?", a: "Укажите объём бассейна — рассчитаем количество рейсов. Средний бассейн 30–50 м³ заполняем за 3–5 рейсов по 10 м³. Можем организовать несколько машин одновременно." },
   { q: "Какие документы предоставляете?", a: "Товарная накладная, счёт-фактура (для юрлиц и ИП), сертификаты качества воды — по запросу." },
   { q: "Как оплатить?", a: "Наличными, картой или банковским переводом. Для организаций — по счёту. Оплата после доставки." },
@@ -110,9 +111,9 @@ export function ContactSection() {
               padding: "20px 22px",
             }}
           >
-            <p className="t-label mb-2" style={{ color: "rgba(255,255,255,0.45)" }}>WhatsApp</p>
+            <p className="t-label mb-2" style={{ color: "rgba(255,255,255,0.45)" }}>Max</p>
             <a
-              href={WA_LINK}
+              href={MAX_LINK}
               target="_blank"
               rel="noopener"
               style={{
@@ -120,12 +121,12 @@ export function ContactSection() {
                 fontSize: 17,
                 fontWeight: 600,
                 letterSpacing: "-0.02em",
-                color: "#4ADE80",
+                color: "#C4B5FD",
                 textDecoration: "none",
                 lineHeight: 1.3,
               }}
             >
-              Написать в мессенджер
+              Написать в Max
             </a>
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginTop: 8 }}>
               Ответим за несколько минут
@@ -136,11 +137,11 @@ export function ContactSection() {
         <div ref={f2.ref} style={f2.style} className="mb-14">
           <div className="flex flex-col sm:flex-row flex-wrap gap-3">
             <a
-              href={WA_LINK} target="_blank" rel="noopener"
-              className="btn-wa sm:w-auto w-full justify-center"
+              href={MAX_LINK} target="_blank" rel="noopener"
+              className="btn-max sm:w-auto w-full justify-center"
               style={{ fontSize: 16, padding: "17px 32px", borderRadius: 16 }}
             >
-              <Icon name="MessageCircle" size={19} /> Написать в WhatsApp
+              <MaxIcon size={19} /> Написать в Max
             </a>
             <a
               href={PHONE_HREF}
@@ -209,20 +210,21 @@ export function FloatingWA() {
         <Icon name="Phone" size={22} />
       </a>
       <a
-        href={WA_LINK}
+        href={MAX_LINK}
         target="_blank"
         rel="noopener"
-        title="Написать в WhatsApp"
+        title="Написать в Max"
+        aria-label="Написать в Max"
         className="flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
         style={{
           width: 52,
           height: 52,
           borderRadius: "50%",
-          background: "#1DB954",
-          boxShadow: "0 4px 20px rgba(29,185,84,0.45)",
+          background: "var(--max)",
+          boxShadow: "0 4px 20px rgba(109, 76, 255, 0.45)",
         }}
       >
-        <Icon name="MessageCircle" size={24} />
+        <MaxIcon size={24} />
       </a>
     </div>
   );

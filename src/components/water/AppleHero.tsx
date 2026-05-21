@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
-import { WA_LINK, PHONE, PHONE_HREF } from "./shared";
+import MaxIcon from "@/components/ui/MaxIcon";
+import { MAX_LINK, PHONE, PHONE_HREF } from "./shared";
 
 const TRUCK_IMG = "https://cdn.poehali.dev/projects/66c3eddf-e576-4e82-b662-ae8fabc5f460/files/6843bb42-875c-49a6-8f92-7bacfbd926f1.jpg";
 
@@ -90,12 +91,12 @@ export default function AppleHero() {
             {/* CTA */}
             <div className="flex flex-wrap gap-3 mb-8">
               <a
-                href={WA_LINK} target="_blank" rel="noopener"
+                href={MAX_LINK} target="_blank" rel="noopener"
                 className="btn-apple"
                 style={{ fontSize: 15, padding: "14px 28px" }}
               >
-                <Icon name="MessageCircle" size={17} />
-                Заказать водовоз
+                <MaxIcon size={17} />
+                Заказать в Max
               </a>
               <a
                 href={PHONE_HREF}
@@ -284,12 +285,12 @@ export default function AppleHero() {
           {/* CTAs */}
           <div className="flex flex-col gap-3 mb-6">
             <a
-              href={WA_LINK} target="_blank" rel="noopener"
+              href={MAX_LINK} target="_blank" rel="noopener"
               className="btn-apple w-full justify-center"
               style={{ fontSize: 16, padding: "16px 24px", borderRadius: 16 }}
             >
-              <Icon name="MessageCircle" size={19} />
-              Заказать водовоз
+              <MaxIcon size={19} />
+              Заказать в Max
             </a>
             <a
               href={PHONE_HREF}
