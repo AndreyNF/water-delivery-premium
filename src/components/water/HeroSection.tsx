@@ -92,14 +92,14 @@ export default function HeroSection() {
       <div className="border-t" style={{ borderColor: "#DCE9F5" }}>
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-4 grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
           {[
-            { v: "15+",  l: "лет в Новороссийске" },
-            { v: "500+", l: "довольных клиентов" },
-            { v: "24/7", l: "приём заявок" },
-            { v: "1–3 ч",l: "время доставки" },
+            { v: "15+",  l: "лет в городе" },
+            { v: "500+", l: "клиентов" },
+            { v: "24/7", l: "работаем" },
+            { v: "1–3 ч",l: "доставка" },
           ].map(({ v, l }) => (
             <div key={l}>
-              <div className="text-2xl md:text-3xl font-black" style={{ color: "#0077CC" }}>{v}</div>
-              <div className="text-xs md:text-sm mt-0.5" style={{ color: "#94A3B8" }}>{l}</div>
+              <div className="text-xl md:text-3xl font-black" style={{ color: "#0077CC" }}>{v}</div>
+              <div className="text-[10px] md:text-sm mt-0.5 leading-tight" style={{ color: "#94A3B8" }}>{l}</div>
             </div>
           ))}
         </div>

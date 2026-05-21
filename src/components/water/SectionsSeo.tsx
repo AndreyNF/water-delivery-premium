@@ -24,7 +24,8 @@ export function CompareVs19Section() {
           По запросу «доставка воды Новороссийск» чаще ищут бутилированную воду. АкваСервис —
           <strong> водовоз от 7,5 м³</strong> для стройки, дома, бассейна и промышленных объектов.
         </p>
-        <div className="overflow-x-auto rounded-2xl" style={{ border: "1px solid var(--border-c)" }}>
+        {/* Desktop table */}
+        <div className="hidden md:block overflow-x-auto rounded-2xl" style={{ border: "1px solid var(--border-c)" }}>
           <table className="w-full text-left" style={{ minWidth: 480, borderCollapse: "collapse" }}>
             <thead>
               <tr style={{ background: "#F9FAFB", borderBottom: "1px solid var(--border-c)" }}>
@@ -43,6 +44,24 @@ export function CompareVs19Section() {
               ))}
             </tbody>
           </table>
+        </div>
+        {/* Mobile cards */}
+        <div className="md:hidden space-y-3">
+          {COMPARE_ROWS.map(([label, bottle, tanker]) => (
+            <div key={label} style={{ background: "#F9FAFB", border: "1px solid var(--border-c)", borderRadius: 12, padding: "14px 16px" }}>
+              <p style={{ fontSize: 12, fontWeight: 600, color: "var(--ink-tertiary)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 10 }}>{label}</p>
+              <div className="flex flex-col gap-2">
+                <div className="flex items-start gap-2">
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "var(--ink-tertiary)", minWidth: 60, paddingTop: 1 }}>19 л</span>
+                  <span style={{ fontSize: 13, color: "var(--ink-secondary)" }}>{bottle}</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span style={{ fontSize: 11, fontWeight: 700, color: "#0071E3", minWidth: 60, paddingTop: 1 }}>Водовоз</span>
+                  <span style={{ fontSize: 13, fontWeight: 500, color: "var(--ink)" }}>{tanker}</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </Section>
@@ -95,7 +114,7 @@ export function TechnicalWaterSection() {
         </div>
       </div>
 
-      <a href={MAX_LINK} target="_blank" rel="noopener" className="btn-apple text-sm px-7 py-3">
+      <a href={MAX_LINK} target="_blank" rel="noopener" className="btn-apple text-sm px-5 py-3 w-full md:w-auto justify-center md:justify-start">
         <MaxIcon size={17} />
         Рассчитать объём в Max
       </a>

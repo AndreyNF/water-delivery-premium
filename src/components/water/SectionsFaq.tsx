@@ -73,7 +73,7 @@ export function ContactSection() {
         </div>
 
         <div
-          className="mb-10 grid gap-4 sm:grid-cols-2"
+          className="mb-10 grid gap-3 grid-cols-1 sm:grid-cols-2"
           style={{ maxWidth: 520 }}
         >
           <div
@@ -89,7 +89,7 @@ export function ContactSection() {
               href={PHONE_HREF}
               style={{
                 display: "block",
-                fontSize: "clamp(22px, 4vw, 28px)",
+                fontSize: "clamp(18px, 4vw, 28px)",
                 fontWeight: 600,
                 letterSpacing: "-0.03em",
                 color: "white",
@@ -149,7 +149,7 @@ export function ContactSection() {
               style={{
                 fontSize: 16,
                 fontWeight: 600,
-                padding: "16px 28px",
+                padding: "14px 20px",
                 borderRadius: 16,
                 border: "1.5px solid rgba(255,255,255,0.25)",
                 color: "white",
@@ -193,21 +193,21 @@ export function ContactSection() {
 
 export function FloatingWA() {
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col gap-2 md:gap-3" style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}>
       <a
         href={PHONE_HREF}
         title={`Позвонить ${PHONE}`}
         aria-label={`Позвонить ${PHONE}`}
         className="flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
         style={{
-          width: 52,
-          height: 52,
+          width: 48,
+          height: 48,
           borderRadius: "50%",
           background: "var(--ink)",
           boxShadow: "0 4px 20px rgba(10,15,30,0.35)",
         }}
       >
-        <Icon name="Phone" size={22} />
+        <Icon name="Phone" size={20} />
       </a>
       <a
         href={MAX_LINK}
@@ -217,14 +217,14 @@ export function FloatingWA() {
         aria-label="Написать в Max"
         className="flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
         style={{
-          width: 52,
-          height: 52,
+          width: 48,
+          height: 48,
           borderRadius: "50%",
           background: "var(--max)",
           boxShadow: "0 4px 20px rgba(109, 76, 255, 0.45)",
         }}
       >
-        <MaxIcon size={24} />
+        <MaxIcon size={22} />
       </a>
     </div>
   );
