@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
+import MaxIcon from "@/components/ui/MaxIcon";
 import { MAX_LINK, PHONE, PHONE_HREF } from "./shared";
 
 const NAV = [
@@ -56,11 +57,28 @@ export default function AppleHeader() {
               {PHONE}
             </a>
             <a href={MAX_LINK} target="_blank" rel="noopener" className="btn-apple text-sm px-5 py-2.5">
+              <MaxIcon size={16} />
               Написать в Max
             </a>
           </div>
 
           <div className="md:hidden flex items-center gap-2">
+            <a
+              href={MAX_LINK}
+              target="_blank"
+              rel="noopener"
+              aria-label="Написать в Max"
+              className="flex items-center justify-center"
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 10,
+                background: "#F3F0FF",
+                textDecoration: "none",
+              }}
+            >
+              <MaxIcon size={20} />
+            </a>
             <a
               href={PHONE_HREF}
               aria-label={`Позвонить ${PHONE}`}
@@ -106,6 +124,7 @@ export default function AppleHeader() {
             ))}
             <div className="flex flex-col gap-3 pt-5">
               <a href={MAX_LINK} target="_blank" rel="noopener" className="btn-apple w-full justify-center">
+                <MaxIcon size={17} />
                 Написать в Max
               </a>
               <a href={PHONE_HREF} className="btn-apple-outline w-full justify-center">
