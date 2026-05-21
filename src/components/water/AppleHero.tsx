@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
+import { WA_LINK, PHONE, PHONE_HREF } from "./shared";
 
 const TRUCK_IMG = "https://cdn.poehali.dev/projects/66c3eddf-e576-4e82-b662-ae8fabc5f460/files/6843bb42-875c-49a6-8f92-7bacfbd926f1.jpg";
-const PHONE_HREF = "tel:+79880000000";
-const PHONE = "+7 (988) 000-00-00";
-const WA_LINK = "https://wa.me/79880000000?text=Здравствуйте!%20Хочу%20заказать%20доставку%20воды%20водовозом%20в%20Новороссийске";
 
 const BADGES = [
   { icon: "Truck",     text: "Объёмы от 7,5 м³" },
@@ -75,16 +73,18 @@ export default function AppleHero() {
                 marginBottom: 20,
               }}
             >
-              Доставка воды<br />
-              водовозом —<br />
-              <span style={{ color: "#0071E3" }}>от 7,5 м³</span>{" "}
-              <span style={{ color: "var(--ink-secondary)", fontWeight: 400 }}>на объект</span>
+              Доставка воды водовозом<br />
+              в Новороссийске —<br />
+              <span style={{ color: "#0071E3" }}>от 7,5 м³</span>
             </h1>
 
             {/* Sub */}
-            <p style={{ fontSize: 17, lineHeight: 1.65, color: "var(--ink-secondary)", maxWidth: 420, marginBottom: 32 }}>
+            <p style={{ fontSize: 17, lineHeight: 1.65, color: "var(--ink-secondary)", maxWidth: 420, marginBottom: 12 }}>
               Технические и питьевые объёмы для строек, частных домов, бассейнов
-              и промышленных объектов. Быстрый выезд по Новороссийску и краснодарскому краю.
+              и промышленных объектов. Выезд 1–3 часа по городу и пригородам.
+            </p>
+            <p style={{ fontSize: 14, lineHeight: 1.6, color: "var(--ink-tertiary)", maxWidth: 420, marginBottom: 32 }}>
+              Минимальный объём — 7,5 м³ (7 500 л). Это водовоз, не доставка бутылей 19 л.
             </p>
 
             {/* CTA */}
@@ -268,15 +268,17 @@ export default function AppleHero() {
               marginBottom: 14,
             }}
           >
-            Доставка воды<br />
-            водовозом —<br />
-            <span style={{ color: "#0071E3" }}>от 7,5 м³</span>{" "}
-            <span style={{ color: "var(--ink-secondary)", fontWeight: 400 }}>на объект</span>
+            Доставка воды водовозом<br />
+            в Новороссийске —<br />
+            <span style={{ color: "#0071E3" }}>от 7,5 м³</span>
           </h1>
 
           {/* Sub */}
-          <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--ink-secondary)", marginBottom: 24 }}>
+          <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--ink-secondary)", marginBottom: 10 }}>
             Технические и питьевые объёмы для строек, частных домов, бассейнов и промышленных объектов.
+          </p>
+          <p style={{ fontSize: 13, lineHeight: 1.6, color: "var(--ink-tertiary)", marginBottom: 24 }}>
+            Минимум 7,5 м³. Не доставляем бутыли 19 л — только водовоз.
           </p>
 
           {/* CTAs */}

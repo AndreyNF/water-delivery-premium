@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 
-export const WA_LINK = "https://wa.me/79880000000?text=Здравствуйте!%20Хочу%20заказать%20воду%20в%20Новороссийске";
-export const PHONE_HREF = "tel:+79880000000";
-export const PHONE = "+7 (988) 000-00-00";
+export const WA_LINK = "https://wa.me/79883174484?text=Здравствуйте!%20Хочу%20заказать%20воду%20водовозом%20в%20Новороссийске";
+export const PHONE_HREF = "tel:+79883174484";
+export const PHONE = "+7 (988) 317-44-84";
 
 export function useFade(delay = 0) {
   const ref = useRef<HTMLDivElement>(null);

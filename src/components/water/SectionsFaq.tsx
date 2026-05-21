@@ -1,46 +1,39 @@
-import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { useFade, Section, WA_LINK, PHONE_HREF, PHONE } from "./shared";
 
-// ── FAQ ───────────────────────────────────────────────────────────────────────
-type FaqItem = { q: string; a: string };
+export type FaqItem = { q: string; a: string };
 
-const FAQS: FaqItem[] = [
+export const FAQS: FaqItem[] = [
   { q: "Как быстро приедет водовоз?", a: "В большинстве районов Новороссийска — 1–2 часа с момента подтверждения заявки. Мысхако, Цемдолина и отдалённые посёлки — до 3 часов. Принимаем заявки круглосуточно." },
   { q: "Какой минимальный объём заказа?", a: "Минимальный рейс — 7,5 м³ (7 500 литров). Слив воды и подъезд к объекту включены в стоимость." },
   { q: "Сколько стоит доставка водовоза?", a: "Цена зависит от объёма и адреса. Уточните стоимость в WhatsApp — ответим за несколько минут и рассчитаем точную цену." },
-  { q: "Как заполнить бассейн водовозом?", a: "Укажите объём бассейна — рассчитаем количество рейсов. Средний бассейн 30–50 м³ заполняем за 3–5 рейсов. Можем организовать несколько машин одновременно." },
+  { q: "Чем водовоз отличается от доставки 19 литров?", a: "Бутыли 19 л — это питьевая вода небольшими партиями для дома или офиса. Водовоз АкваСервис — машина с ёмкостью от 7,5 м³: одним рейсом заполняем ёмкость на стройке, даче, в бассейне или промобъекте. Мы не доставляем бутыли 19 л." },
+  { q: "Как заказать техническую воду водовозом?", a: "Напишите в WhatsApp или позвоните: укажите адрес, нужный объём (от 7,5 м³) и задачу — стройка, промобъект, резервуар. Рассчитаем стоимость и время выезда за несколько минут." },
+  { q: "Как заполнить бассейн водовозом?", a: "Укажите объём бассейна — рассчитаем количество рейсов. Средний бассейн 30–50 м³ заполняем за 3–5 рейсов по 10 м³. Можем организовать несколько машин одновременно." },
   { q: "Какие документы предоставляете?", a: "Товарная накладная, счёт-фактура (для юрлиц и ИП), сертификаты качества воды — по запросу." },
   { q: "Как оплатить?", a: "Наличными, картой или банковским переводом. Для организаций — по счёту. Оплата после доставки." },
 ];
 
-function FaqRow({ item, isOpen, onToggle, delay }: { item: FaqItem; isOpen: boolean; onToggle: () => void; delay: number }) {
+function FaqRow({ item, delay }: { item: FaqItem; delay: number }) {
   const f = useFade(delay);
   return (
-    <div ref={f.ref} style={f.style} className="faq-item">
-      <button className="faq-btn" onClick={onToggle}>
+    <details ref={f.ref} style={f.style} className="faq-item faq-details">
+      <summary className="faq-btn faq-summary">
         <span style={{ fontSize: 16, fontWeight: 500, color: "var(--ink)", letterSpacing: "-0.02em", paddingRight: 16 }}>
           {item.q}
         </span>
-        <div style={{
-          width: 28, height: 28, borderRadius: "50%", background: "var(--surface-3)", flexShrink: 0,
-          display: "flex", alignItems: "center", justifyContent: "center",
-          transition: "transform 0.2s ease", transform: isOpen ? "rotate(45deg)" : "none",
-        }}>
+        <div className="faq-toggle-icon">
           <Icon name="Plus" size={14} style={{ color: "var(--ink)" }} />
         </div>
-      </button>
-      {isOpen && (
-        <div className="faq-answer">
-          <p className="t-body" style={{ fontSize: 15 }}>{item.a}</p>
-        </div>
-      )}
-    </div>
+      </summary>
+      <div className="faq-answer">
+        <p className="t-body" style={{ fontSize: 15 }}>{item.a}</p>
+      </div>
+    </details>
   );
 }
 
 export function FaqSection() {
-  const [open, setOpen] = useState<number | null>(null);
   const header = useFade(0);
 
   return (
@@ -51,20 +44,13 @@ export function FaqSection() {
       </div>
       <div style={{ maxWidth: 680 }}>
         {FAQS.map((item, i) => (
-          <FaqRow
-            key={i}
-            item={item}
-            isOpen={open === i}
-            onToggle={() => setOpen(open === i ? null : i)}
-            delay={i * 50}
-          />
+          <FaqRow key={item.q} item={item} delay={i * 50} />
         ))}
       </div>
     </Section>
   );
 }
 
-// ── Contact ───────────────────────────────────────────────────────────────────
 export function ContactSection() {
   const f1 = useFade(0);
   const f2 = useFade(100);
@@ -130,7 +116,7 @@ export function ContactSection() {
             <span style={{ fontSize: 13, fontWeight: 500, color: "rgba(255,255,255,0.55)" }}>АкваСервис Новороссийск</span>
           </div>
           <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
-            © 2024 · Доставка воды в Новороссийске · Работаем 24/7
+            © 2026 · Доставка воды водовозом в Новороссийске · Работаем 24/7
           </p>
         </div>
       </div>
@@ -138,7 +124,6 @@ export function ContactSection() {
   );
 }
 
-// ── Floating WhatsApp ─────────────────────────────────────────────────────────
 export function FloatingWA() {
   return (
     <a href={WA_LINK} target="_blank" rel="noopener" title="Написать в WhatsApp"
