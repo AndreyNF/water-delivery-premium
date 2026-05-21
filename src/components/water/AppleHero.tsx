@@ -219,7 +219,7 @@ export default function AppleHero() {
       <div className="md:hidden">
 
         {/* Photo */}
-        <div className="relative overflow-hidden" style={{ height: "55vw", minHeight: 220, maxHeight: 340 }}>
+        <div className="relative overflow-hidden" style={{ height: "55vw", minHeight: 160, maxHeight: 340 }}>
           <img
             src={TRUCK_IMG}
             alt="Водовоз доставляет воду на стройку в Новороссийске"
@@ -248,7 +248,7 @@ export default function AppleHero() {
         </div>
 
         {/* Content */}
-        <div style={{ padding: "24px 20px 40px", background: "#FAFBFC" }}>
+        <div style={{ padding: "20px 16px 32px", background: "#FAFBFC" }}>
 
           {/* Eyebrow */}
           <div className="flex items-center gap-1.5 mb-4">
@@ -287,7 +287,7 @@ export default function AppleHero() {
             <a
               href={MAX_LINK} target="_blank" rel="noopener"
               className="btn-apple w-full justify-center"
-              style={{ fontSize: 16, padding: "16px 24px", borderRadius: 16 }}
+              style={{ fontSize: 15, padding: "14px 20px", borderRadius: 16 }}
             >
               <MaxIcon size={19} />
               Заказать в Max

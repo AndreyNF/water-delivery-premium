@@ -139,7 +139,7 @@ export function ContactSection() {
             <a
               href={MAX_LINK} target="_blank" rel="noopener"
               className="btn-max sm:w-auto w-full justify-center"
-              style={{ fontSize: 16, padding: "17px 32px", borderRadius: 16 }}
+              style={{ fontSize: 15, padding: "14px 20px", borderRadius: 16 }}
             >
               <MaxIcon size={19} /> Написать в Max
             </a>

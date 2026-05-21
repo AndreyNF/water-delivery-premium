@@ -42,7 +42,7 @@ function VolumeRow({ v, delay }: { v: VolumeItem; delay: number }) {
           <div className="t-small mt-1">{v.detail}</div>
         </div>
       </div>
-      <div className="text-right ml-6 flex-shrink-0">
+      <div className="text-right ml-3 flex-shrink-0">
         <div style={{ fontSize: 15, fontWeight: 600, color: "var(--ink)", letterSpacing: "-0.02em" }}>{v.price}</div>
         <div className="t-small" style={{ fontSize: 12 }}>{v.use}</div>
       </div>
@@ -183,7 +183,7 @@ export function ServicesSection() {
       <SectionHeader label="Услуги" title="Куда доставляем водовоз" />
       <div
         className="grid gap-4"
-        style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 280px), 1fr))" }}
+        style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 240px), 1fr))" }}
       >
         {SERVICES.map((s, i) => (
           <ServiceCard key={s.title} s={s} delay={i * 60} />
@@ -226,7 +226,7 @@ function StepCard({ s, i, delay }: { s: typeof STEPS[0]; i: number; delay: numbe
         background: accent ? "#0071E3" : "#F9FAFB",
         border: accent ? "none" : "1px solid #EAECF0",
         borderRadius: 20,
-        padding: "28px 24px",
+        padding: "20px 16px",
         position: "relative",
         overflow: "hidden",
       }}

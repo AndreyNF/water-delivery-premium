@@ -25,7 +25,7 @@ export function CompareVs19Section() {
           <strong> водовоз от 7,5 м³</strong> для стройки, дома, бассейна и промышленных объектов.
         </p>
         <div className="overflow-x-auto rounded-2xl" style={{ border: "1px solid var(--border-c)" }}>
-          <table className="w-full text-left" style={{ minWidth: 520, borderCollapse: "collapse" }}>
+          <table className="w-full text-left" style={{ minWidth: 480, borderCollapse: "collapse" }}>
             <thead>
               <tr style={{ background: "#F9FAFB", borderBottom: "1px solid var(--border-c)" }}>
                 <th style={{ padding: "14px 16px", fontSize: 12, fontWeight: 600, color: "var(--ink-tertiary)", textTransform: "uppercase", letterSpacing: "0.05em" }} />

@@ -48,7 +48,7 @@ export function WhySection() {
       <SectionHeader label="Преимущества" title="Почему выбирают нас" />
       <div
         className="grid gap-3"
-        style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 260px), 1fr))" }}
+        style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 220px), 1fr))" }}
       >
         {WHY_ITEMS.map((w, i) => <WhyCard key={w.title} w={w} delay={i * 60} />)}
       </div>
@@ -67,7 +67,7 @@ export function PricingSection() {
       <SectionHeader label="Цены" title="Прозрачная стоимость" />
 
       <div ref={f1.ref} style={f1.style} className="mb-10">
-        <div style={{ fontSize: "clamp(42px,7vw,80px)", fontWeight: 600, letterSpacing: "-0.05em", color: "var(--ink)", lineHeight: 1 }}>
+        <div style={{ fontSize: "clamp(32px,7vw,80px)", fontWeight: 600, letterSpacing: "-0.05em", color: "var(--ink)", lineHeight: 1 }}>
           от 7,5 м³
         </div>
         <p className="t-body mt-3" style={{ maxWidth: 380 }}>

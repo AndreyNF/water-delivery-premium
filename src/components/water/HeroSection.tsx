@@ -29,13 +29,13 @@ export default function HeroSection() {
           {/* Main CTAs */}
           <div className="flex flex-col sm:flex-row gap-3 pt-1">
             <a href={WA_LINK} target="_blank" rel="noopener"
-              className="flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-base font-bold text-white transition-all hover:opacity-90 hover:-translate-y-0.5 active:scale-[.98]"
+              className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl text-sm font-bold text-white transition-all hover:opacity-90 hover:-translate-y-0.5 active:scale-[.98]"
               style={{ background: "#0077FF", boxShadow: "0 6px 20px rgba(0,119,255,0.38)" }}>
               <Icon name="MessageCircle" size={20} />
               Заказать в Max
             </a>
             <a href={PHONE_HREF}
-              className="flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-base font-bold transition-all hover:bg-blue-50 hover:-translate-y-0.5"
+              className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-blue-50 hover:-translate-y-0.5"
               style={{ color: "#0077CC", border: "2px solid #0077CC", background: "white" }}>
               <Icon name="Phone" size={20} />
               {PHONE}
