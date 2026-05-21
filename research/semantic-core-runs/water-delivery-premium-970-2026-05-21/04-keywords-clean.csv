@@ -1,0 +1,21 @@
+﻿query,canonical_query,source_sources,frequency_region,frequency_value,intent_initial,intent_confidence,cluster_candidate,include_status,exclude_reason,notes
+водовоз новороссийск,водовоз новороссийск,"ws01,ws03",970,13,T,high,CL01,include,,core local transactional
+водовоз доставка воды,водовоз доставка воды,"ws03,ws04,ws13",970,6,T,high,CL02,include,,
+вода водовоз,вода водовоз,"ws03,ws13",970,6,T,medium,CL02,include,,
+доставка технической воды,доставка технической воды,"ws07,ws09",970,7,T,high,CL03,include,,
+техническая вода,техническая вода,ws07,970,59,Mixed,medium,CL03,include,,head term; filter info tail manually
+вода на стройку,вода на стройку,ws05,970,1,T,medium,CL04,include,,low volume local
+наполнение бассейна водой,наполнение бассейна водой,ws06,970,3,T,medium,CL05,include,,
+резервуары пожарного запаса воды,резервуары пожарного запаса воды,ws08,970,3,Mixed,medium,CL06,include,,B2B niche
+пожарный резервуар для воды,пожарный резервуар для воды,ws08,970,2,Mixed,medium,CL06,include,,
+заказ воды куб,заказ воды куб,ws10,970,2,T,medium,CL07,include,,tanker intent signal
+заказ куба воды,заказ куба воды,ws10,970,2,T,medium,CL07,include,,
+доставка воды новороссийск,доставка воды новороссийск,ws02,970,568,Mixed,high,CL08,include,,SERP bottle-heavy; reposition as водовоз
+доставка воды новороссийск цены,доставка воды новороссийск цены,ws02,970,25,Mixed,medium,CL08,include,,
+доставка питьевой воды новороссийск,доставка питьевой воды новороссийск,ws02,970,11,Mixed,medium,CL09,include,,separate from 19l bottles
+новороссийск доставка воды на дом,доставка воды на дом новороссийск,ws02,970,54,Mixed,medium,CL10,hold,,needs SERP check
+веселый водовоз новороссийск,веселый водовоз новороссийск,"ws01,ws03",970,9,N,low,CL01,exclude,competitor brand,
+доставка воды новороссийск 19,доставка воды новороссийск 19,ws02,970,156,T,high,CL_BOTTLE,exclude,bottle 19l off-niche,
+вода 19 литров новороссийск,вода 19 литров новороссийск,ws11,970,223,T,high,CL_BOTTLE,exclude,bottle 19l off-niche,
+водоснабжение частного дома,водоснабжение частного дома,ws12,970,34,I,medium,CL_INFO,exclude,info/equipment not tanker delivery,
+противопожарное водоснабжение,противопожарное водоснабжение,ws14,970,18,I,low,CL_INFO,exclude,regulatory/education queries,

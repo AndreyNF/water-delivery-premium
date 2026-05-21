@@ -1,46 +1,39 @@
-import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { useFade, Section, WA_LINK, PHONE_HREF, PHONE } from "./shared";
 
-// ── FAQ ───────────────────────────────────────────────────────────────────────
-type FaqItem = { q: string; a: string };
+export type FaqItem = { q: string; a: string };
 
-const FAQS: FaqItem[] = [
+export const FAQS: FaqItem[] = [
   { q: "Как быстро приедет водовоз?", a: "В большинстве районов Новороссийска — 1–2 часа с момента подтверждения заявки. Мысхако, Цемдолина и отдалённые посёлки — до 3 часов. Принимаем заявки круглосуточно." },
   { q: "Какой минимальный объём заказа?", a: "Минимальный рейс — 7,5 м³ (7 500 литров). Слив воды и подъезд к объекту включены в стоимость." },
   { q: "Сколько стоит доставка водовоза?", a: "Цена зависит от объёма и адреса. Уточните стоимость в WhatsApp — ответим за несколько минут и рассчитаем точную цену." },
-  { q: "Как заполнить бассейн водовозом?", a: "Укажите объём бассейна — рассчитаем количество рейсов. Средний бассейн 30–50 м³ заполняем за 3–5 рейсов. Можем организовать несколько машин одновременно." },
+  { q: "Чем водовоз отличается от доставки 19 литров?", a: "Бутыли 19 л — это питьевая вода небольшими партиями для дома или офиса. Водовоз АкваСервис — машина с ёмкостью от 7,5 м³: одним рейсом заполняем ёмкость на стройке, даче, в бассейне или промобъекте. Мы не доставляем бутыли 19 л." },
+  { q: "Как заказать техническую воду водовозом?", a: "Напишите в WhatsApp или позвоните: укажите адрес, нужный объём (от 7,5 м³) и задачу — стройка, промобъект, резервуар. Рассчитаем стоимость и время выезда за несколько минут." },
+  { q: "Как заполнить бассейн водовозом?", a: "Укажите объём бассейна — рассчитаем количество рейсов. Средний бассейн 30–50 м³ заполняем за 3–5 рейсов по 10 м³. Можем организовать несколько машин одновременно." },
   { q: "Какие документы предоставляете?", a: "Товарная накладная, счёт-фактура (для юрлиц и ИП), сертификаты качества воды — по запросу." },
   { q: "Как оплатить?", a: "Наличными, картой или банковским переводом. Для организаций — по счёту. Оплата после доставки." },
 ];
 
-function FaqRow({ item, isOpen, onToggle, delay }: { item: FaqItem; isOpen: boolean; onToggle: () => void; delay: number }) {
+function FaqRow({ item, delay }: { item: FaqItem; delay: number }) {
   const f = useFade(delay);
   return (
-    <div ref={f.ref} style={f.style} className="faq-item">
-      <button className="faq-btn" onClick={onToggle}>
+    <details ref={f.ref} style={f.style} className="faq-item faq-details">
+      <summary className="faq-btn faq-summary">
         <span style={{ fontSize: 16, fontWeight: 500, color: "var(--ink)", letterSpacing: "-0.02em", paddingRight: 16 }}>
           {item.q}
         </span>
-        <div style={{
-          width: 28, height: 28, borderRadius: "50%", background: "var(--surface-3)", flexShrink: 0,
-          display: "flex", alignItems: "center", justifyContent: "center",
-          transition: "transform 0.2s ease", transform: isOpen ? "rotate(45deg)" : "none",
-        }}>
+        <div className="faq-toggle-icon">
           <Icon name="Plus" size={14} style={{ color: "var(--ink)" }} />
         </div>
-      </button>
-      {isOpen && (
-        <div className="faq-answer">
-          <p className="t-body" style={{ fontSize: 15 }}>{item.a}</p>
-        </div>
-      )}
-    </div>
+      </summary>
+      <div className="faq-answer">
+        <p className="t-body" style={{ fontSize: 15 }}>{item.a}</p>
+      </div>
+    </details>
   );
 }
 
 export function FaqSection() {
-  const [open, setOpen] = useState<number | null>(null);
   const header = useFade(0);
 
   return (
@@ -51,20 +44,13 @@ export function FaqSection() {
       </div>
       <div style={{ maxWidth: 680 }}>
         {FAQS.map((item, i) => (
-          <FaqRow
-            key={i}
-            item={item}
-            isOpen={open === i}
-            onToggle={() => setOpen(open === i ? null : i)}
-            delay={i * 50}
-          />
+          <FaqRow key={item.q} item={item} delay={i * 50} />
         ))}
       </div>
     </Section>
   );
 }
 
-// ── Contact ───────────────────────────────────────────────────────────────────
 export function ContactSection() {
   const f1 = useFade(0);
   const f2 = useFade(100);
@@ -83,6 +69,68 @@ export function ContactSection() {
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.55)", marginTop: 16, maxWidth: 420, lineHeight: 1.65 }}>
             От 7,5 м³ воды на ваш объект. Выезжаем в течение 1–3 часов, работаем без выходных.
           </p>
+        </div>
+
+        <div
+          className="mb-10 grid gap-4 sm:grid-cols-2"
+          style={{ maxWidth: 520 }}
+        >
+          <div
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              borderRadius: 16,
+              padding: "20px 22px",
+            }}
+          >
+            <p className="t-label mb-2" style={{ color: "rgba(255,255,255,0.45)" }}>Телефон</p>
+            <a
+              href={PHONE_HREF}
+              style={{
+                display: "block",
+                fontSize: "clamp(22px, 4vw, 28px)",
+                fontWeight: 600,
+                letterSpacing: "-0.03em",
+                color: "white",
+                textDecoration: "none",
+                lineHeight: 1.2,
+              }}
+            >
+              {PHONE}
+            </a>
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginTop: 8 }}>
+              Звоните — принимаем заявки 24/7
+            </p>
+          </div>
+          <div
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              borderRadius: 16,
+              padding: "20px 22px",
+            }}
+          >
+            <p className="t-label mb-2" style={{ color: "rgba(255,255,255,0.45)" }}>WhatsApp</p>
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener"
+              style={{
+                display: "block",
+                fontSize: 17,
+                fontWeight: 600,
+                letterSpacing: "-0.02em",
+                color: "#4ADE80",
+                textDecoration: "none",
+                lineHeight: 1.3,
+              }}
+            >
+              Написать в мессенджер
+            </a>
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginTop: 8 }}>
+              Ответим за несколько минут
+            </p>
+          </div>
         </div>
 
         <div ref={f2.ref} style={f2.style} className="mb-14">
@@ -130,7 +178,11 @@ export function ContactSection() {
             <span style={{ fontSize: 13, fontWeight: 500, color: "rgba(255,255,255,0.55)" }}>АкваСервис Новороссийск</span>
           </div>
           <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
-            © 2024 · Доставка воды в Новороссийске · Работаем 24/7
+            © 2026 ·{" "}
+            <a href={PHONE_HREF} style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+              {PHONE}
+            </a>
+            {" · "}Доставка воды водовозом · 24/7
           </p>
         </div>
       </div>
@@ -138,13 +190,40 @@ export function ContactSection() {
   );
 }
 
-// ── Floating WhatsApp ─────────────────────────────────────────────────────────
 export function FloatingWA() {
   return (
-    <a href={WA_LINK} target="_blank" rel="noopener" title="Написать в WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
-      style={{ width: 52, height: 52, borderRadius: "50%", background: "#1DB954", boxShadow: "0 4px 20px rgba(29,185,84,0.45)" }}>
-      <Icon name="MessageCircle" size={24} />
-    </a>
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+      <a
+        href={PHONE_HREF}
+        title={`Позвонить ${PHONE}`}
+        aria-label={`Позвонить ${PHONE}`}
+        className="flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
+        style={{
+          width: 52,
+          height: 52,
+          borderRadius: "50%",
+          background: "var(--ink)",
+          boxShadow: "0 4px 20px rgba(10,15,30,0.35)",
+        }}
+      >
+        <Icon name="Phone" size={22} />
+      </a>
+      <a
+        href={WA_LINK}
+        target="_blank"
+        rel="noopener"
+        title="Написать в WhatsApp"
+        className="flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
+        style={{
+          width: 52,
+          height: 52,
+          borderRadius: "50%",
+          background: "#1DB954",
+          boxShadow: "0 4px 20px rgba(29,185,84,0.45)",
+        }}
+      >
+        <Icon name="MessageCircle" size={24} />
+      </a>
+    </div>
   );
 }

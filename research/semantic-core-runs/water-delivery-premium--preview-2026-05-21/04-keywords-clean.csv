@@ -1,0 +1,29 @@
+query,canonical_query,source_sources,frequency_region,frequency_value,intent_initial,intent_confidence,cluster_candidate,include_status,exclude_reason,notes
+водовоз новороссийск,водовоз новороссийск,"ws01,ws17",970,13,T,high,CL01,include,,proxy 10995: 22/mo
+водовоз,водовоз,ws03,970,42,T,high,CL01,include,,local head term
+водовоз доставка воды,водовоз доставка воды,"ws03,ws04",970,6,T,high,CL02,include,,
+вода водовоз,вода водовоз,ws03,970,6,T,medium,CL02,include,,
+доставка воды водовозом,доставка воды водовозом,"ws04,ws12",970,6,T,high,CL02,include,,970 head 6; proxy 10995 head 124
+доставка технической воды,доставка технической воды,"ws05,ws06,ws14",970,7,T,high,CL03,include,,970 head 7; proxy 10995 head 55; combined head 55
+техническая вода,техническая вода,"ws05,ws13",970,59,Mixed,medium,CL03,include,,970 head 59; proxy 10995 head 1371
+вода на стройку,вода на стройку,"ws07,ws15",970,1,T,medium,CL04,include,,970 head 1; proxy 10995 head 11
+наполнение бассейна водой,наполнение бассейна водой,"ws08,ws16",970,3,T,medium,CL05,include,,970 head 3; proxy 10995 head 39
+резервуары пожарного запаса воды,резервуары пожарного запаса воды,ws11,970,3,Mixed,medium,CL06,include,,B2B niche; cluster total 5/mo
+пожарный резервуар для воды,пожарный резервуар для воды,ws11,970,2,Mixed,medium,CL06,include,,
+заказ воды куб,заказ воды куб,ws09,970,2,T,medium,CL07,include,,tanker intent signal
+заказ куба воды,заказ куба воды,ws09,970,2,T,medium,CL07,include,,
+доставка воды новороссийск,доставка воды новороссийск,"ws02,ws17",970,568,Mixed,high,CL08,include,,970 head 568; proxy 701; reposition as водовоз
+доставка воды новороссийск цены,доставка воды новороссийск цены,ws02,970,25,Mixed,medium,CL08,include,,
+доставка питьевой воды новороссийск,доставка питьевой воды новороссийск,ws02,970,11,Mixed,medium,CL09,include,,separate from 19l bottles
+новороссийск доставка воды на дом,доставка воды на дом новороссийск,ws02,970,54,Mixed,medium,CL10,include,,mixed bottle/tanker; SERP check recommended
+водовозов новороссийск,водовоз новороссийск,ws01,970,13,T,high,CL01,include,,morph variant
+водовозов,водовоз,ws03,970,42,T,high,CL01,include,,morph variant
+водовозов доставка воды,водовоз доставка воды,ws04,970,6,T,high,CL02,include,,morph variant
+наполнение бассейна,наполнение бассейна водой,ws08,970,3,T,medium,CL05,include,,shorter head form
+заказ воды,заказ воды,ws09,970,132,Mixed,medium,CL07,include,,mixed bottle; filter in copy via vs-19l block
+заказ воды новороссийск,заказ воды новороссийск,ws09,970,98,Mixed,medium,CL08,hold,,mixed bottle intent
+веселый водовоз новороссийск,веселый водовоз новороссийск,"ws01,ws03",970,9,N,low,CL01,exclude,competitor brand,
+доставка воды новороссийск 19,доставка воды новороссийск 19,ws02,970,156,T,high,CL_BOTTLE,exclude,bottle 19l off-niche,
+вода 19 литров новороссийск,вода 19 литров новороссийск,ws10,970,223,T,high,CL_BOTTLE,exclude,bottle 19l off-niche,
+заказать воду новороссийск 19 литров,заказать воду новороссийск 19 литров,ws10,970,31,T,high,CL_BOTTLE,exclude,bottle 19l off-niche,
+водовоз игрушка,водовоз игрушка,ws03,970,2,N,high,,exclude,toy off-topic,

@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
-
-const PHONE = "+7 (988) 000-00-00";
-const PHONE_HREF = "tel:+79880000000";
-const WA_LINK = "https://wa.me/79880000000?text=Здравствуйте!%20Хочу%20заказать%20воду%20в%20Новороссийске";
+import { WA_LINK, PHONE, PHONE_HREF } from "./shared";
 
 const NAV = [
   ["Объёмы", "#volumes"],
@@ -35,7 +32,6 @@ export default function AppleHeader() {
         }}
       >
         <div className="section-wrap-wide h-[52px] flex items-center justify-between">
-          {/* Logo */}
           <a href="#top" className="flex items-center gap-2 no-underline" style={{ textDecoration: "none" }}>
             <div
               className="w-7 h-7 rounded-lg flex items-center justify-center"
@@ -48,14 +44,12 @@ export default function AppleHeader() {
             </span>
           </a>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-7">
             {NAV.map(([l, h]) => (
               <a key={l} href={h} className="nav-link">{l}</a>
             ))}
           </nav>
 
-          {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a href={PHONE_HREF} className="nav-link flex items-center gap-1.5">
               <Icon name="Phone" size={13} />
@@ -66,17 +60,33 @@ export default function AppleHeader() {
             </a>
           </div>
 
-          {/* Burger */}
-          <button
-            className="md:hidden flex items-center justify-center w-8 h-8"
-            onClick={() => setMob(!mob)}
-            style={{ color: "var(--ink)" }}
-          >
-            <Icon name={mob ? "X" : "Menu"} size={20} />
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <a
+              href={PHONE_HREF}
+              aria-label={`Позвонить ${PHONE}`}
+              className="flex items-center justify-center"
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 10,
+                background: "#EFF6FF",
+                color: "#0071E3",
+                textDecoration: "none",
+              }}
+            >
+              <Icon name="Phone" size={18} />
+            </a>
+            <button
+              className="flex items-center justify-center w-8 h-8"
+              onClick={() => setMob(!mob)}
+              style={{ color: "var(--ink)" }}
+              aria-label="Меню"
+            >
+              <Icon name={mob ? "X" : "Menu"} size={20} />
+            </button>
+          </div>
         </div>
 
-        {/* Mobile drawer */}
         {mob && (
           <div
             className="md:hidden px-6 pt-2 pb-6 space-y-0"

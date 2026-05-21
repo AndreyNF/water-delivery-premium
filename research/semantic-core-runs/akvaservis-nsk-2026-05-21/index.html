@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Полный отчёт Core: akvaservis nsk 2026 05 21</title>
+  <style>
+    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:#111; background:#fff; line-height:1.5; }
+    header { padding:44px 52px 30px; border-bottom:1px solid #ddd; background:linear-gradient(180deg,#fff,#f7f7f7); }
+    main { max-width:1180px; margin:0 auto; padding:34px 28px 70px; }
+    h1 { font-size:42px; line-height:1.08; margin:0 0 14px; letter-spacing:-.03em; }
+    h2 { font-size:28px; margin:42px 0 14px; padding-top:8px; border-top:2px solid #111; }
+    h3 { font-size:20px; margin:28px 0 10px; }
+    p { margin:0 0 12px; }
+    .lead { font-size:18px; max-width:900px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:22px 0; }
+    .card { border:1px solid #ddd; border-radius:14px; padding:16px; background:#fafafa; }
+    .card b { display:block; font-size:13px; text-transform:uppercase; letter-spacing:.05em; color:#555; margin-bottom:8px; }
+    .card span { font-size:28px; font-weight:700; }
+    .two { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    table { width:100%; border-collapse:collapse; margin:12px 0 24px; font-size:14px; }
+    th,td { border:1px solid #ddd; padding:8px 9px; vertical-align:top; text-align:left; }
+    th { background:#efefef; position:sticky; top:0; z-index:1; }
+    code { background:#f0f0f0; padding:1px 5px; border-radius:4px; }
+    .note { border-left:4px solid #111; padding:12px 14px; background:#fafafa; margin:16px 0; }
+    .pill { display:inline-block; border:1px solid #111; border-radius:999px; padding:2px 9px; margin:2px; font-size:12px; }
+    li { margin:0 0 7px; }
+    footer { padding:24px 52px; border-top:1px solid #ddd; color:#555; }
+    @media (max-width:800px) { header { padding:28px 22px; } .two { grid-template-columns:1fr; } h1 { font-size:32px; } }
+  </style>
+</head>
+<body>
+<header>
+  <p>Semantic Core / SEO + GEO / Wordstat / Cursor sub-agent</p>
+  <h1>Полный отчёт по семантическому ядру: akvaservis nsk 2026 05 21</h1>
+  <p class="lead">Это общий файл “всё в одном”: выводы, методика, таблицы, карта страниц, контент-план, риски, ограничения и рекомендации.</p>
+</header>
+<main>
+  <section>
+    <h2>1. Краткий вывод</h2>
+    <div class="grid">
+      <div class="card"><b>Строк Wordstat</b><span>131</span></div>
+      <div class="card"><b>Очищенных запросов</b><span>91</span></div>
+      <div class="card"><b>Включено</b><span>46</span></div>
+      <div class="card"><b>Исключено</b><span>45</span></div>
+      <div class="card"><b>Кластеров</b><span>10</span></div>
+      <div class="card"><b>P0/P1</b><span>9</span></div>
+    </div>
+    <p>Пакет показывает, какие темы уже можно переводить в страницы, какие требуют проверки SERP, где есть риск каннибализации и что делать в ближайшие 7/30/90 дней.</p>
+  </section>
+
+  <section>
+    <h2>2. Файлы пакета</h2>
+    <ul><li><a href="semantic-core.xlsx">semantic-core.xlsx</a></li><li><a href="README.md">README.md</a></li><li><a href="00-brief.md">00-brief.md</a></li><li><a href="01-site-inventory.md">01-site-inventory.md</a></li><li><a href="02-seed-map.md">02-seed-map.md</a></li><li><a href="03-wordstat-raw.csv">03-wordstat-raw.csv</a></li><li><a href="04-keywords-clean.csv">04-keywords-clean.csv</a></li><li><a href="05-clusters.csv">05-clusters.csv</a></li><li><a href="06-url-map.csv">06-url-map.csv</a></li><li><a href="07-content-briefs.md">07-content-briefs.md</a></li><li><a href="08-serp-geo-notes.md">08-serp-geo-notes.md</a></li><li><a href="09-quality-report.md">09-quality-report.md</a></li><li><a href="10-todo.md">10-todo.md</a></li><li><a href="12-implementation-roadmap.md">12-implementation-roadmap.md</a></li></ul>
+  </section>
+
+  <section>
+    <h2>3. Что уже хорошо и что мешает росту</h2>
+    <div class="two">
+      <div class="note">
+        <h3>Что уже хорошо</h3>
+        <ul>
+          <li>Есть карта спроса, кластеры и URL-решения.</li>
+          <li>Есть P0/P1 приоритеты для ближайшей работы.</li>
+          <li>Есть отдельные брифы и roadmap внедрения.</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h3>Что мешает</h3>
+        <ul>
+          <li>Без live SERP нельзя считать границы кластеров финальными.</li>
+          <li>Без GSC/Яндекс.Вебмастера неизвестны фактические URL-показы.</li>
+          <li>Шумные seed-направления требуют ручной фильтрации.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Покрытие Wordstat</h2>
+    <table><thead><tr><th>Seed-фраза</th><th>Строк Wordstat</th></tr></thead><tbody><tr><td>доставка воды водовозом</td><td>20</td></tr><tr><td>водовоз</td><td>20</td></tr><tr><td>техническая вода</td><td>20</td></tr><tr><td>вода водовоз</td><td>20</td></tr><tr><td>доставка воды новороссийск</td><td>15</td></tr><tr><td>доставка технической воды</td><td>10</td></tr><tr><td>водовоз краснодар</td><td>6</td></tr><tr><td>водовоз новороссийск</td><td>3</td></tr><tr><td>пожарный резервуар вода</td><td>2</td></tr><tr><td>доставка воды водовозом новороссийск</td><td>2</td></tr><tr><td>наполнение бассейна водой</td><td>2</td></tr><tr><td>вода на стройку новороссийск</td><td>1</td></tr><tr><td>техническая вода водовоз</td><td>1</td></tr><tr><td>наполнение бассейна водовозом</td><td>1</td></tr><tr><td>доставка воды 10 кубов новороссийск</td><td>1</td></tr><tr><td>вода 7.5 кубов</td><td>1</td></tr><tr><td>срочная доставка воды водовоз</td><td>1</td></tr><tr><td>заказать водовоз</td><td>1</td></tr><tr><td>вода для частного дома водовоз</td><td>1</td></tr><tr><td>вода на стройку</td><td>1</td></tr><tr><td>срочная доставка воды</td><td>1</td></tr><tr><td>заполнение бассейна водовозом</td><td>1</td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>5. Структура ядра</h2>
+    <p>Приоритеты: <span class="pill">P0: 4</span> <span class="pill">P1: 5</span> <span class="pill">P2: 1</span></p>
+    <p>URL-статусы: <span class="pill">создать: 1</span> <span class="pill">обновить: 9</span></p>
+    <p>Интенты: <span class="pill">Mixed: 3</span> <span class="pill">T: 7</span></p>
+    <table><thead><tr><th>ID</th><th>Кластер</th><th>Главный запрос</th><th>Интент</th><th>Частотность</th><th>Тип страницы</th><th>Приоритет</th><th>Целевой URL</th><th>Статус URL</th><th>Примечания</th></tr></thead><tbody><tr><td>CL05_technical_water</td><td>Техническая вода и доставка</td><td>техническая вода</td><td>Mixed</td><td>1484</td><td>service_section</td><td>P0</td><td>https://akvaservis-nsk.ru/#services-technical</td><td>создать</td><td>Separate commercial block from chemistry/education queries</td></tr><tr><td>CL02_delivery_nsk</td><td>Доставка воды Новороссийск (водовоз)</td><td>доставка воды новороссийск</td><td>Mixed</td><td>746</td><td>landing</td><td>P0</td><td>https://akvaservis-nsk.ru/</td><td>обновить</td><td>High volume but SERP likely bottle-heavy; H1 must say водовоз от 7.5 м³</td></tr><tr><td>CL08_vodovoz_krai</td><td>Водовоз / доставка водовозом (край)</td><td>водовоз доставка воды</td><td>T</td><td>124</td><td>landing</td><td>P0</td><td>https://akvaservis-nsk.ru/</td><td>обновить</td><td>Core commercial cluster</td></tr><tr><td>CL04_pool</td><td>Наполнение бассейна водовозом</td><td>наполнение бассейна водой</td><td>T</td><td>49</td><td>service_section</td><td>P1</td><td>https://akvaservis-nsk.ru/#services-pool</td><td>обновить</td><td></td></tr><tr><td>CL10_drinking_tanker</td><td>Питьевая вода водовозом</td><td>доставка питьевой воды водовозом</td><td>T</td><td>30</td><td>service_section</td><td>P1</td><td>https://akvaservis-nsk.ru/#services-drinking</td><td>обновить</td><td>Do not merge with 19л bottle cluster</td></tr><tr><td>CL01_vodovoz_nsk</td><td>Водовоз Новороссийск</td><td>водовоз новороссийск</td><td>T</td><td>13</td><td>landing_section</td><td>P0</td><td>https://akvaservis-nsk.ru/</td><td>обновить</td><td>Low local volume; must differentiate from bottle delivery SERP</td></tr><tr><td>CL03_construction</td><td>Вода на стройку</td><td>вода на стройку</td><td>T</td><td>11</td><td>service_section</td><td>P1</td><td>https://akvaservis-nsk.ru/#services-construction</td><td>обновить</td><td></td></tr><tr><td>CL06_fire_reserve</td><td>Пожарный резерв воды</td><td>резервуары пожарного запаса воды</td><td>Mixed</td><td>5</td><td>service_section</td><td>P2</td><td>https://akvaservis-nsk.ru/#services-fire</td><td>обновить</td><td>B2B niche</td></tr><tr><td>CL07_urgent</td><td>Срочная доставка воды</td><td>доставка воды срочно</td><td>T</td><td>3</td><td>landing_block</td><td>P1</td><td>https://akvaservis-nsk.ru/#urgent</td><td>обновить</td><td>USP on site; низкая Wordstat volume</td></tr><tr><td>CL09_private_house</td><td>Вода для частного дома / дачи</td><td>доставка технической воды на дом</td><td>T</td><td>1</td><td>service_section</td><td>P1</td><td>https://akvaservis-nsk.ru/#services-home</td><td>обновить</td><td></td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>6. URL roadmap</h2>
+    <table><thead><tr><th>Целевой URL</th><th>Статус</th><th>Тип страницы</th><th>Кластеры</th><th>Главные запросы</th><th>Рекомендуемый H1</th><th>Задача</th><th>Примечания</th></tr></thead><tbody><tr><td>https://akvaservis-nsk.ru/</td><td>обновить</td><td>landing</td><td>CL01_vodovoz_nsk;CL02_delivery_nsk;CL08_vodovoz_krai</td><td>водовоз новороссийск;доставка воды новороссийск;водовоз доставка воды</td><td>Доставка воды водовозом в Новороссийске — от 7,5 м³</td><td>Уточнить title/H1: водовоз, не 19л; добавить телефон prod</td><td>Production domain vs preview</td></tr><tr><td>https://akvaservis-nsk.ru/#services-construction</td><td>обновить</td><td>service_section</td><td>CL03_construction</td><td>вода на стройку</td><td>Вода на стройку водовозом в Новороссийске</td><td>H2 + FAQ: объёмы 7.5/10 м³, техническая вода</td><td></td></tr><tr><td>https://akvaservis-nsk.ru/#services-pool</td><td>обновить</td><td>service_section</td><td>CL04_pool</td><td>наполнение бассейна водой</td><td>Наполнение бассейна водовозом</td><td>Калькулятор рейсов + кейс</td><td></td></tr><tr><td>https://akvaservis-nsk.ru/#services-technical</td><td>создать</td><td>service_section</td><td>CL05_technical_water</td><td>техническая вода;доставка технической воды</td><td>Доставка технической воды водовозом</td><td>Выделить блок/якорь; отличие от питьевой</td><td>High freq head term — needs dedicated content</td></tr><tr><td>https://akvaservis-nsk.ru/#services-fire</td><td>обновить</td><td>service_section</td><td>CL06_fire_reserve</td><td>резервуары пожарного запаса воды</td><td>Заполнение пожарных резервуаров водовозом</td><td>B2B trust: договор, объёмы 20+ м³</td><td></td></tr><tr><td>https://akvaservis-nsk.ru/#services-home</td><td>обновить</td><td>service_section</td><td>CL09_private_house</td><td>доставка технической воды на дом</td><td>Водоснабжение частного дома водовозом</td><td>Сценарии: скважина пересохла, накопительная ёмкость</td><td></td></tr><tr><td>https://akvaservis-nsk.ru/#services-drinking</td><td>обновить</td><td>service_section</td><td>CL10_drinking_tanker</td><td>доставка питьевой воды водовозом</td><td>Питьевая вода водовозом — сертифицированная</td><td>СанПиН, сертификаты, не путать с 19л</td><td></td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>7. Очищенные запросы</h2>
+    <table><thead><tr><th>Запрос</th><th>Каноническая формулировка</th><th>Частотность</th><th>Интент</th><th>Уверенность</th><th>Кандидат в кластер</th><th>Статус</th><th>Причина исключения</th><th>Примечания</th></tr></thead><tbody><tr><td>техническая вода</td><td>техническая вода</td><td>1371</td><td>Mixed</td><td>низкая</td><td>CL05_technical_water</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>водовозов</td><td>водовоз</td><td>1066</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>доставка воды новороссийск</td><td>доставка воды новороссийск</td><td>701</td><td>T</td><td>высокая</td><td>CL02_delivery_nsk</td><td>включить</td><td></td><td></td></tr><tr><td>доставка воды новороссийск 19</td><td>доставка воды новороссийск 19</td><td>184</td><td>T</td><td>высокая</td><td>CL02_delivery_nsk</td><td>включить</td><td></td><td></td></tr><tr><td>вода водовоз</td><td>вода водовоз</td><td>163</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>водовозов вода</td><td>водовоз вода</td><td>163</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>технический натрий вода</td><td>технический натрий вода</td><td>152</td><td>Mixed</td><td>низкая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td>truncated_response_80_more_rows</td></tr><tr><td>техническая вода кальций</td><td>техническая вода кальций</td><td>150</td><td>Mixed</td><td>низкая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td>truncated_response_80_more_rows</td></tr><tr><td>водовоз юг</td><td>водовоз юг</td><td>135</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>водовоз доставка</td><td>водовоз доставка</td><td>127</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>водовоз доставка воды</td><td>водовоз доставка воды</td><td>124</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td></td></tr><tr><td>водовозов краснодар</td><td>водовоз краснодар</td><td>124</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>wrong_geo_for_nsk_focus</td><td>truncated_response_80_more_rows</td></tr><tr><td>техническая вода 1</td><td>техническая вода 1</td><td>102</td><td>Mixed</td><td>низкая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td>truncated_response_80_more_rows</td></tr><tr><td>водовозы юга краснодар</td><td>водовозы юга краснодар</td><td>80</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>wrong_geo_for_nsk_focus</td><td>truncated_response_80_more_rows</td></tr><tr><td>вода техническая питьевая</td><td>вода техническая питьевая</td><td>78</td><td>Mixed</td><td>низкая</td><td>CL05_technical_water</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>технический карбид кальция с избытком воды</td><td>технический карбид кальция с избытком воды</td><td>67</td><td>Mixed</td><td>низкая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td>truncated_response_80_more_rows</td></tr><tr><td>алексей водовоз</td><td>алексей водовоз</td><td>64</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>competitor_brand</td><td>truncated_response_80_more_rows</td></tr><tr><td>новороссийск доставка воды на дом</td><td>новороссийск доставка воды на дом</td><td>64</td><td>T</td><td>высокая</td><td>CL02_delivery_nsk</td><td>включить</td><td></td><td></td></tr><tr><td>водовоз сайт</td><td>водовоз сайт</td><td>62</td><td>N</td><td>низкая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>водовоз официальный</td><td>водовоз официальный</td><td>59</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>водовоз официальный сайт</td><td>водовоз официальный сайт</td><td>58</td><td>N</td><td>низкая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>техническая вода в 6</td><td>техническая вода в 6</td><td>56</td><td>Mixed</td><td>низкая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td>truncated_response_80_more_rows</td></tr><tr><td>доставка технической воды</td><td>доставка технической воды</td><td>55</td><td>T</td><td>высокая</td><td>CL05_technical_water</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>доставка воды новороссийск 19 литров на дом</td><td>доставка воды новороссийск 19 литров на дом</td><td>53</td><td>T</td><td>высокая</td><td>CL02_delivery_nsk</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>аквакуб новороссийск вода доставка</td><td>аквакуб новороссийск вода доставка</td><td>52</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>техническое задание вода</td><td>техническое задание вода</td><td>49</td><td>Mixed</td><td>низкая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td>truncated_response_80_more_rows</td></tr><tr><td>водовоз юг краснодар официальный</td><td>водовоз юг краснодар официальный</td><td>48</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>wrong_geo_for_nsk_focus</td><td></td></tr><tr><td>водовоз юг краснодар официальный сайт</td><td>водовоз юг краснодар официальный сайт</td><td>48</td><td>N</td><td>низкая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>wrong_geo_for_nsk_focus</td><td></td></tr><tr><td>красный водовоз</td><td>красный водовоз</td><td>48</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>competitor_brand</td><td>truncated_response_80_more_rows</td></tr><tr><td>техническая вода в 3</td><td>техническая вода в 3</td><td>47</td><td>Mixed</td><td>низкая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td>truncated_response_80_more_rows</td></tr><tr><td>техническая вода можно</td><td>техническая вода можно</td><td>43</td><td>I</td><td>средняя</td><td>CL05_technical_water</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>температура технической воды</td><td>температура технической воды</td><td>40</td><td>I</td><td>средняя</td><td>CL05_technical_water</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>наполнение бассейна водой</td><td>наполнение бассейна водой</td><td>39</td><td>Mixed</td><td>низкая</td><td>CL04_pool</td><td>включить</td><td></td><td></td></tr><tr><td>характеристика технической воды</td><td>характеристика технической воды</td><td>39</td><td>I</td><td>средняя</td><td>CL05_technical_water</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>аква куб новороссийск вода доставка</td><td>аква куб новороссийск вода доставка</td><td>36</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>вода 19 литров с доставкой новороссийск</td><td>вода 19 литров с доставкой новороссийск</td><td>32</td><td>Mixed</td><td>низкая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>водовоз питьевая вода</td><td>водовоз питьевая вода</td><td>32</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_37_more_rows</td></tr><tr><td>пункты технической воды</td><td>пункты технической воды</td><td>31</td><td>Mixed</td><td>низкая</td><td>CL05_technical_water</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>вода техническая гост</td><td>вода техническая гост</td><td>30</td><td>I</td><td>средняя</td><td>CL05_technical_water</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>доставка питьевой воды водовозом</td><td>доставка питьевой воды водовозом</td><td>30</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td></td></tr><tr><td>техническая вода донецк</td><td>техническая вода донецк</td><td>30</td><td>Mixed</td><td>низкая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td>truncated_response_80_more_rows</td></tr><tr><td>технические условия на воду</td><td>технические условия на воду</td><td>29</td><td>Mixed</td><td>низкая</td><td>CL05_technical_water</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>учет технической воды</td><td>учет технической воды</td><td>28</td><td>I</td><td>средняя</td><td>CL05_technical_water</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>очистка технических вод</td><td>очистка технических вод</td><td>27</td><td>I</td><td>средняя</td><td>CL05_technical_water</td><td>включить</td><td></td><td>truncated_response_80_more_rows</td></tr><tr><td>доставка воды новороссийск цены</td><td>доставка воды новороссийск цены</td><td>26</td><td>T</td><td>средняя</td><td>CL02_delivery_nsk</td><td>включить</td><td></td><td></td></tr><tr><td>доставка воды новороссийск 19 литров цена</td><td>доставка воды новороссийск 19 литров цена</td><td>25</td><td>T</td><td>средняя</td><td>CL02_delivery_nsk</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>доставка технической воды донецк</td><td>доставка технической воды донецк</td><td>25</td><td>T</td><td>высокая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td>truncated_response_80_more_rows</td></tr><tr><td>троицкая вода новороссийск доставка</td><td>троицкая вода новороссийск доставка</td><td>23</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>амзай новороссийск вода доставка</td><td>амзай новороссийск вода доставка</td><td>20</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>доставка питьевой воды новороссийск</td><td>доставка питьевой воды новороссийск</td><td>19</td><td>T</td><td>высокая</td><td>CL10_drinking_tanker</td><td>включить</td><td></td><td></td></tr><tr><td>аква куб новороссийск вода доставка телефон</td><td>аква куб новороссийск вода доставка телефон</td><td>17</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>водовоз доставка воды краснодар</td><td>водовоз доставка воды краснодар</td><td>16</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>wrong_geo_for_nsk_focus</td><td></td></tr><tr><td>водовоз новороссийск</td><td>водовоз новороссийск</td><td>13</td><td>T</td><td>высокая</td><td>CL01_vodovoz_nsk</td><td>включить</td><td></td><td></td></tr><tr><td>архыз доставка воды новороссийск</td><td>архыз доставка воды новороссийск</td><td>12</td><td>T</td><td>высокая</td><td>CL02_delivery_nsk</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>вода на стройку</td><td>вода на стройку</td><td>11</td><td>Mixed</td><td>низкая</td><td>CL03_construction</td><td>включить</td><td></td><td></td></tr><tr><td>доставка питьевой воды водовозом в сочи</td><td>доставка питьевой воды водовозом в сочи</td><td>11</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>водовозов купить воду</td><td>водовоз купить воду</td><td>10</td><td>T</td><td>средняя</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_37_more_rows</td></tr><tr><td>купить водовоз воды</td><td>купить водовоз воды</td><td>10</td><td>T</td><td>средняя</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_37_more_rows</td></tr><tr><td>первое наполнение бассейна водой</td><td>первое наполнение бассейна водой</td><td>10</td><td>Mixed</td><td>низкая</td><td>CL04_pool</td><td>включить</td><td></td><td></td></tr><tr><td>веселый водовоз новороссийск</td><td>веселый водовоз новороссийск</td><td>9</td><td>T</td><td>высокая</td><td>CL01_vodovoz_nsk</td><td>исключить</td><td>competitor_brand</td><td>competitor brand</td></tr><tr><td>водовоз цена воды</td><td>водовоз цена воды</td><td>8</td><td>T</td><td>средняя</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_37_more_rows</td></tr><tr><td>вода веселый водовоз</td><td>вода веселый водовоз</td><td>7</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>competitor_brand</td><td>truncated_response_37_more_rows</td></tr><tr><td>доставка воды слон новороссийск</td><td>доставка воды слон новороссийск</td><td>7</td><td>T</td><td>высокая</td><td>CL02_delivery_nsk</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>доставка воды водовозом по раевской</td><td>доставка воды водовозом по раевской</td><td>6</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>wrong_geo_for_nsk_focus</td><td></td></tr><tr><td>доставка технической воды краснодон</td><td>доставка технической воды краснодон</td><td>5</td><td>T</td><td>высокая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>привоз воды водовозом</td><td>привоз воды водовозом</td><td>4</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_37_more_rows</td></tr><tr><td>веселый водовоз доставка воды</td><td>веселый водовоз доставка воды</td><td>3</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>competitor_brand</td><td></td></tr><tr><td>вода веселый водовоз отзывы</td><td>вода веселый водовоз отзывы</td><td>3</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>competitor_brand</td><td>truncated_response_37_more_rows</td></tr><tr><td>вода водовоз отзывы</td><td>вода водовоз отзывы</td><td>3</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>reviews_not_primary_landing</td><td>truncated_response_37_more_rows</td></tr><tr><td>водовозов заказать воду</td><td>водовоз заказать воду</td><td>3</td><td>T</td><td>средняя</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_37_more_rows</td></tr><tr><td>доставка воды водовозом цена</td><td>доставка воды водовозом цена</td><td>3</td><td>T</td><td>средняя</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td></td></tr><tr><td>доставка воды срочно</td><td>доставка воды срочно</td><td>3</td><td>T</td><td>высокая</td><td>CL07_urgent</td><td>включить</td><td></td><td></td></tr><tr><td>доставка технической воды геленджик</td><td>доставка технической воды геленджик</td><td>3</td><td>T</td><td>высокая</td><td>CL05_technical_water</td><td>исключить</td><td>wrong_geo_for_nsk_focus</td><td></td></tr><tr><td>заказать воду водовоз</td><td>заказать воду водовоз</td><td>3</td><td>T</td><td>средняя</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td>truncated_response_37_more_rows</td></tr><tr><td>заказать техническую воду с доставкой</td><td>заказать техническую воду с доставкой</td><td>3</td><td>T</td><td>средняя</td><td>CL05_technical_water</td><td>включить</td><td></td><td></td></tr><tr><td>резервуары пожарного запаса воды</td><td>резервуары пожарного запаса воды</td><td>3</td><td>Mixed</td><td>низкая</td><td>CL06_fire_reserve</td><td>включить</td><td></td><td></td></tr><tr><td>водовоз доставка воды спб</td><td>водовоз доставка воды спб</td><td>2</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>доставка технической воды кубами</td><td>доставка технической воды кубами</td><td>2</td><td>T</td><td>высокая</td><td>CL05_technical_water</td><td>включить</td><td></td><td></td></tr><tr><td>доставка технической воды спб</td><td>доставка технической воды спб</td><td>2</td><td>T</td><td>высокая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>пожарный резервуар для воды</td><td>пожарный резервуар для воды</td><td>2</td><td>Mixed</td><td>низкая</td><td>CL06_fire_reserve</td><td>включить</td><td></td><td></td></tr><tr><td>водовоз доставка воды заказать</td><td>водовоз доставка воды заказать</td><td>1</td><td>T</td><td>средняя</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td></td></tr><tr><td>водовоз доставка воды москва</td><td>водовоз доставка воды москва</td><td>1</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>водовоз доставка воды отзывы</td><td>водовоз доставка воды отзывы</td><td>1</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>reviews_not_primary_landing</td><td></td></tr><tr><td>водовоз доставка воды работа</td><td>водовоз доставка воды работа</td><td>1</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>водовоз доставка воды спб телефон</td><td>водовоз доставка воды спб телефон</td><td>1</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>водовоз доставка воды спб телефон заказать</td><td>водовоз доставка воды спб телефон заказать</td><td>1</td><td>T</td><td>средняя</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>водовоз доставка воды телефон</td><td>водовоз доставка воды телефон</td><td>1</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>включить</td><td></td><td></td></tr><tr><td>доставка воды водовозом красноярск</td><td>доставка воды водовозом красноярск</td><td>1</td><td>T</td><td>высокая</td><td>CL08_vodovoz_krai</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>доставка технической воды на дом</td><td>доставка технической воды на дом</td><td>1</td><td>T</td><td>высокая</td><td>CL05_technical_water</td><td>включить</td><td></td><td></td></tr><tr><td>доставка технической воды пятигорск</td><td>доставка технической воды пятигорск</td><td>1</td><td>T</td><td>высокая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr><tr><td>мариуполь доставка воды техническая</td><td>мариуполь доставка воды техническая</td><td>1</td><td>T</td><td>высокая</td><td>CL05_technical_water</td><td>исключить</td><td>исключить_bottle_jobs_offtopic</td><td></td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>8. Wordstat-сырьё</h2>
+    <table><thead><tr><th>Дата</th><th>Seed-фраза</th><th>Запрос</th><th>Частотность</th><th>Регион</th><th>Устройство</th><th>Источник</th><th>Примечания</th></tr></thead><tbody><tr><td>2026-05-21</td><td>водовоз новороссийск</td><td>водовоз новороссийск</td><td>13</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз новороссийск</td><td>водовозов новороссийск</td><td>13</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз новороссийск</td><td>веселый водовоз новороссийск</td><td>9</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>competitor brand</td></tr><tr><td>2026-05-21</td><td>пожарный резервуар вода</td><td>резервуары пожарного запаса воды</td><td>3</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>пожарный резервуар вода</td><td>пожарный резервуар для воды</td><td>2</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом новороссийск</td><td>доставка воды водовозом новороссийск</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data_in_wordstat</td></tr><tr><td>2026-05-21</td><td>вода на стройку новороссийск</td><td>вода на стройку новороссийск</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data_in_wordstat</td></tr><tr><td>2026-05-21</td><td>техническая вода водовоз</td><td>техническая вода водовоз</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data_in_wordstat</td></tr><tr><td>2026-05-21</td><td>наполнение бассейна водовозом</td><td>наполнение бассейна водовозом</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data_in_wordstat</td></tr><tr><td>2026-05-21</td><td>доставка воды 10 кубов новороссийск</td><td>доставка воды 10 кубов новороссийск</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data_in_wordstat</td></tr><tr><td>2026-05-21</td><td>вода 7.5 кубов</td><td>вода 7.5 кубов</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data_in_wordstat</td></tr><tr><td>2026-05-21</td><td>срочная доставка воды водовоз</td><td>срочная доставка воды водовоз</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data_in_wordstat</td></tr><tr><td>2026-05-21</td><td>заказать водовоз</td><td>заказать водовоз</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data_in_wordstat</td></tr><tr><td>2026-05-21</td><td>вода для частного дома водовоз</td><td>вода для частного дома водовоз</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data_in_wordstat</td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовоз доставка воды</td><td>124</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовозов доставка воды</td><td>124</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>доставка питьевой воды водовозом</td><td>30</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовоз доставка воды краснодар</td><td>16</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>доставка питьевой воды водовозом в сочи</td><td>11</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>доставка воды водовозом по раевской</td><td>6</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>веселый водовоз доставка воды</td><td>3</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>доставка воды водовозом цена</td><td>3</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовоз доставка воды спб</td><td>2</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовозов доставка воды спб</td><td>2</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>доставка воды водовозом красноярск</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовоз доставка воды отзывы</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовоз доставка воды работа</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовоз доставка воды москва</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовозов доставка воды москва</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовоз доставка воды заказать</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовоз доставка воды спб телефон</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовоз доставка воды спб телефон заказать</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовоз доставка воды телефон</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовозов доставка воды спб телефон</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовозов</td><td>1066</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовоз</td><td>991</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>вода водовоз</td><td>163</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовозов вода</td><td>163</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовоз юг</td><td>135</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовоз доставка</td><td>127</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовозов доставка</td><td>127</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовозов краснодар</td><td>124</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовоз доставка воды</td><td>124</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовозов доставка воды</td><td>124</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовоз краснодар</td><td>122</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовозы юга краснодар</td><td>80</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>алексей водовоз</td><td>64</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>алексей водовозов</td><td>64</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовоз сайт</td><td>62</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовозов сайт</td><td>62</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовоз официальный</td><td>59</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовоз официальный сайт</td><td>58</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовозов официальный сайт</td><td>58</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>красный водовоз</td><td>48</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>техническая вода</td><td>1371</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>технический натрий вода</td><td>152</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>техническая вода кальций</td><td>150</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>техническая вода 1</td><td>102</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>вода техническая питьевая</td><td>78</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>технический карбид кальция с избытком воды</td><td>67</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>техническая вода в 6</td><td>56</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>доставка технической воды</td><td>55</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>техническое задание вода</td><td>49</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>техническая вода в 3</td><td>47</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>техническая вода можно</td><td>43</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>температура технической воды</td><td>40</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>характеристика технической воды</td><td>39</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>пункты технической воды</td><td>31</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>техническая вода донецк</td><td>30</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>вода техническая гост</td><td>30</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>технические условия на воду</td><td>29</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>учет технической воды</td><td>28</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>очистка технических вод</td><td>27</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>доставка технической воды донецк</td><td>25</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_80_more_rows</td></tr><tr><td>2026-05-21</td><td>вода на стройку</td><td>вода на стройку</td><td>11</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>наполнение бассейна водой</td><td>наполнение бассейна водой</td><td>39</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>наполнение бассейна водой</td><td>первое наполнение бассейна водой</td><td>10</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка воды новороссийск</td><td>701</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка воды новороссийск 19</td><td>184</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>новороссийск доставка воды на дом</td><td>64</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка воды новороссийск 19 литров на дом</td><td>53</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>аквакуб новороссийск вода доставка</td><td>52</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>аква куб новороссийск вода доставка</td><td>36</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>вода 19 литров с доставкой новороссийск</td><td>32</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка воды новороссийск цены</td><td>26</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка воды новороссийск 19 литров цена</td><td>25</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>троицкая вода новороссийск доставка</td><td>23</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>амзай новороссийск вода доставка</td><td>20</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка питьевой воды новороссийск</td><td>19</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>аква куб новороссийск вода доставка телефон</td><td>17</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>архыз доставка воды новороссийск</td><td>12</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка воды слон новороссийск</td><td>7</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз краснодар</td><td>водовозов краснодар</td><td>124</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз краснодар</td><td>водовоз краснодар</td><td>122</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз краснодар</td><td>водовозы юга краснодар</td><td>80</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз краснодар</td><td>водовоз юг краснодар официальный</td><td>48</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз краснодар</td><td>водовоз юг краснодар официальный сайт</td><td>48</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз краснодар</td><td>водовоз доставка воды краснодар</td><td>16</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка технической воды</td><td>доставка технической воды</td><td>55</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка технической воды</td><td>доставка технической воды донецк</td><td>25</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка технической воды</td><td>доставка технической воды краснодон</td><td>5</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка технической воды</td><td>доставка технической воды геленджик</td><td>3</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка технической воды</td><td>заказать техническую воду с доставкой</td><td>3</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка технической воды</td><td>доставка технической воды спб</td><td>2</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка технической воды</td><td>доставка технической воды кубами</td><td>2</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка технической воды</td><td>доставка технической воды пятигорск</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка технической воды</td><td>доставка технической воды на дом</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка технической воды</td><td>мариуполь доставка воды техническая</td><td>1</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>срочная доставка воды</td><td>доставка воды срочно</td><td>3</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>заполнение бассейна водовозом</td><td>заполнение бассейна водовозом</td><td>0</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>no_data_in_wordstat</td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом новороссийск</td><td>доставка воды водовозом новороссийск</td><td>0</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>no_data_in_wordstat</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>вода водовоз</td><td>163</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>водовозов вода</td><td>163</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>водовоз доставка воды</td><td>124</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>водовозов доставка воды</td><td>124</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>водовоз питьевая вода</td><td>32</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>доставка питьевой воды водовозом</td><td>30</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>водовоз доставка воды краснодар</td><td>16</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>доставка питьевой воды водовозом в сочи</td><td>11</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>водовозов купить воду</td><td>10</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>купить водовоз воды</td><td>10</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>водовоз цена воды</td><td>8</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>вода веселый водовоз</td><td>7</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>доставка воды водовозом по раевской</td><td>6</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>привоз воды водовозом</td><td>4</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>веселый водовоз доставка воды</td><td>3</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>вода веселый водовоз отзывы</td><td>3</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>вода водовоз отзывы</td><td>3</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>водовозов заказать воду</td><td>3</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>заказать воду водовоз</td><td>3</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>доставка воды водовозом цена</td><td>3</td><td>10995</td><td>all</td><td>wordstat_mcp</td><td>truncated_response_37_more_rows</td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>9. Практические рекомендации по страницам</h2>
+    <table><thead><tr><th>Приоритет</th><th>Кластер</th><th>Что сделать</th><th>URL</th><th>Почему важно</th><th>Риск / примечание</th></tr></thead><tbody><tr><td>P0</td><td>Водовоз Новороссийск</td><td>Усилить существующую страницу</td><td>https://akvaservis-nsk.ru/</td><td>высокая</td><td>Low local volume; must differentiate from bottle delivery SERP</td></tr><tr><td>P0</td><td>Доставка воды Новороссийск (водовоз)</td><td>Усилить существующую страницу</td><td>https://akvaservis-nsk.ru/</td><td>высокая</td><td>High volume but SERP likely bottle-heavy; H1 must say водовоз от 7.5 м³</td></tr><tr><td>P1</td><td>Вода на стройку</td><td>Усилить существующую страницу</td><td>https://akvaservis-nsk.ru/#services-construction</td><td>средняя</td><td></td></tr><tr><td>P1</td><td>Наполнение бассейна водовозом</td><td>Усилить существующую страницу</td><td>https://akvaservis-nsk.ru/#services-pool</td><td>средняя</td><td></td></tr><tr><td>P0</td><td>Техническая вода и доставка</td><td>Создать страницу</td><td>https://akvaservis-nsk.ru/#services-technical</td><td>высокая</td><td>Separate commercial block from chemistry/education queries</td></tr><tr><td>P1</td><td>Срочная доставка воды</td><td>Усилить существующую страницу</td><td>https://akvaservis-nsk.ru/#urgent</td><td>высокая</td><td>USP on site; низкая Wordstat volume</td></tr><tr><td>P0</td><td>Водовоз / доставка водовозом (край)</td><td>Усилить существующую страницу</td><td>https://akvaservis-nsk.ru/</td><td>высокая</td><td>Core commercial cluster</td></tr><tr><td>P1</td><td>Вода для частного дома / дачи</td><td>Усилить существующую страницу</td><td>https://akvaservis-nsk.ru/#services-home</td><td>средняя</td><td></td></tr><tr><td>P1</td><td>Питьевая вода водовозом</td><td>Усилить существующую страницу</td><td>https://akvaservis-nsk.ru/#services-drinking</td><td>средняя</td><td>Do not merge with 19л bottle cluster</td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>10. Полные текстовые разделы</h2>
+    <article><h3>Бриф</h3><h2>00. Бриф</h2>
+<h3>Проект</h3>
+<p>| Параметр | Значение |</p>
+<p>|---|---|</p>
+<p>| Бренд | **АкваСервис** |</p>
+<p>| Услуга | Доставка воды **водовозом** (7,5 / 10 / 20+ м³) |</p>
+<p>| Город | Новороссийск и пригороды |</p>
+<p>| Preview URL | https://water-delivery-premium--preview.poehali.dev/ |</p>
+<p>| Production URL | https://akvaservis-nsk.ru/ |</p>
+<p>| Телефон (prod) | +7 988 317-44-84 |</p>
+<p>| Цель | **Лиды** — WhatsApp и звонки |</p>
+<p>| Приоритет ПС | **Яндекс** |</p>
+<p>| Wordstat регион | Новороссийск **970**, Краснодарский край **10995** |</p>
+<h3>Границы бизнеса</h3>
+<p>**В scope:**</p>
+<li>Доставка технической и питьевой воды водовозом от 7,5 м³</li>
+<li>Стройки, частные дома/дачи, бассейны, промышленность, пожарные резервуары</li>
+<li>Срочный выезд, круглосуточный приём заявок</li>
+<p>**Вне scope (исключено):**</p>
+<li>Бутилированная вода 19 л и бренды (АкваКуб, Троицкая и т.п.)</li>
+<li>Вакансии / «работа водовоз»</li>
+<li>Нерелевантные темы (химия, учебные запросы, другие города без связи с Нск)</li>
+<h3>Допущения</h3>
+<p>1. **Низкий локальный объём Wordstat по водовозу в регионе 970** — для оценки спроса использованы данные края 10995 как прокси; локальные geo-seed в 970 часто возвращают «нет данных».</p>
+<p>2. **SERP не проверялся live** — кластеры и URL назначены по интенту и структуре лендинга; `serp_check_status=не проверено`.</p>
+<p>3. **Production vs preview** — на preview placeотложитьer-телефон +7 (988) 000-00-00; в SEO-мета и schema использовать prod-номер.</p>
+<p>4. **Один лендинг** — все коммерческие кластеры P0/P1 закрываются секциями якорей на главной, без отдельных URL (кроме возможного будущего `/vodovoz/` — в backlog).</p>
+<h3>Конкурентный контекст (из Wordstat, не SERP)</h3>
+<li>«Весёлый водовоз» — брендовые запросы в крае</li>
+<li>«Водовозы Юга» — Краснодар (не прямой гео-конкурент, но в выдаче по «водовоз краснодар»)</li>
+<li>По «доставка воды новороссийск» доминируют **19-литровые** бренды — риск каннибализации без чёткого позиционирования «водовоз от 7,5 м³»</li>
+<h3>KPI исследования</h3>
+<li>Собрать реальные частотности Wordstat (MCP Kovcheg)</li>
+<li>Выделить коммерческие кластеры с P0/P1</li>
+<li>Привязать к секциям лендинга и контент-брифам</li>
+<li>Подготовить roadmap внедрения для SEO/редактора/разработчика</li></article><article><h3>Инвентаризация сайта</h3><h2>01. Инвентаризация сайта</h2>
+<p>**URL:** https://water-delivery-premium--preview.poehali.dev/</p>
+<p>**Дата осмотра:** 2026-05-21</p>
+<p>**Тип:** одностраничный лендинг (SPA-подобная структура с якорями)</p>
+<h3>Мета и первый экран</h3>
+<p>| Элемент | Текущее содержание | SEO-заметка |</p>
+<p>|---|---|---|</p>
+<p>| Бренд | АкваСервис | N-интент слабый (бренд новый) |</p>
+<p>| H1 (hero) | Доставка воды водовозом — от 7,5 м³ на объект | ✅ Сильное коммерческое ядро |</p>
+<p>| Подзаголовок | Технические и питьевые объёмы для строек, домов, бассейнов | ✅ Покрывает несколько кластеров |</p>
+<p>| CTA | «Заказать водовоз», WhatsApp, телефон | ✅ Lead-focused |</p>
+<p>| Телефон на preview | +7 (988) 000-00-00 | ⚠️ Заменить на +7 988 317-44-84 в prod |</p>
+<h3>Навигация (якоря)</h3>
+<li>Объёмы</li>
+<li>Услуги</li>
+<li>Цены</li>
+<li>FAQ</li>
+<li>Контакты</li>
+<h3>Секции и покрытие семантики</h3>
+<h4>Объёмы водовозов</h4>
+<li>7,5 м³ — дача, частный дом, баня</li>
+<li>10 м³ — стройки, бизнес, бассейн</li>
+<li>20+ м³ — производство, пожаротушение</li>
+<p>**Кластеры:** CL08, CL09, объёмные long-tail (7.5 кубов — no data в Wordstat)</p>
+<h4>Услуги (6 карточек)</h4>
+<p>1. **Вода на стройку** → CL03</p>
+<p>2. **Водоснабжение частного дома** → CL09</p>
+<p>3. **Наполнение бассейнов** → CL04</p>
+<p>4. **Срочная подача воды** → CL07</p>
+<p>5. **Промышленные объекты** → CL05 (частично)</p>
+<p>6. **Пожарный запас воды** → CL06</p>
+<h4>Как это работает</h4>
+<p>3 шага: заявка → выезд → слив в ёмкость — хороший trust/GEO блок</p>
+<h4>Преимущества</h4>
+<li>1–3 ч доставка, свой транспорт, от 7,5 м³, сертификаты, 15 лет, прозрачные цены</li>
+<h4>Цены</h4>
+<p>«По запросу» — нет числовых цен в HTML → слабое закрытие запросов «цена/стоимость»</p>
+<h4>Зона доставки</h4>
+<p>Районы: Центр, Мысхако, Цемдолина, Малая Земля, Пролетарский, Гайдук, Верхнебаканский, Анапский район — **GEO-сигнал для локального SEO**</p>
+<h4>FAQ (6 вопросов)</h4>
+<li>Как быстро приедет водовоз?</li>
+<li>Минимальный объём?</li>
+<li>Сколько стоит доставка?</li>
+<li>Как заполнить бассейн?</li>
+<li>Документы?</li>
+<li>Как оплатить?</li>
+<p>**Заметка:** FAQ есть, но ответы в preview свёрнуты/не видны в fetch — нужна проверка разметки FAQPage schema.</p>
+<h3>Что отсутствует на сайте</h3>
+<li>Отдельный блок **«Техническая вода»** с определением и отличиями от питьевой (CL05 P0)</li>
+<li>Явное **anti-19л** позиционирование в title/description (CL02)</li>
+<li>Страницы `/vodovoz-novorossijsk/` или blog — только один URL</li>
+<li>Отзывы, кейсы, фото водовозов — trust для «отзывы» запросов (исключены из ядра)</li>
+<h3>Технические наблюдения</h3>
+<li>Preview на поддомене poehali.dev — индексация не целевая</li>
+<li>Production akvaservis-nsk.ru — целевой домен для URL-map</li>
+<li>Рекомендуется: LocalBusiness schema, телефон, geo, areaServed</li>
+<h3>Соответствие кластерам</h3>
+<p>| Секция | Готовность | Действие |</p>
+<p>|---|---|---|</p>
+<p>| Hero / водовоз | обновить | Title + H1 + prod phone |</p>
+<p>| Доставка воды Нск | обновить | Anti-bottle messaging |</p>
+<p>| Техническая вода | создать | Новый якорь/блок |</p>
+<p>| Стройка / дом / бассейн | готово | Усилить FAQ |</p>
+<p>| Срочная | готово | Уже в hero |</p>
+<p>| Пожарный резерв | готово | B2B copy |</p></article><article><h3>Карта seed-запросов</h3><h2>02. Карта seed-семейств</h2>
+<h3>Матрица seed → Wordstat → статус</h3>
+<p>| # | Seed-фраза | Регион | Вызов | Результат | Следующий шаг |</p>
+<p>|---|---|---|---|---|---|</p>
+<p>| 1 | доставка воды водовозом новороссийск | 970 | ws03 | нет данных | прокси через край + hero copy |</p>
+<p>| 2 | водовоз новороссийск | 970 | ws01 | 3 запроса, max 13 | P0 локальный |</p>
+<p>| 3 | вода на стройку новороссийск | 970 | ws04 | нет данных | seed без гео в крае |</p>
+<p>| 4 | техническая вода водовоз | 970 | ws05 | нет данных | разделить seeds |</p>
+<p>| 5 | наполнение бассейна водовозом | 970 | ws06 | нет данных | «бассейн водой» в крае |</p>
+<p>| 6 | доставка воды 10 кубов новороссийск | 970 | ws07 | нет данных | объём в контенте H2 |</p>
+<p>| 7 | вода 7.5 кубов | 970 | ws08 | нет данных | использовать «7,5 м³» на сайте |</p>
+<p>| 8 | срочная доставка воды водовоз | 970 | ws09 | нет данных | USP без Wordstat volume |</p>
+<p>| 9 | заказать водовоз | 970 | ws10 | нет данных | CTA «Заказать водовоз» |</p>
+<p>| 10 | вода для частного дома водовоз | 970 | ws11 | нет данных | секция «частный дом» |</p>
+<p>| 11 | пожарный резервуар вода | 970 | ws02 | 2 запроса | P2 ниша |</p>
+<p>| 12 | доставка воды водовозом | 10995 | ws12 | 20+ запросов | P0 коммерция |</p>
+<p>| 13 | водовоз | 10995 | ws13 | 20+ (80 скрыто) | P0, конкуренты |</p>
+<p>| 14 | техническая вода | 10995 | ws14 | 20+ (80 скрыто) | P0 + фильтр мусора |</p>
+<p>| 15 | вода на стройку | 10995 | ws15 | 11 | P1 |</p>
+<p>| 16 | наполнение бассейна водой | 10995 | ws16 | 39+10 | P1 |</p>
+<p>| 17 | доставка воды новороссийск | 10995 | ws17 | 701 head | P0 с фильтром 19л |</p>
+<p>| 18 | водовоз краснодар | 10995 | ws18 | 122 head | исключить geo, insight |</p>
+<p>| 19 | доставка технической воды | 10995 | ws19 | 55 head | P0 |</p>
+<p>| 20 | срочная доставка воды | 10995 | ws20 | 3 | P1 USP |</p>
+<p>| 21 | заполнение бассейна водовозом | 10995 | ws21 | нет данных | синоним ws16 |</p>
+<p>| 22 | доставка воды водовозом новороссийск | 10995 | ws22 | нет данных | подтверждает нишевость |</p>
+<p>| 23 | вода водовоз | 10995 | ws23 | 20+ (37 скрыто) | P0 |</p>
+<p>**Итого Wordstat-вызовов: 23**</p>
+<h3>Seed-семейства по типам</h3>
+<h4>A. Коммерческое ядро (водовоз)</h4>
+<li>водовоз, водовоз доставка воды, вода водовоз, заказать водовоз</li>
+<li>**Интент:** T</li>
+<li>**Кластер:** CL08, CL01</li>
+<h4>B. Гео + доставка</h4>
+<li>доставка воды новороссийск, водовоз новороссийск</li>
+<li>**Интент:** Mixed (много 19л шума)</li>
+<li>**Кластер:** CL02, CL01</li>
+<h4>C. Сценарии использования</h4>
+<li>вода на стройку, техническая вода, наполнение бассейна, частный дом, пожарный резерв</li>
+<li>**Интент:** T / Mixed</li>
+<li>**Кластеры:** CL03–CL06, CL09</li>
+<h4>D. Объёмы и срочность</h4>
+<li>7,5 м³, 10 кубов, срочная доставка</li>
+<li>**Интент:** T</li>
+<li>**Кластер:** CL07 + hero</li>
+<h4>E. Исключённые семейства (не собирали)</h4>
+<li>вода 19 литров, аквакуб, вакансии водовоз, химия «технический натрий»</li>
+<h3>Рекомендуемые дополнительные seeds (backlog)</h3>
+<p>Для следующего прогона после live SERP:</p>
+<li>«водовоз 10 кубов новороссийск»</li>
+<li>«техническая вода новороссийск»</li>
+<li>«заполнить емкость водой новороссийск»</li>
+<li>«вода для бетона новороссийск»</li>
+<li>«водовоз анапа» / «водовоз gelendzhik» — только если расширяют зону</li></article><article><h3>Контент-брифы</h3><h2>07. Контент-брифы</h2>
+<h3>P0 — делать первым</h3>
+<h4>B01. Главная: водовоз + доставка воды Новороссийск</h4>
+<p>| Поле | Значение |</p>
+<p>|---|---|</p>
+<p>| Кластеры | CL01, CL02, CL08 |</p>
+<p>| URL | https://akvaservis-nsk.ru/ |</p>
+<p>| Primary query | водовоз доставка воды / доставка воды новороссийск |</p>
+<p>| H1 | Доставка воды водовозом в Новороссийске — от 7,5 м³ |</p>
+<p>| Title | Доставка воды водовозом в Новороссийске от 7,5 м³ \| АкваСервис |</p>
+<p>| Description | Водовоз 7,5–10 м³: стройка, дом, бассейн. Выезд 1–3 ч, 24/7. WhatsApp и звонок +7 988 317-44-84. Не путать с водой 19 л. |</p>
+<p>| Блоки | Hero → объёмы → услуги → как заказать → цены → FAQ → контакты |</p>
+<p>| Anti-SERP | В первом экране: «Это водовоз от 7 500 л, не бутилированная вода 19 л» |</p>
+<p>| CTA | WhatsApp + click-to-call |</p>
+<p>| Trust | 15 лет, сертификаты, оплата после доставки |</p>
+<p>| Объём текста | 2500–3500 знаков видимого SEO-текста + FAQ |</p>
+<p>**Задачи редактора:**</p>
+<p>1. Переписать title/description под водовоз.</p>
+<p>2. Добавить 2–3 абзаца про минимальный объём 7,5 м³.</p>
+<p>3. В FAQ — вопрос «Чем вы отличаетесь от доставки 19 литров?»</p>
+<p>---</p>
+<h4>B02. Блок «Техническая вода» (новый якорь)</h4>
+<p>| Поле | Значение |</p>
+<p>|---|---|</p>
+<p>| Кластер | CL05 |</p>
+<p>| URL | https://akvaservis-nsk.ru/#services-technical |</p>
+<p>| Primary query | техническая вода; доставка технической воды |</p>
+<p>| H2 | Доставка технической воды водовозом |</p>
+<p>| Подзаголовок | Для стройки, промышленности и технологических нужд — от 7,5 м³ |</p>
+<p>| Структура | Определение (2–3 предложения) → где используется → отличие от питьевой → объёмы → CTA |</p>
+<p>| GEO | «Техническая вода — вода, не предназначенная для питья без обработки…» |</p>
+<p>| FAQ внутри | Можно ли пить? ГОСТ? Сколько кубов на замес? |</p>
+<p>| Объём | 1200–1800 знаков |</p>
+<p>**Задачи разработчика:** добавить id=`services-technical` в секцию услуг или отдельный блок.</p>
+<p>---</p>
+<h4>B03. Позиционирование против 19-литровой выдачи</h4>
+<p>| Поле | Значение |</p>
+<p>|---|---|</p>
+<p>| Кластер | CL02 |</p>
+<p>| Формат | Блок сравнения (таблица) |</p>
+<p>| Заголовок | Водовоз или бутылки 19 л — что выбрать? |</p>
+<p>| Колонки | Объём за рейс / мин. заказ / для чего / как заказать |</p>
+<p>| Цель | Снизить bounce с нецелевого трафика «доставка воды новороссийск» |</p>
+<p>---</p>
+<h3>P1 — ближайший этап</h3>
+<h4>B04. Вода на стройку</h4>
+<li>**H2:** Вода на стройку водовозом</li>
+<li>**Ключи:** вода на стройку, техническая вода для бетона</li>
+<li>**Контент:** сценарии (замес, пылеподавление, уплотнение), объёмы 7,5 и 10 м³</li>
+<li>**FAQ:** Сколько воды нужно на объект?</li>
+<h4>B05. Наполнение бассейна</h4>
+<li>**H2:** Наполнение бассейна водовозом</li>
+<li>**Ключи:** наполнение бассейна водой, первое наполнение</li>
+<li>**Контент:** расчёт рейсов, время наполнения, питьевая vs техническая</li>
+<li>**FAQ:** уже есть на сайте — раскрыть ответы в HTML + schema</li>
+<h4>B06. Частный дом / дача</h4>
+<li>**H2:** Водоснабжение частного дома водовозом</li>
+<li>**Ключи:** доставка технической воды на дом (1 показ/мес край)</li>
+<li>**Контент:** пересохшая скважина, накопительная ёмкость, баня</li>
+<h4>B07. Питьевая вода водовозом</h4>
+<li>**H2:** Питьевая вода водовозом — с сертификатами</li>
+<li>**Ключи:** доставка питьевой воды водовозом (30/мес край)</li>
+<li>**Trust:** СанПиН, фото сертификатов, не смешивать с 19л брендами</li>
+<h4>B08. Срочная доставка</h4>
+<li>**H2:** Срочная подача воды — выезд от 1 часа</li>
+<li>**Ключи:** доставка воды срочно (3/мес)</li>
+<li>**Контент:** 24/7, без доплат за срочность (если так по факту — проверить у владельца)</li>
+<p>---</p>
+<h3>P2 — backlog</h3>
+<h4>B09. Пожарный резерв</h4>
+<li>B2B-тон, договор, объёмы 20+ м³, закрывающие документы</li>
+<p>---</p>
+<h3>Общие требования ко всем брифам</h3>
+<li>Язык: русский, обращение на «вы»</li>
+<li>Гео: Новороссийск + перечень районов с сайта</li>
+<li>Не использовать частотности в тексте для пользователя</li>
+<li>Каждый блок заканчивается CTA (WhatsApp / звонок)</li>
+<li>Микроразметка: FAQPage для FAQ, LocalBusiness для организации</li></article><article><h3>SERP / GEO заметки</h3><h2>08. SERP / GEO / AI заметки</h2>
+<p>**Статус:** live SERP **не проверялся**. Все выводы — гипотезы на основе Wordstat и структуры ниши.</p>
+<h3>Ожидаемая SERP-картина (Яндекс)</h3>
+<h4>«доставка воды новороссийск» (701 показ/мес, край)</h4>
+<p>**Гипотеза:** выдача dominated by:</p>
+<li>сервисы 19 л (АкваКуб, Троицкая, Архыз и др.)</li>
+<li>агрегаторы и карты</li>
+<li>**не** водовозы 7,5+ м³</li>
+<p>**Действие:** не гнаться за чистым head без уточнения «водовоз» в title/H1; рассмотреть отдельную посадочную или жёсткий фильтр на первом экране.</p>
+<h4>«водовоз» / «водовоз доставка воды» (край ~124–991)</h4>
+<p>**Гипотеза:** смесь:</p>
+<li>региональные перевозчики (Водовозы Юга — Краснодар)</li>
+<li>бренды «Весёлый водовоз»</li>
+<li>общие коммерческие сниппеты</li>
+<p>**Действие:** локальные сигналы (Новороссийск в title, карта районов, телефон), фото своего автопарка.</p>
+<h4>«техническая вода» (1371 показ/мес)</h4>
+<p>**Гипотеза:** смешанная выдача — справочники, ГОСТ, промышленные поставщики, частично доставка.</p>
+<p>**Действие:** коммерческий блок с определением + «заказать доставку»; информационный хвост (температура, учёт) — только FAQ, не отдельные страницы.</p>
+<h3>GEO / AI-оптимизация</h3>
+<h4>Блоки для featured snippet / AI-ответов</h4>
+<p>1. **Что такое доставка воды водовозом?**</p>
+<p>Короткий ответ: «Водовоз — автоцистерна 7,5–20 м³, которая доставляет воду на объект и сливает в вашу ёмкость. Минимальный заказ в АкваСервис — 7,5 м³.»</p>
+<p>2. **Минимальный объём заказа?** → 7,5 м³ (7 500 л)</p>
+<p>3. **Сколько стоит?** → «Цена зависит от адреса и объёма; расчёт по WhatsApp/телефону за 1 минуту» (если нет прайса)</p>
+<p>4. **Чем водовоз отличается от 19 литров?** → таблица сравнения (бриф B03)</p>
+<p>5. **Как быстро приедет?** → 1–3 часа, срочно от 1 часа</p>
+<h4>Schema.org (рекомендации)</h4>
+<p>```json</p>
+<p>{</p>
+<p>&quot;@type&quot;: &quot;LocalBusiness&quot;,</p>
+<p>&quot;name&quot;: &quot;АкваСервис&quot;,</p>
+<p>&quot;telephone&quot;: &quot;+79883174484&quot;,</p>
+<p>&quot;areaServed&quot;: &quot;Новороссийск&quot;,</p>
+<p>&quot;description&quot;: &quot;Доставка воды водовозом от 7,5 м³&quot;</p>
+<p>}</p>
+<p>```</p>
+<p>+ `FAQPage` для секции FAQ.</p>
+<h4>Trust-сигналы для AI и пользователя</h4>
+<li>Реальный телефон prod</li>
+<li>Фото водовозов с номерами</li>
+<li>Сертификаты качества воды</li>
+<li>Годы работы (15 лет)</li>
+<li>Способы оплаты после доставки</li>
+<h3>Региональные заметки</h3>
+<p>| Регион Wordstat | ID | Как использовали |</p>
+<p>|---|---|---|</p>
+<p>| Новороссийск | 970 | Локальные seeds — мало данных |</p>
+<p>| Краснодарский край | 10995 | Основной объём частот |</p>
+<p>**Риск:** частотности края **завышают** локальный спрос в Новороссийске. Для медиапланирования нужна ручная оценка или Wordstat «по регионам» (инструмент `wordstat_get_regions` — не вызывался в этом прогоне).</p>
+<h3>Конкуренты для ручной SERP-проверки</h3>
+<p>1. Весёлый водовоз (брендовые запросы)</p>
+<p>2. Водовозы Юга / Краснодар</p>
+<p>3. АкваКуб и др. (по head «доставка воды новороссийск» — indirect)</p>
+<p>4. Карты Яндекс/Google: «водовоз новороссийск»</p>
+<h3>Чек-лист live SERP (для владельца/SEO)</h3>
+<li>[ ] Топ-10 по «водовоз новороссийск»</li>
+<li>[ ] Топ-10 по «доставка воды новороссийск» — доля 19л</li>
+<li>[ ] Топ-10 по «техническая вода» + «новороссийск» (если есть выдача)</li>
+<li>[ ] Карта знаний / AI-ответ Яндекса по «сколько стоит водовоз»</li></article><article><h3>Отчёт качества</h3><h2>09. Отчёт качества</h2>
+<h3>Покрытие Wordstat</h3>
+<p>| Метрика | Значение |</p>
+<p>|---|---|</p>
+<p>| MCP сервер | Kovcheg (Wordstat) |</p>
+<p>| Проверка доступа | wordstat_get_user_info — OK |</p>
+<p>| Wordstat-вызовов | **23** |</p>
+<p>| Seed-фраз | 23 уникальных |</p>
+<p>| Сырых строк в CSV | **131** |</p>
+<p>| Уникальных после дедуп | **91** |</p>
+<p>| Включено (включить) | **46** |</p>
+<p>| Исключено (исключить) | **45** |</p>
+<p>| Кластеров | **10** |</p>
+<h3>Ограничения данных</h3>
+<h4>1. Низкий локальный объём (регион 970)</h4>
+<p>11 из 12 seeds с регионом **970** вернули «нет данных» или единичные показы. Это **не ошибка MCP**, а реальное отражение нишевости водовоза в Wordstat по Новороссийску.</p>
+<p>**Следствие:** частотности P0-кластеров CL01/CL02 частично опираются на край 10995.</p>
+<h4>2. Обрезка длинных ответов MCP</h4>
+<p>Для seeds «водовоз», «техническая вода», «вода водовоз» API вернул «… и ещё N запросов». В `03-wordstat-raw.csv` записаны **только видимые строки** с пометкой `truncated_response_*` в notes.</p>
+<p>**Следствие:** хвост long-tail недосчитан; для micro-niche это некритично.</p>
+<h4>3. все устройства недоступен</h4>
+<p>Параметр `все устройства` вернул ошибку API. Все вызовы выполнены с `devices: [&quot;all&quot;]`.</p>
+<h4>4. SERP не проверялся</h4>
+<p>Все кластеры: `serp_check_status=не проверено`. URL-map и приоритеты — **рабочая гипотеза**, не финальная структура сайта.</p>
+<h4>5. Нет GSC / Яндекс.Вебмастер</h4>
+<p>Реальные запросы с сайта не учтены. После запуска prod — подключить и пересобрать ядро.</p>
+<h4>6. Конкуренция с 19л в одном seed</h4>
+<p>Seed «доставка воды новороссийск» даёт 701 показ, но ~70% связанных запросов — **19 литров** (исключены). Реальный addressable demand для водовоза — доля неизвестна без SERP.</p>
+<h3>Качество очистки</h3>
+<p>**Исключали:**</p>
+<li>19 л, бренды бутылей</li>
+<li>другие города (СПб, Москва, Сочи, Донецk…)</li>
+<li>вакансии («работа»)</li>
+<li>учебные/химические запросы по «техническая вода»</li>
+<li>конкурентные бренды (Весёлый водовоз, Алексей водовоз)</li>
+<li>отзывы (не primary landing)</li>
+<p>**Риск ложного исключить:** «новороссийск доставка воды на дом» (64) — исключитьd as bottle-adjacent; возможен целевой long-tail для ёмкостей — **проверить в SERP**.</p>
+<h3>Чек-лист качества</h3>
+<li>[x] Бизнес-границы зафиксированы (`00-brief.md`)</li>
+<li>[x] Регион указан (970 + 10995)</li>
+<li>[x] Wordstat MCP использован, частотности не выдуманы</li>
+<li>[x] CSV-файлы существуют</li>
+<li>[x] P0/P1 имеют primary query и URL</li>
+<li>[x] Риск каннибализации с 19л указан</li>
+<li>[x] HTML и XLSX сгенерированы</li>
+<li>[ ] Live SERP — не выполнен</li>
+<li>[ ] GSC — нет данных</li>
+<h3>Главные риски</h3>
+<p>1. **Каннибализация с бутылочной выдачей** по head-запросу «доставка воды новороссийск»</p>
+<p>2. **Завышение спроса** при использовании частот края вместо 970</p>
+<p>3. **Нулевые цены на сайте** — слабая конверсия по транзакционным «цена/заказать»</p>
+<p>4. **Placeотложитьer телефон** на preview при деплое без замены</p>
+<h3>Оценка полноты</h3>
+<p>| Аспект | Оценка |</p>
+<p>|---|---|</p>
+<p>| Коммерческое ядро водовоз | Достаточно для старта |</p>
+<p>| Локальные long-tail Нск | Недостаточно — нужен SERP + GSC |</p>
+<p>| Информационный хвост | Частично (техническая вода) |</p>
+<p>| Конкурентный анализ | Только из Wordstat брендов |</p>
+<p>**Вердict:** пакет **готов для внедрения P0 на лендинг**, но **не production-ready** без SERP и аналитики.</p></article><article><h3>TODO</h3><h2>10. TODO после исследования</h2>
+<h3>Уже сделано</h3>
+<li>[x] Собран бриф и границы бизнеса (`00-brief.md`)</li>
+<li>[x] Инвентаризация preview-лендинга (`01-site-inventory.md`)</li>
+<li>[x] Карта seed-семейств и 23 Wordstat-вызова (`02-seed-map.md`)</li>
+<li>[x] Сырые и очищенные CSV, кластеры, URL-map</li>
+<li>[x] Контент-брифы P0/P1 (`07-content-briefs.md`)</li>
+<li>[x] HTML-отчёт и Excel-книга</li>
+<h3>Проверить вручную</h3>
+<li>[ ] **SERP Яндекс:** «водовоз новороссийск» — кто в топ-10? *(SEO)*</li>
+<li>[ ] **SERP Яндекс:** «доставка воды новороссийск» — доля 19л vs водовоз *(SEO)*</li>
+<li>[ ] **Факт:** цены «по запросу» — можно ли публиковать вилку? *(владелец)*</li>
+<li>[ ] **Факт:** срочный выезд без доплат — подтвердить *(владелец)*</li>
+<li>[ ] **Prod:** телефон +7 988 317-44-84 на всех CTA *(разработчик)*</li>
+<li>[ ] **FAQ:** ответы видны в HTML и не пустые *(редактор)*</li>
+<h3>Сделать дальше</h3>
+<p>| Приоритет | Задача | Ответственный | Файл/URL | Комментарий |</p>
+<p>|---|---|---|---|---|</p>
+<p>| P0 | Обновить title/H1/description под «водовоз от 7,5 м³» | SEO + редактор | `/` | Бриф B01 |</p>
+<p>| P0 | Добавить блок «Техническая вода» с якорем | разработчик + редактор | `/#services-technical` | Бриф B02 |</p>
+<p>| P0 | Таблица «водовоз vs 19 л» на первом экране | редактор | `/` | Бриф B03, CL02 |</p>
+<p>| P0 | Заменить placeотложитьer-телефон на prod | разработчик | весь сайт | +7 988 317-44-84 |</p>
+<p>| P0 | LocalBusiness + FAQPage schema | разработчик | `/` | `08-serp-geo-notes.md` |</p>
+<p>| P1 | Раскрыть FAQ с schema | редактор | `/#faq` | Бассейн, цена, срок |</p>
+<p>| P1 | Усилить секции стройка / дом / бассейн | редактор | якоря услуг | Брифы B04–B06 |</p>
+<p>| P1 | Подключить Яндекс.Вебмастер + Метрику | аналитик | akvaservis-nsk.ru | После prod |</p>
+<p>| P2 | B2B-копия пожарный резерв | редактор | `/#services-fire` | CL06 |</p>
+<h3>Backlog</h3>
+<li>[ ] Отдельная страница `/vodovoz-novorossijsk/` — только если SERP покажет need *(SEO)*</li>
+<li>[ ] Доп. Wordstat: `wordstat_get_regions` по топ-запросам *(SEO)*</li>
+<li>[ ] Пересборка ядра после 30 дней GSC *(SEO + аналитик)*</li>
+<li>[ ] Фото автопарка и кейсы для trust *(владелец)*</li></article><article><h3>План внедрения</h3><h2>12. Roadmap внедрения</h2>
+<h3>Обзор</h3>
+<p>Один лендинг на `akvaservis-nsk.ru` закрывает 10 кластеров через якорные секции. Фокус: **отличить водовоз 7,5+ м³ от бутылочной выдачи** и закрыть коммерческий спрос по краю с локальной геопривязкой.</p>
+<p>---</p>
+<h3>7 дней — быстрые победы (P0)</h3>
+<p>| День | Задача | Роль | KPI |</p>
+<p>|---|---|---|---|</p>
+<p>| 1 | Prod-телефон + WhatsApp на всех CTA | разработчик | 100% блоков |</p>
+<p>| 1–2 | Title, meta description, H1 (бриф B01) | SEO + редактор | CTR в Вебмастере (baseline) |</p>
+<p>| 2–3 | Блок «водовоз vs 19 л» + абзац про 7,5 м³ | редактор | ↓ bounce с нецелевого трафика |</p>
+<p>| 3–4 | Новый блок «Техническая вода» (#services-technical) | разработчик + редактор | Покрытие CL05 |</p>
+<p>| 4–5 | LocalBusiness + FAQPage JSON-LD | разработчик | Rich results test |</p>
+<p>| 5–7 | Ручная SERP-проверка 3 запросов + правки title | SEO | Зафиксировать конкурентов |</p>
+<p>**Результат 7 дней:** лендинг готов к индексации prod с корректным позиционированием.</p>
+<p>---</p>
+<h3>30 дней — рост и измерение (P0 + P1)</h3>
+<p>| Неделя | Задача | Роль |</p>
+<p>|---|---|---|</p>
+<p>| 1 | Яндекс.Вебмастер, Метрика, цели на WhatsApp/звонок | аналитик |</p>
+<p>| 2 | Раскрыть FAQ (6+ ответов), усилить стройка/бассейн/дом | редактор |</p>
+<p>| 2 | Добавить вилку цен или «от X ₽ за 7,5 м³» если возможно | владелец + редактор |</p>
+<p>| 3 | Фото водовозов, сертификаты на сайт | владелец |</p>
+<p>| 4 | Анализ Search Console / Wordstat: первый пересмотр кластеров | SEO |</p>
+<p>**KPI 30 дней:**</p>
+<li>Индексация главной в Яндексе</li>
+<li>Первые переходы по «водовоз»/«водовоз новороссийск»</li>
+<li>Конверсия в WhatsApp/звонок (baseline)</li>
+<p>---</p>
+<h3>90 дней — масштабирование (P1 + P2)</h3>
+<p>| Месяц | Задача | Роль |</p>
+<p>|---|---|---|</p>
+<p>| 2 | Контент-кейсы: стройка, бассейн, частный дом (по 1 блоку) | редактор + владелец |</p>
+<p>| 2 | B2B: пожарный резерв, промышленность — отдельные абзацы + форма | редактор |</p>
+<p>| 3 | Решение по отдельному URL `/vodovoz/` на основе SERP + GSC | SEO |</p>
+<p>| 3 | Повторный Wordstat-прогон + обновление CSV | SEO |</p>
+<p>| 3 | A/B title с «от 7,5 м³» vs «водовоз 10 кубов» | SEO + аналитик |</p>
+<p>**KPI 90 дней:**</p>
+<li>Топ-10 по «водовоз новороссийск» (реалистичная цель при низкая volume)</li>
+<li>Стабильные лиды с organic</li>
+<li>Снижение нецелевых звонков «19 литров»</li>
+<p>---</p>
+<h3>Матрица кластер → действие → срок</h3>
+<p>| cluster_id | Приоритет | URL | Срок | Статус |</p>
+<p>|---|---|---|---|---|</p>
+<p>| CL01_vodovoz_nsk | P0 | `/` | 7 дн | обновить |</p>
+<p>| CL02_delivery_nsk | P0 | `/` | 7 дн | обновить |</p>
+<p>| CL05_technical_water | P0 | `/#services-technical` | 7 дн | создать |</p>
+<p>| CL08_vodovoz_krai | P0 | `/` | 7 дн | обновить |</p>
+<p>| CL03_construction | P1 | `/#services-construction` | 30 дн | обновить |</p>
+<p>| CL04_pool | P1 | `/#services-pool` | 30 дн | обновить |</p>
+<p>| CL07_urgent | P1 | hero | 7 дн | готово |</p>
+<p>| CL09_private_house | P1 | `/#services-home` | 30 дн | обновить |</p>
+<p>| CL10_drinking_tanker | P1 | `/#services-drinking` | 30 дн | обновить |</p>
+<p>| CL06_fire_reserve | P2 | `/#services-fire` | 90 дн | обновить |</p>
+<p>---</p>
+<h3>Риски roadmap</h3>
+<p>| Риск | Митигация |</p>
+<p>|---|---|</p>
+<p>| SERP по head — только 19л | Anti-bottle блок, long-tail «водовоз» |</p>
+<p>| Нет данных 970 | Локальный SEO: карты, районы, телефон |</p>
+<p>| Нет прайса | FAQ + быстрый расчёт в WhatsApp |</p>
+<p>| Мало контента для «техническая вода» | Определение + коммерческий CTA, не статья-энциклопедия |</p>
+<p>---</p>
+<h3>Следующий прогон Core</h3>
+<p>**Когда:** через 90 дней или после 100+ кликов в GSC.</p>
+<p>**Добавить:**</p>
+<li>live SERP-скриншоты</li>
+<li>GSC top queries</li>
+<li>`wordstat_get_regions` для распределения 970 vs 10995</li>
+<li>seeds по районам (Мысхако, Цемдолина…)</li></article>
+  </section>
+
+  <section>
+    <h2>11. Итоговые рекомендации</h2>
+    <h3>Что улучшить первым</h3>
+    <ol>
+      <li>Развести информационные и коммерческие интенты по разным страницам.</li>
+      <li>Создать или обновить все P0-страницы.</li>
+      <li>Проверить live SERP по P0/P1 запросам.</li>
+      <li>Подключить GSC и Яндекс.Вебмастер.</li>
+      <li>Добавить кейсы, доверие, FAQ/GEO-блоки и сильные CTA.</li>
+    </ol>
+    <h3>План 7/30/90 дней</h3>
+    <ul>
+      <li>7 дней: проверить SERP, конкурентов, URL-структуру и первые ТЗ.</li>
+      <li>30 дней: опубликовать P0-страницы, перелинковать, добавить FAQ.</li>
+      <li>90 дней: сравнить показы/клики/CTR, обновить title/description, пересобрать ядро по фактическим данным.</li>
+    </ul>
+  </section>
+</main>
+<footer>Сгенерировано Core. Частотности не выдумываются; ограничения должны быть явно указаны в отчёте качества.</footer>
+</body>
+</html>
