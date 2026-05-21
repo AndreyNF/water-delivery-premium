@@ -1,0 +1,92 @@
+﻿query,canonical_query,source_sources,frequency_region,frequency_value,intent_initial,intent_confidence,cluster_candidate,include_status,exclude_reason,notes
+техническая вода,техническая вода,ws14,10995,1371,Mixed,low,CL05_technical_water,include,,truncated_response_80_more_rows
+водовозов,водовоз,ws13,10995,1066,T,high,CL08_vodovoz_krai,include,,truncated_response_80_more_rows
+доставка воды новороссийск,доставка воды новороссийск,ws17,10995,701,T,high,CL02_delivery_nsk,include,,
+доставка воды новороссийск 19,доставка воды новороссийск 19,ws17,10995,184,T,high,CL02_delivery_nsk,include,,
+вода водовоз,вода водовоз,ws13,10995,163,T,high,CL08_vodovoz_krai,include,,truncated_response_80_more_rows
+водовозов вода,водовоз вода,ws13,10995,163,T,high,CL08_vodovoz_krai,include,,truncated_response_80_more_rows
+технический натрий вода,технический натрий вода,ws14,10995,152,Mixed,low,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,truncated_response_80_more_rows
+техническая вода кальций,техническая вода кальций,ws14,10995,150,Mixed,low,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,truncated_response_80_more_rows
+водовоз юг,водовоз юг,ws13,10995,135,T,high,CL08_vodovoz_krai,include,,truncated_response_80_more_rows
+водовоз доставка,водовоз доставка,ws13,10995,127,T,high,CL08_vodovoz_krai,include,,truncated_response_80_more_rows
+водовоз доставка воды,водовоз доставка воды,ws12,10995,124,T,high,CL08_vodovoz_krai,include,,
+водовозов краснодар,водовоз краснодар,ws13,10995,124,T,high,CL08_vodovoz_krai,exclude,wrong_geo_for_nsk_focus,truncated_response_80_more_rows
+техническая вода 1,техническая вода 1,ws14,10995,102,Mixed,low,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,truncated_response_80_more_rows
+водовозы юга краснодар,водовозы юга краснодар,ws13,10995,80,T,high,CL08_vodovoz_krai,exclude,wrong_geo_for_nsk_focus,truncated_response_80_more_rows
+вода техническая питьевая,вода техническая питьевая,ws14,10995,78,Mixed,low,CL05_technical_water,include,,truncated_response_80_more_rows
+технический карбид кальция с избытком воды,технический карбид кальция с избытком воды,ws14,10995,67,Mixed,low,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,truncated_response_80_more_rows
+алексей водовоз,алексей водовоз,ws13,10995,64,T,high,CL08_vodovoz_krai,exclude,competitor_brand,truncated_response_80_more_rows
+новороссийск доставка воды на дом,новороссийск доставка воды на дом,ws17,10995,64,T,high,CL02_delivery_nsk,include,,
+водовоз сайт,водовоз сайт,ws13,10995,62,N,low,CL08_vodovoz_krai,include,,truncated_response_80_more_rows
+водовоз официальный,водовоз официальный,ws13,10995,59,T,high,CL08_vodovoz_krai,include,,truncated_response_80_more_rows
+водовоз официальный сайт,водовоз официальный сайт,ws13,10995,58,N,low,CL08_vodovoz_krai,include,,truncated_response_80_more_rows
+техническая вода в 6,техническая вода в 6,ws14,10995,56,Mixed,low,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,truncated_response_80_more_rows
+доставка технической воды,доставка технической воды,ws14,10995,55,T,high,CL05_technical_water,include,,truncated_response_80_more_rows
+доставка воды новороссийск 19 литров на дом,доставка воды новороссийск 19 литров на дом,ws17,10995,53,T,high,CL02_delivery_nsk,exclude,exclude_bottle_jobs_offtopic,
+аквакуб новороссийск вода доставка,аквакуб новороссийск вода доставка,ws17,10995,52,T,high,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+техническое задание вода,техническое задание вода,ws14,10995,49,Mixed,low,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,truncated_response_80_more_rows
+водовоз юг краснодар официальный,водовоз юг краснодар официальный,ws18,10995,48,T,high,CL08_vodovoz_krai,exclude,wrong_geo_for_nsk_focus,
+водовоз юг краснодар официальный сайт,водовоз юг краснодар официальный сайт,ws18,10995,48,N,low,CL08_vodovoz_krai,exclude,wrong_geo_for_nsk_focus,
+красный водовоз,красный водовоз,ws13,10995,48,T,high,CL08_vodovoz_krai,exclude,competitor_brand,truncated_response_80_more_rows
+техническая вода в 3,техническая вода в 3,ws14,10995,47,Mixed,low,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,truncated_response_80_more_rows
+техническая вода можно,техническая вода можно,ws14,10995,43,I,medium,CL05_technical_water,include,,truncated_response_80_more_rows
+температура технической воды,температура технической воды,ws14,10995,40,I,medium,CL05_technical_water,include,,truncated_response_80_more_rows
+наполнение бассейна водой,наполнение бассейна водой,ws16,10995,39,Mixed,low,CL04_pool,include,,
+характеристика технической воды,характеристика технической воды,ws14,10995,39,I,medium,CL05_technical_water,include,,truncated_response_80_more_rows
+аква куб новороссийск вода доставка,аква куб новороссийск вода доставка,ws17,10995,36,T,high,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+вода 19 литров с доставкой новороссийск,вода 19 литров с доставкой новороссийск,ws17,10995,32,Mixed,low,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+водовоз питьевая вода,водовоз питьевая вода,ws23,10995,32,T,high,CL08_vodovoz_krai,include,,truncated_response_37_more_rows
+пункты технической воды,пункты технической воды,ws14,10995,31,Mixed,low,CL05_technical_water,include,,truncated_response_80_more_rows
+вода техническая гост,вода техническая гост,ws14,10995,30,I,medium,CL05_technical_water,include,,truncated_response_80_more_rows
+доставка питьевой воды водовозом,доставка питьевой воды водовозом,ws12,10995,30,T,high,CL08_vodovoz_krai,include,,
+техническая вода донецк,техническая вода донецк,ws14,10995,30,Mixed,low,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,truncated_response_80_more_rows
+технические условия на воду,технические условия на воду,ws14,10995,29,Mixed,low,CL05_technical_water,include,,truncated_response_80_more_rows
+учет технической воды,учет технической воды,ws14,10995,28,I,medium,CL05_technical_water,include,,truncated_response_80_more_rows
+очистка технических вод,очистка технических вод,ws14,10995,27,I,medium,CL05_technical_water,include,,truncated_response_80_more_rows
+доставка воды новороссийск цены,доставка воды новороссийск цены,ws17,10995,26,T,medium,CL02_delivery_nsk,include,,
+доставка воды новороссийск 19 литров цена,доставка воды новороссийск 19 литров цена,ws17,10995,25,T,medium,CL02_delivery_nsk,exclude,exclude_bottle_jobs_offtopic,
+доставка технической воды донецк,доставка технической воды донецк,ws14,10995,25,T,high,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,truncated_response_80_more_rows
+троицкая вода новороссийск доставка,троицкая вода новороссийск доставка,ws17,10995,23,T,high,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+амзай новороссийск вода доставка,амзай новороссийск вода доставка,ws17,10995,20,T,high,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+доставка питьевой воды новороссийск,доставка питьевой воды новороссийск,ws17,10995,19,T,high,CL10_drinking_tanker,include,,
+аква куб новороссийск вода доставка телефон,аква куб новороссийск вода доставка телефон,ws17,10995,17,T,high,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+водовоз доставка воды краснодар,водовоз доставка воды краснодар,ws12,10995,16,T,high,CL08_vodovoz_krai,exclude,wrong_geo_for_nsk_focus,
+водовоз новороссийск,водовоз новороссийск,ws01,970,13,T,high,CL01_vodovoz_nsk,include,,
+архыз доставка воды новороссийск,архыз доставка воды новороссийск,ws17,10995,12,T,high,CL02_delivery_nsk,exclude,exclude_bottle_jobs_offtopic,
+вода на стройку,вода на стройку,ws15,10995,11,Mixed,low,CL03_construction,include,,
+доставка питьевой воды водовозом в сочи,доставка питьевой воды водовозом в сочи,ws12,10995,11,T,high,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+водовозов купить воду,водовоз купить воду,ws23,10995,10,T,medium,CL08_vodovoz_krai,include,,truncated_response_37_more_rows
+купить водовоз воды,купить водовоз воды,ws23,10995,10,T,medium,CL08_vodovoz_krai,include,,truncated_response_37_more_rows
+первое наполнение бассейна водой,первое наполнение бассейна водой,ws16,10995,10,Mixed,low,CL04_pool,include,,
+веселый водовоз новороссийск,веселый водовоз новороссийск,ws01,970,9,T,high,CL01_vodovoz_nsk,exclude,competitor_brand,competitor brand
+водовоз цена воды,водовоз цена воды,ws23,10995,8,T,medium,CL08_vodovoz_krai,include,,truncated_response_37_more_rows
+вода веселый водовоз,вода веселый водовоз,ws23,10995,7,T,high,CL08_vodovoz_krai,exclude,competitor_brand,truncated_response_37_more_rows
+доставка воды слон новороссийск,доставка воды слон новороссийск,ws17,10995,7,T,high,CL02_delivery_nsk,exclude,exclude_bottle_jobs_offtopic,
+доставка воды водовозом по раевской,доставка воды водовозом по раевской,ws12,10995,6,T,high,CL08_vodovoz_krai,exclude,wrong_geo_for_nsk_focus,
+доставка технической воды краснодон,доставка технической воды краснодон,ws19,10995,5,T,high,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,
+привоз воды водовозом,привоз воды водовозом,ws23,10995,4,T,high,CL08_vodovoz_krai,include,,truncated_response_37_more_rows
+веселый водовоз доставка воды,веселый водовоз доставка воды,ws12,10995,3,T,high,CL08_vodovoz_krai,exclude,competitor_brand,
+вода веселый водовоз отзывы,вода веселый водовоз отзывы,ws23,10995,3,T,high,CL08_vodovoz_krai,exclude,competitor_brand,truncated_response_37_more_rows
+вода водовоз отзывы,вода водовоз отзывы,ws23,10995,3,T,high,CL08_vodovoz_krai,exclude,reviews_not_primary_landing,truncated_response_37_more_rows
+водовозов заказать воду,водовоз заказать воду,ws23,10995,3,T,medium,CL08_vodovoz_krai,include,,truncated_response_37_more_rows
+доставка воды водовозом цена,доставка воды водовозом цена,ws12,10995,3,T,medium,CL08_vodovoz_krai,include,,
+доставка воды срочно,доставка воды срочно,ws20,10995,3,T,high,CL07_urgent,include,,
+доставка технической воды геленджик,доставка технической воды геленджик,ws19,10995,3,T,high,CL05_technical_water,exclude,wrong_geo_for_nsk_focus,
+заказать воду водовоз,заказать воду водовоз,ws23,10995,3,T,medium,CL08_vodovoz_krai,include,,truncated_response_37_more_rows
+заказать техническую воду с доставкой,заказать техническую воду с доставкой,ws19,10995,3,T,medium,CL05_technical_water,include,,
+резервуары пожарного запаса воды,резервуары пожарного запаса воды,ws02,970,3,Mixed,low,CL06_fire_reserve,include,,
+водовоз доставка воды спб,водовоз доставка воды спб,ws12,10995,2,T,high,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+доставка технической воды кубами,доставка технической воды кубами,ws19,10995,2,T,high,CL05_technical_water,include,,
+доставка технической воды спб,доставка технической воды спб,ws19,10995,2,T,high,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,
+пожарный резервуар для воды,пожарный резервуар для воды,ws02,970,2,Mixed,low,CL06_fire_reserve,include,,
+водовоз доставка воды заказать,водовоз доставка воды заказать,ws12,10995,1,T,medium,CL08_vodovoz_krai,include,,
+водовоз доставка воды москва,водовоз доставка воды москва,ws12,10995,1,T,high,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+водовоз доставка воды отзывы,водовоз доставка воды отзывы,ws12,10995,1,T,high,CL08_vodovoz_krai,exclude,reviews_not_primary_landing,
+водовоз доставка воды работа,водовоз доставка воды работа,ws12,10995,1,T,high,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+водовоз доставка воды спб телефон,водовоз доставка воды спб телефон,ws12,10995,1,T,high,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+водовоз доставка воды спб телефон заказать,водовоз доставка воды спб телефон заказать,ws12,10995,1,T,medium,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+водовоз доставка воды телефон,водовоз доставка воды телефон,ws12,10995,1,T,high,CL08_vodovoz_krai,include,,
+доставка воды водовозом красноярск,доставка воды водовозом красноярск,ws12,10995,1,T,high,CL08_vodovoz_krai,exclude,exclude_bottle_jobs_offtopic,
+доставка технической воды на дом,доставка технической воды на дом,ws19,10995,1,T,high,CL05_technical_water,include,,
+доставка технической воды пятигорск,доставка технической воды пятигорск,ws19,10995,1,T,high,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,
+мариуполь доставка воды техническая,мариуполь доставка воды техническая,ws19,10995,1,T,high,CL05_technical_water,exclude,exclude_bottle_jobs_offtopic,
