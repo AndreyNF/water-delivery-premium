@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Полный отчёт Core: </title>
+  <style>
+    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:#111; background:#fff; line-height:1.5; }
+    header { padding:44px 52px 30px; border-bottom:1px solid #ddd; background:linear-gradient(180deg,#fff,#f7f7f7); }
+    main { max-width:1180px; margin:0 auto; padding:34px 28px 70px; }
+    h1 { font-size:42px; line-height:1.08; margin:0 0 14px; letter-spacing:-.03em; }
+    h2 { font-size:28px; margin:42px 0 14px; padding-top:8px; border-top:2px solid #111; }
+    h3 { font-size:20px; margin:28px 0 10px; }
+    p { margin:0 0 12px; }
+    .lead { font-size:18px; max-width:900px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:22px 0; }
+    .card { border:1px solid #ddd; border-radius:14px; padding:16px; background:#fafafa; }
+    .card b { display:block; font-size:13px; text-transform:uppercase; letter-spacing:.05em; color:#555; margin-bottom:8px; }
+    .card span { font-size:28px; font-weight:700; }
+    .two { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    table { width:100%; border-collapse:collapse; margin:12px 0 24px; font-size:14px; }
+    th,td { border:1px solid #ddd; padding:8px 9px; vertical-align:top; text-align:left; }
+    th { background:#efefef; position:sticky; top:0; z-index:1; }
+    code { background:#f0f0f0; padding:1px 5px; border-radius:4px; }
+    .note { border-left:4px solid #111; padding:12px 14px; background:#fafafa; margin:16px 0; }
+    .pill { display:inline-block; border:1px solid #111; border-radius:999px; padding:2px 9px; margin:2px; font-size:12px; }
+    li { margin:0 0 7px; }
+    footer { padding:24px 52px; border-top:1px solid #ddd; color:#555; }
+    @media (max-width:800px) { header { padding:28px 22px; } .two { grid-template-columns:1fr; } h1 { font-size:32px; } }
+  </style>
+</head>
+<body>
+<header>
+  <p>Semantic Core / SEO + GEO / Wordstat / Cursor sub-agent</p>
+  <h1>Полный отчёт по семантическому ядру: </h1>
+  <p class="lead">Это общий файл “всё в одном”: выводы, методика, таблицы, карта страниц, контент-план, риски, ограничения и рекомендации.</p>
+</header>
+<main>
+  <section>
+    <h2>1. Краткий вывод</h2>
+    <div class="grid">
+      <div class="card"><b>Строк Wordstat</b><span>52</span></div>
+      <div class="card"><b>Очищенных запросов</b><span>20</span></div>
+      <div class="card"><b>Включено</b><span>14</span></div>
+      <div class="card"><b>Исключено</b><span>5</span></div>
+      <div class="card"><b>Кластеров</b><span>10</span></div>
+      <div class="card"><b>P0/P1</b><span>9</span></div>
+    </div>
+    <p>Пакет показывает, какие темы уже можно переводить в страницы, какие требуют проверки SERP, где есть риск каннибализации и что делать в ближайшие 7/30/90 дней.</p>
+  </section>
+
+  <section>
+    <h2>2. Файлы пакета</h2>
+    <ul><li><a href="README.md">README.md</a></li><li><a href="00-brief.md">00-brief.md</a></li><li><a href="01-site-inventory.md">01-site-inventory.md</a></li><li><a href="02-seed-map.md">02-seed-map.md</a></li><li><a href="03-wordstat-raw.csv">03-wordstat-raw.csv</a></li><li><a href="04-keywords-clean.csv">04-keywords-clean.csv</a></li><li><a href="05-clusters.csv">05-clusters.csv</a></li><li><a href="06-url-map.csv">06-url-map.csv</a></li><li><a href="07-content-briefs.md">07-content-briefs.md</a></li><li><a href="08-serp-geo-notes.md">08-serp-geo-notes.md</a></li><li><a href="09-quality-report.md">09-quality-report.md</a></li><li><a href="10-todo.md">10-todo.md</a></li><li><a href="12-implementation-roadmap.md">12-implementation-roadmap.md</a></li></ul>
+  </section>
+
+  <section>
+    <h2>3. Что уже хорошо и что мешает росту</h2>
+    <div class="two">
+      <div class="note">
+        <h3>Что уже хорошо</h3>
+        <ul>
+          <li>Есть карта спроса, кластеры и URL-решения.</li>
+          <li>Есть P0/P1 приоритеты для ближайшей работы.</li>
+          <li>Есть отдельные брифы и roadmap внедрения.</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h3>Что мешает</h3>
+        <ul>
+          <li>Без live SERP нельзя считать границы кластеров финальными.</li>
+          <li>Без GSC/Яндекс.Вебмастера неизвестны фактические URL-показы.</li>
+          <li>Шумные seed-направления требуют ручной фильтрации.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Покрытие Wordstat</h2>
+    <table><thead><tr><th>Seed-фраза</th><th>Строк Wordstat</th></tr></thead><tbody><tr><td>доставка воды новороссийск</td><td>13</td></tr><tr><td>водовоз</td><td>7</td></tr><tr><td>техническая вода</td><td>4</td></tr><tr><td>заказ воды</td><td>4</td></tr><tr><td>водовоз новороссийск</td><td>3</td></tr><tr><td>доставка воды водовозом</td><td>2</td></tr><tr><td>пожарный резервуар вода</td><td>2</td></tr><tr><td>вода 19 литров новороссийск</td><td>2</td></tr><tr><td>водоснабжение частного дома</td><td>2</td></tr><tr><td>вода водовоз</td><td>2</td></tr><tr><td>противопожарное водоснабжение</td><td>2</td></tr><tr><td>вода на стройку</td><td>1</td></tr><tr><td>наполнение бассейна водой</td><td>1</td></tr><tr><td>доставка технической воды</td><td>1</td></tr><tr><td>доставка воды водовозом новороссийск</td><td>1</td></tr><tr><td>техническая вода водовоз</td><td>1</td></tr><tr><td>заказать водовоз</td><td>1</td></tr><tr><td>доставка воды 10 кубов</td><td>1</td></tr><tr><td>срочная доставка воды</td><td>1</td></tr><tr><td>доставка питьевой воды водовозом</td><td>1</td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>5. Структура ядра</h2>
+    <p>Приоритеты: <span class="pill">P0: 4</span> <span class="pill">P1: 5</span> <span class="pill">P2: 1</span></p>
+    <p>URL-статусы: <span class="pill">создать: 1</span> <span class="pill">отложить: 1</span> <span class="pill">обновить: 8</span></p>
+    <p>Интенты: <span class="pill">Mixed: 5</span> <span class="pill">T: 5</span></p>
+    <table><thead><tr><th>ID</th><th>Кластер</th><th>Главный запрос</th><th>Интент</th><th>Частотность</th><th>Тип страницы</th><th>Приоритет</th><th>Целевой URL</th><th>Статус URL</th><th>Примечания</th></tr></thead><tbody><tr><td>CL08</td><td>Доставка воды Новороссийск (перехват)</td><td>доставка воды новороссийск</td><td>Mixed</td><td>593</td><td>landing</td><td>P0</td><td>https://water-delivery-premium--preview.poehali.dev/</td><td>обновить</td><td>568/mo but ~70% bottle queries исключитьd</td></tr><tr><td>CL03</td><td>Техническая вода / доставка</td><td>доставка технической воды</td><td>Mixed</td><td>66</td><td>service_section</td><td>P0</td><td>https://water-delivery-premium--preview.poehali.dev/#services</td><td>создать</td><td>Add anchor #services-technical</td></tr><tr><td>CL10</td><td>Доставка воды на дом</td><td>новороссийск доставка воды на дом</td><td>Mixed</td><td>54</td><td>landing_block</td><td>P1</td><td>https://water-delivery-premium--preview.poehali.dev/#services</td><td>отложить</td><td>SERP check required</td></tr><tr><td>CL01</td><td>Водовоз Новороссийск</td><td>водовоз новороссийск</td><td>T</td><td>13</td><td>landing</td><td>P0</td><td>https://water-delivery-premium--preview.poehali.dev/</td><td>обновить</td><td>Low local volume but exact match</td></tr><tr><td>CL09</td><td>Питьевая вода водовозом</td><td>доставка питьевой воды новороссийск</td><td>Mixed</td><td>11</td><td>service_section</td><td>P1</td><td>https://water-delivery-premium--preview.poehali.dev/#services</td><td>обновить</td><td></td></tr><tr><td>CL02</td><td>Доставка воды водовозом</td><td>водовоз доставка воды</td><td>T</td><td>6</td><td>landing</td><td>P0</td><td>https://water-delivery-premium--preview.poehali.dev/</td><td>обновить</td><td></td></tr><tr><td>CL06</td><td>Пожарный резерв воды</td><td>резервуары пожарного запаса воды</td><td>Mixed</td><td>5</td><td>service_section</td><td>P2</td><td>https://water-delivery-premium--preview.poehali.dev/#services</td><td>обновить</td><td>B2B</td></tr><tr><td>CL07</td><td>Заказ воды кубами</td><td>заказ воды куб</td><td>T</td><td>4</td><td>landing_block</td><td>P1</td><td>https://water-delivery-premium--preview.poehali.dev/#volumes</td><td>обновить</td><td>Align with 7.5 m3 USP</td></tr><tr><td>CL05</td><td>Наполнение бассейна</td><td>наполнение бассейна водой</td><td>T</td><td>3</td><td>service_section</td><td>P1</td><td>https://water-delivery-premium--preview.poehali.dev/#services</td><td>обновить</td><td></td></tr><tr><td>CL04</td><td>Вода на стройку</td><td>вода на стройку</td><td>T</td><td>1</td><td>service_section</td><td>P1</td><td>https://water-delivery-premium--preview.poehali.dev/#services</td><td>обновить</td><td></td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>6. URL roadmap</h2>
+    <table><thead><tr><th>Целевой URL</th><th>Статус</th><th>Тип страницы</th><th>Кластеры</th><th>Главные запросы</th><th>Рекомендуемый H1</th><th>Задача</th><th>Примечания</th></tr></thead><tbody><tr><td>/</td><td>обновить</td><td>landing</td><td>CL01,CL02,CL08</td><td>водовоз новороссийск;водовоз доставка воды;доставка воды новороссийск</td><td>Доставка воды водовозом в Новороссийске — от 7,5 м³</td><td>Reposition H1/title vs bottle SERP</td><td></td></tr><tr><td>/#services-technical</td><td>создать</td><td>service_section</td><td>CL03</td><td>доставка технической воды;техническая вода</td><td>Техническая вода водовозом</td><td>New section + anchor</td><td></td></tr><tr><td>/#volumes</td><td>обновить</td><td>pricing_block</td><td>CL07</td><td>заказ воды куб;7.5 м³;10 м³</td><td>Объёмы водовозов от 7,5 м³</td><td>Add price hints if business alнизкаяs</td><td></td></tr><tr><td>/#services</td><td>обновить</td><td>services_hub</td><td>CL04,CL05,CL06,CL09,CL10</td><td>вода на стройку;бассейн;пожарный резерв</td><td>Куда доставляем водовоз</td><td>Expand FAQ answers in HTML</td><td></td></tr><tr><td>/#faq</td><td>обновить</td><td>faq</td><td>CL01,CL08</td><td>сколько стоит;как быстро;минимальный объём</td><td>FAQ — доставка воды водовозом</td><td>Ensure answers visible in DOM</td><td></td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>7. Очищенные запросы</h2>
+    <table><thead><tr><th>Запрос</th><th>Каноническая формулировка</th><th>Частотность</th><th>Интент</th><th>Уверенность</th><th>Кандидат в кластер</th><th>Статус</th><th>Причина исключения</th><th>Примечания</th></tr></thead><tbody><tr><td>водовоз новороссийск</td><td>водовоз новороссийск</td><td>13</td><td>T</td><td>высокая</td><td>CL01</td><td>включить</td><td></td><td>core local transactional</td></tr><tr><td>водовоз доставка воды</td><td>водовоз доставка воды</td><td>6</td><td>T</td><td>высокая</td><td>CL02</td><td>включить</td><td></td><td></td></tr><tr><td>вода водовоз</td><td>вода водовоз</td><td>6</td><td>T</td><td>средняя</td><td>CL02</td><td>включить</td><td></td><td></td></tr><tr><td>доставка технической воды</td><td>доставка технической воды</td><td>7</td><td>T</td><td>высокая</td><td>CL03</td><td>включить</td><td></td><td></td></tr><tr><td>техническая вода</td><td>техническая вода</td><td>59</td><td>Mixed</td><td>средняя</td><td>CL03</td><td>включить</td><td></td><td>head term; filter info tail manually</td></tr><tr><td>вода на стройку</td><td>вода на стройку</td><td>1</td><td>T</td><td>средняя</td><td>CL04</td><td>включить</td><td></td><td>низкая volume local</td></tr><tr><td>наполнение бассейна водой</td><td>наполнение бассейна водой</td><td>3</td><td>T</td><td>средняя</td><td>CL05</td><td>включить</td><td></td><td></td></tr><tr><td>резервуары пожарного запаса воды</td><td>резервуары пожарного запаса воды</td><td>3</td><td>Mixed</td><td>средняя</td><td>CL06</td><td>включить</td><td></td><td>B2B niche</td></tr><tr><td>пожарный резервуар для воды</td><td>пожарный резервуар для воды</td><td>2</td><td>Mixed</td><td>средняя</td><td>CL06</td><td>включить</td><td></td><td></td></tr><tr><td>заказ воды куб</td><td>заказ воды куб</td><td>2</td><td>T</td><td>средняя</td><td>CL07</td><td>включить</td><td></td><td>tanker intent signal</td></tr><tr><td>заказ куба воды</td><td>заказ куба воды</td><td>2</td><td>T</td><td>средняя</td><td>CL07</td><td>включить</td><td></td><td></td></tr><tr><td>доставка воды новороссийск</td><td>доставка воды новороссийск</td><td>568</td><td>Mixed</td><td>высокая</td><td>CL08</td><td>включить</td><td></td><td>SERP bottle-heavy; reposition as водовоз</td></tr><tr><td>доставка воды новороссийск цены</td><td>доставка воды новороссийск цены</td><td>25</td><td>Mixed</td><td>средняя</td><td>CL08</td><td>включить</td><td></td><td></td></tr><tr><td>доставка питьевой воды новороссийск</td><td>доставка питьевой воды новороссийск</td><td>11</td><td>Mixed</td><td>средняя</td><td>CL09</td><td>включить</td><td></td><td>separate from 19l bottles</td></tr><tr><td>новороссийск доставка воды на дом</td><td>доставка воды на дом новороссийск</td><td>54</td><td>Mixed</td><td>средняя</td><td>CL10</td><td>отложить</td><td></td><td>needs SERP check</td></tr><tr><td>веселый водовоз новороссийск</td><td>веселый водовоз новороссийск</td><td>9</td><td>N</td><td>низкая</td><td>CL01</td><td>исключить</td><td>competitor brand</td><td></td></tr><tr><td>доставка воды новороссийск 19</td><td>доставка воды новороссийск 19</td><td>156</td><td>T</td><td>высокая</td><td>CL_BOTTLE</td><td>исключить</td><td>bottle 19l off-niche</td><td></td></tr><tr><td>вода 19 литров новороссийск</td><td>вода 19 литров новороссийск</td><td>223</td><td>T</td><td>высокая</td><td>CL_BOTTLE</td><td>исключить</td><td>bottle 19l off-niche</td><td></td></tr><tr><td>водоснабжение частного дома</td><td>водоснабжение частного дома</td><td>34</td><td>I</td><td>средняя</td><td>CL_INFO</td><td>исключить</td><td>info/equipment not tanker delivery</td><td></td></tr><tr><td>противопожарное водоснабжение</td><td>противопожарное водоснабжение</td><td>18</td><td>I</td><td>низкая</td><td>CL_INFO</td><td>исключить</td><td>regulatory/education queries</td><td></td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>8. Wordstat-сырьё</h2>
+    <table><thead><tr><th>Дата</th><th>Seed-фраза</th><th>Запрос</th><th>Частотность</th><th>Регион</th><th>Устройство</th><th>Источник</th><th>Примечания</th></tr></thead><tbody><tr><td>2026-05-21</td><td>водовоз новороссийск</td><td>водовоз новороссийск</td><td>13</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз новороссийск</td><td>водовозов новороссийск</td><td>13</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз новороссийск</td><td>веселый водовоз новороссийск</td><td>9</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>competitor brand</td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка воды новороссийск</td><td>568</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка воды новороссийск 19</td><td>156</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>bottle 19l</td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>новороссийск доставка воды на дом</td><td>54</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>mixed bottle/tanker</td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка воды новороссийск 19 литров на дом</td><td>45</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>bottle 19l</td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>аквакуб новороссийск вода доставка</td><td>45</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>competitor bottle</td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>вода 19 литров с доставкой новороссийск</td><td>28</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>bottle 19l</td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>аква куб новороссийск вода доставка</td><td>28</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>competitor bottle</td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка воды новороссийск цены</td><td>25</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>mixed</td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка воды новороссийск 19 литров цена</td><td>24</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>bottle 19l</td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>троицкая вода новороссийск доставка</td><td>17</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>competitor bottle</td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>амзай новороссийск вода доставка</td><td>15</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>competitor bottle</td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка питьевой воды новороссийск</td><td>11</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>mixed</td></tr><tr><td>2026-05-21</td><td>доставка воды новороссийск</td><td>доставка воды слон новороссийск</td><td>7</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>competitor bottle</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовоз</td><td>42</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовозов</td><td>42</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовоз новороссийск</td><td>13</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>веселый водовоз</td><td>10</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>competitor brand</td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>вода водовоз</td><td>6</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовоз доставка воды</td><td>6</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>водовоз</td><td>водовоз игрушка</td><td>2</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>toy off-topic</td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовоз доставка воды</td><td>6</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом</td><td>водовозов доставка воды</td><td>6</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>вода на стройку</td><td>вода на стройку</td><td>1</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>наполнение бассейна водой</td><td>наполнение бассейна водой</td><td>3</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>техническая вода</td><td>59</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>доставка технической воды</td><td>7</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>новороссийск цемдолина лаборатория технической воды</td><td>6</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>lab/info</td></tr><tr><td>2026-05-21</td><td>техническая вода</td><td>доставка технической воды краснодон</td><td>5</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>wrong geo</td></tr><tr><td>2026-05-21</td><td>пожарный резервуар вода</td><td>резервуары пожарного запаса воды</td><td>3</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>пожарный резервуар вода</td><td>пожарный резервуар для воды</td><td>2</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>доставка технической воды</td><td>доставка технической воды</td><td>7</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>заказ воды</td><td>заказ воды</td><td>132</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>mixed bottle</td></tr><tr><td>2026-05-21</td><td>заказ воды</td><td>заказ воды новороссийск</td><td>98</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>mixed bottle</td></tr><tr><td>2026-05-21</td><td>заказ воды</td><td>заказ воды куб</td><td>2</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>tanker signal</td></tr><tr><td>2026-05-21</td><td>заказ воды</td><td>заказ куба воды</td><td>2</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>tanker signal</td></tr><tr><td>2026-05-21</td><td>вода 19 литров новороссийск</td><td>вода 19 литров новороссийск</td><td>223</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>bottle 19l исключить</td></tr><tr><td>2026-05-21</td><td>вода 19 литров новороссийск</td><td>заказать воду новороссийск 19 литров</td><td>31</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>bottle 19l исключить</td></tr><tr><td>2026-05-21</td><td>водоснабжение частного дома</td><td>водоснабжение частного дома</td><td>34</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>info equipment</td></tr><tr><td>2026-05-21</td><td>водоснабжение частного дома</td><td>система водоснабжения частного дома</td><td>11</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>info equipment</td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>вода водовоз</td><td>6</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>вода водовоз</td><td>водовоз доставка воды</td><td>6</td><td>970</td><td>all</td><td>wordstat_mcp</td><td></td></tr><tr><td>2026-05-21</td><td>противопожарное водоснабжение</td><td>противопожарное водоснабжение</td><td>18</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>info/regulatory</td></tr><tr><td>2026-05-21</td><td>противопожарное водоснабжение</td><td>наружное противопожарное водоснабжение</td><td>5</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>info/regulatory</td></tr><tr><td>2026-05-21</td><td>доставка воды водовозом новороссийск</td><td>доставка воды водовозом новороссийск</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data</td></tr><tr><td>2026-05-21</td><td>техническая вода водовоз</td><td>техническая вода водовоз</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data</td></tr><tr><td>2026-05-21</td><td>заказать водовоз</td><td>заказать водовоз</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data</td></tr><tr><td>2026-05-21</td><td>доставка воды 10 кубов</td><td>доставка воды 10 кубов</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data</td></tr><tr><td>2026-05-21</td><td>срочная доставка воды</td><td>срочная доставка воды</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data</td></tr><tr><td>2026-05-21</td><td>доставка питьевой воды водовозом</td><td>доставка питьевой воды водовозом</td><td>0</td><td>970</td><td>all</td><td>wordstat_mcp</td><td>no_data</td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>9. Практические рекомендации по страницам</h2>
+    <table><thead><tr><th>Приоритет</th><th>Кластер</th><th>Что сделать</th><th>URL</th><th>Почему важно</th><th>Риск / примечание</th></tr></thead><tbody><tr><td>P0</td><td>Водовоз Новороссийск</td><td>Усилить существующую страницу</td><td>https://water-delivery-premium--preview.poehali.dev/</td><td>высокая</td><td>Low local volume but exact match</td></tr><tr><td>P0</td><td>Доставка воды водовозом</td><td>Усилить существующую страницу</td><td>https://water-delivery-premium--preview.poehali.dev/</td><td>высокая</td><td></td></tr><tr><td>P0</td><td>Техническая вода / доставка</td><td>Создать страницу</td><td>https://water-delivery-premium--preview.poehali.dev/#services</td><td>высокая</td><td>Add anchor #services-technical</td></tr><tr><td>P1</td><td>Вода на стройку</td><td>Усилить существующую страницу</td><td>https://water-delivery-premium--preview.poehali.dev/#services</td><td>средняя</td><td></td></tr><tr><td>P1</td><td>Наполнение бассейна</td><td>Усилить существующую страницу</td><td>https://water-delivery-premium--preview.poehali.dev/#services</td><td>средняя</td><td></td></tr><tr><td>P1</td><td>Заказ воды кубами</td><td>Усилить существующую страницу</td><td>https://water-delivery-premium--preview.poehali.dev/#volumes</td><td>высокая</td><td>Align with 7.5 m3 USP</td></tr><tr><td>P0</td><td>Доставка воды Новороссийск (перехват)</td><td>Усилить существующую страницу</td><td>https://water-delivery-premium--preview.poehali.dev/</td><td>высокая</td><td>568/mo but ~70% bottle queries исключитьd</td></tr><tr><td>P1</td><td>Питьевая вода водовозом</td><td>Усилить существующую страницу</td><td>https://water-delivery-premium--preview.poehali.dev/#services</td><td>средняя</td><td></td></tr><tr><td>P1</td><td>Доставка воды на дом</td><td>Проверить и развить</td><td>https://water-delivery-premium--preview.poehali.dev/#services</td><td>средняя</td><td>SERP check required</td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>10. Полные текстовые разделы</h2>
+    <article><h3>Бриф</h3><h2>00. Бриф исследования</h2>
+<h3>Вход</h3>
+<p>| Параметр | Значение |</p>
+<p>|----------|----------|</p>
+<p>| Сайт | https://water-delivery-premium--preview.poehali.dev/ |</p>
+<p>| Prod-домен (цель) | https://akvaservis-nsk.ru/ |</p>
+<p>| Бренд | АкваСервис |</p>
+<p>| Ниша | Доставка воды водовозом (7,5 / 10 / 20+ м³) |</p>
+<p>| Регион Wordstat | **970 — Новороссийск** |</p>
+<p>| Язык | Русский |</p>
+<p>| Цель | Заявки (WhatsApp, звонок) |</p>
+<p>| Приоритет ПС | Яндекс |</p>
+<p>| Телефон | +7 988 317-44-84 |</p>
+<h3>Границы бизнеса</h3>
+<p>**В scope:**</p>
+<li>Водовоз 7,5–10 м³ и крупные объёмы</li>
+<li>Техническая и питьевая вода водовозом</li>
+<li>Стройки, частные дома, бассейны, промышленность, пожарный резерв</li>
+<li>Гео: Новороссийск и пригороды (Мысхако, Цемдолина, Гайдук и др.)</li>
+<p>**Вне scope (исключить):**</p>
+<li>Бутилированная вода 19 л (АкваКуб, Троицкая, бренды 19л)</li>
+<li>Вакансии, игрушки «водовоз», нерелевантные запросы</li>
+<li>Информационные запросы про оборудование водоснабжения (насосы, реле давления)</li>
+<li>Нормативка МЧС без коммерческого интента</li>
+<h3>Допущения</h3>
+<p>1. Preview-сайт отражает будущий prod-контент; canonical указывает на akvaservis-nsk.ru.</p>
+<p>2. Частотности — только регион **970**, без прокси по краю 10995 (в отличие от предыдущего прогона).</p>
+<p>3. SERP не проверялся live — интенты назначены вручную.</p>
+<p>4. GSC и Яндекс.Вебмастер не подключены — post-launch метрики отсутствуют.</p>
+<p>5. На preview ещё placeотложитьer-телефон; в рекомендациях указан prod +7 988 317-44-84.</p>
+<h3>Целевые KPI</h3>
+<li>Рост заявок из органики Яндекса по запросам «водовоз», «доставка воды водовозом»</li>
+<li>Снижение bounce с запросов «доставка воды новороссийск» (19л) через чёткое позиционирование</li>
+<li>Покрытие коммерческих кластеров P0/P1 одностраничником + якорями</li></article><article><h3>Инвентаризация сайта</h3><h2>01. Инвентаризация сайта</h2>
+<p>**URL:** https://water-delivery-premium--preview.poehali.dev/</p>
+<p>**Тип:** SPA-лендинг (React), одна страница</p>
+<p>**Дата осмотра:** 2026-05-21</p>
+<h3>Мета и SEO</h3>
+<p>| Элемент | Значение | Оценка |</p>
+<p>|---------|----------|--------|</p>
+<p>| Title | Доставка воды водовозом Новороссийск — от 7,5 м³ \| АкваСервис | Хорошо |</p>
+<p>| Description | От 7,5 м³, стройка, дом, бассейн, 1–3 ч, 24/7 | Хорошо |</p>
+<p>| Canonical | https://akvaservis-nsk.ru/ | OK |</p>
+<p>| H1 | Доставка воды водовозом — от 7,5 м³ на объект | Хорошо |</p>
+<p>| Schema | LocalBusiness + FAQPage | Есть |</p>
+<p>| robots (preview) | noindex, nofolнизкая | OK для staging |</p>
+<h3>Структура страницы</h3>
+<p>| Якорь | Секция | SEO-роль |</p>
+<p>|-------|--------|----------|</p>
+<p>| `#top` | Hero + CTA | Главный коммерческий блок |</p>
+<p>| `#volumes` | Объёмы 7,5 / 10 / 20+ м³ | Коммерция, long-tail объёмы |</p>
+<p>| `#services` | 6 услуг | Сценарии / кластеры |</p>
+<p>| `#how` | 3 шага | Конверсия, доверие |</p>
+<p>| `#why` | Преимущества | E-E-A-T |</p>
+<p>| `#pricing` | Цены «по запросу» | Коммерция (слабое место) |</p>
+<p>| `#area` | Зона + карта Яндекса | Локальное SEO |</p>
+<p>| `#faq` | 6 вопросов | GEO / featured snippets |</p>
+<p>| `#contact` | WhatsApp + телефон | Конверсия |</p>
+<h3>Что уже хорошо</h3>
+<li>Чёткий USP «от 7,5 м³» — отличие от 19л конкурентов</li>
+<li>Множество CTA (WhatsApp, телефон, floating button)</li>
+<li>Локальная привязка: районы, карта, «15 лет»</li>
+<li>FAQ + schema FAQPage</li>
+<li>Адаптив desktop/mobile</li>
+<h3>Что мешает росту</h3>
+<p>1. **Preview-телефон** +7 (988) 000-00-00 — не prod (+7 988 317-44-84)</p>
+<p>2. **Цены «по запросу»** — нет якоря для «цена/стоимость»</p>
+<p>3. **Нет отдельного блока «Техническая вода»** с якорем (высокий локальный спрос 59+7 показов)</p>
+<p>4. **Нет сравнения «водовоз vs 19 л»** — риск bounce с CL08 (568 показов «доставка воды новороссийск»)</p>
+<p>5. **FAQ** — вопросы есть, ответы могут быть скрыты в accordion (проверить DOM)</p>
+<p>6. **© 2024** — устарело</p>
+<h3>Конкуренты (из Wordstat 970)</h3>
+<li>Весёлый водовоз (бренд, 9–10 показов)</li>
+<li>АкваКуб / 19л бренды (другая ниша, но перехватывают SERP)</li>
+<li>Королевский водовоз (1 показ, нишевый)</li></article><article><h3>Карта seed-запросов</h3><h2>02. Карта seed-семейств и Wordstat</h2>
+<p>**Регион:** 970 (Новороссийск)</p>
+<p>**Wordstat MCP:** Kovcheg, `devices: all`</p>
+<p>**Вызовов:** 20 (12 с данными, 8 без данных)</p>
+<h3>Seed-семейства</h3>
+<p>| # | Seed | Семейство | Wordstat call | Результат 970 |</p>
+<p>|---|------|-----------|---------------|---------------|</p>
+<p>| 1 | водовоз новороссийск | Локальный водовоз | ws01 | 3 запроса, 13/mo head |</p>
+<p>| 2 | доставка воды новороссийск | Общая доставка (конкуренция с 19л) | ws02 | 16 запросов, 568/mo head |</p>
+<p>| 3 | водовоз | Общий водовоз | ws03 | 20 запросов, 42/mo |</p>
+<p>| 4 | доставка воды водовозом | Транзакционный водовоз | ws04 | 2 запроса, 6/mo |</p>
+<p>| 5 | вода на стройку | Стройка | ws05 | 1 запрос, 1/mo |</p>
+<p>| 6 | наполнение бассейна водой | Бассейны | ws06 | 1 запрос, 3/mo |</p>
+<p>| 7 | техническая вода | Техвода | ws07 | 50 запросов, 59/mo head |</p>
+<p>| 8 | пожарный резервуар вода | Пожарный резерв | ws08 | 2 запроса, 5/mo total |</p>
+<p>| 9 | доставка технической воды | Коммерция техводы | ws09 | 2 запроса, 7/mo |</p>
+<p>| 10 | заказ воды | Заказ (mixed) | ws10 | 42 запроса, 132/mo head |</p>
+<p>| 11 | вода 19 литров новороссийск | 19л (исключить) | ws11 | 6 запросов — исключить |</p>
+<p>| 12 | водоснабжение частного дома | Info/equipment (исключить) | ws12 | 49 запросов — исключить |</p>
+<p>| 13 | вода водовоз | Синоним водовоз | ws13 | 6 запросов, 6/mo |</p>
+<p>| 14 | противопожарное водоснабжение | Regulatory (исключить) | ws14 | 67 запросов — исключить |</p>
+<p>| 15–20 | long-tail seeds | — | ws15–ws20 | no_data |</p>
+<h3>Ключевой вывод по региону 970</h3>
+<p>Локальный спрос на **водовоз** мал по Wordstat (13/mo «водовоз новороссийск»), но запрос **«доставка воды новороссийск»** — 568/mo с доминированием 19л. Стратегия: **перехват через позиционирование «водовоз от 7,5 м³»**, а не борьба за 19л.</p>
+<p>Техническая вода (59/mo) и доставка технической (7/mo) — главный локальный спрос помимо общего «доставка воды».</p></article><article><h3>Контент-брифы</h3><h2>07. Контент-брифы P0/P1</h2>
+<h3>B01 — Главная / Hero (P0)</h3>
+<p>**Кластеры:** CL01, CL02, CL08</p>
+<p>**URL:** `/`</p>
+<p>| Поле | Рекомендация |</p>
+<p>|------|--------------|</p>
+<p>| H1 | Доставка воды водовозом в Новороссийске — от 7,5 м³ |</p>
+<p>| Title | Доставка воды водовозом Новороссийск — от 7,5 м³ \| АкваСервис |</p>
+<p>| Description | Водовоз 7,5–10 м³: стройка, дом, бассейн. Выезд 1–3 ч. WhatsApp +7 988 317-44-84. Не 19л бутыли. |</p>
+<p>| Блоки | Hero stats, CTA WhatsApp/телефон, badges «от 7,5 м³», «24/7» |</p>
+<p>| GEO | «Минимальный объём — 7,5 м³ (7 500 л). Это водовоз, не доставка бутылей 19 л.» |</p>
+<p>| Internal links | → #volumes, #services, #faq, #contact |</p>
+<h3>B02 — Техническая вода (P0, создать)</h3>
+<p>**Кластер:** CL03</p>
+<p>**URL:** `/#services-technical` (новый якорь)</p>
+<p>| Поле | Рекомендация |</p>
+<p>|------|--------------|</p>
+<p>| H2 | Техническая вода водовозом |</p>
+<p>| Подзаголовок | Доставка от 7,5 м³ на стройку, для промышленных и технических нужд |</p>
+<p>| Текст | 120–180 слов: замес бетона, уплотнение, пылеподавление, промобъекты |</p>
+<p>| FAQ в блоке | «Чем техническая вода отличается от питьевой?» — 2–3 предложения |</p>
+<p>| CTA | «Рассчитать объём в WhatsApp» |</p>
+<h3>B03 — Водовоз vs 19 л (P0)</h3>
+<p>**Кластер:** CL08</p>
+<p>**URL:** `/` (первый экран или после hero)</p>
+<p>| Поле | Рекомендация |</p>
+<p>|------|--------------|</p>
+<p>| Формат | Таблица 3 колонки: «19 л бутыли» vs «Водовоз АкваСервис» |</p>
+<p>| Строки | Объём, мин. заказ, сценарий (дом/стройка/бассейн), срок |</p>
+<p>| Цель | Отсечь нецелевой трафик с 568/mo «доставка воды новороссийск» |</p>
+<h3>B04 — Вода на стройку (P1)</h3>
+<p>**Кластер:** CL04</p>
+<p>**URL:** `/#services` (карточка, усилить)</p>
+<li>H3: «Вода на стройку водовозом»</li>
+<li>Упомянуть объёмы 7,5 и 10 м³, слив включён</li>
+<li>GEO-вопрос: «Сколько воды нужно на стройку?» — 2–3 предложения</li>
+<h3>B05 — Бассейн (P1)</h3>
+<p>**Кластер:** CL05</p>
+<li>«Средний бассейн 30–50 м³ = 3–5 рейсов по 10 м³»</li>
+<li>CTA: бесплатный расчёт рейсов</li>
+<h3>B06 — FAQ раскрытый (P1)</h3>
+<p>**Кластеры:** CL01, CL08</p>
+<li>Ответы видны в HTML (не только JS)</li>
+<li>FAQPage schema должна совпадать с видимым текстом</li>
+<li>Добавить: «Чем водовоз отличается от доставки 19 литров?»</li></article><article><h3>SERP / GEO заметки</h3><h2>08. SERP / GEO / AI заметки</h2>
+<h3>SERP (не проверялся live)</h3>
+<p>| Запрос | Ожидание | Действие |</p>
+<p>|--------|----------|----------|</p>
+<p>| водовоз новороссийск | Конкуренты-водовозы, возможно «Весёлый водовоз» | Проверить топ-10 вручную |</p>
+<p>| доставка воды новороссийск | Доминируют 19л (АкваКуб, бренды) | Не конкурировать напрямую; H1 «водовоз» |</p>
+<p>| техническая вода | Смешанный info + коммерция | Отдельный блок + FAQ |</p>
+<p>| доставка технической воды | Низкий объём, коммерческий | P0 страница/якорь |</p>
+<h3>GEO / AI-оптимизация</h3>
+<h4>Определения (короткие ответы для сниппетов)</h4>
+<li>**Водовоз** — автомобиль с ёмкостью 7,5–10 м³ для разовой подачи воды на объект.</li>
+<li>**Минимальный заказ АкваСервис** — 7,5 м³ (7 500 литров) за один рейс.</li>
+<li>**Срок доставки** — 1–3 часа по Новороссийску после подтверждения заявки.</li>
+<h4>FAQ для GEO (добавить/усилить)</h4>
+<p>1. Как быстро приедет водовоз в Новороссийске?</p>
+<p>2. Какой минимальный объём заказа водовоза?</p>
+<p>3. Чем водовоз отличается от доставки воды 19 литров?</p>
+<p>4. Сколько стоит доставка водовоза?</p>
+<p>5. Как заполнить бассейн водовозом?</p>
+<p>6. Есть ли техническая вода для стройки?</p>
+<h4>Trust-сигналы</h4>
+<li>Телефон +7 988 317-44-84 на всех CTA</li>
+<li>«15 лет», «собственный транспорт», «СанПиН»</li>
+<li>Карта зоны доставки</li>
+<li>Оплата после доставки</li>
+<h4>Schema</h4>
+<li>LocalBusiness: telephone +79883174484, areaServed Novorossiysk</li>
+<li>FAQPage: 6+ вопросов с полными ответами в HTML</li>
+<li>Рассмотреть Service schema для услуг водовоза</li></article><article><h3>Отчёт качества</h3><h2>09. Отчёт качества</h2>
+<h3>Покрытие Wordstat</h3>
+<p>| Метрика | Значение |</p>
+<p>|---------|----------|</p>
+<p>| Регион | 970 (Новороссийск) |</p>
+<p>| MCP-сервер | Kovcheg |</p>
+<p>| Вызовов | 20 |</p>
+<p>| С данными | 12 |</p>
+<p>| Без данных | 8 |</p>
+<p>| Сырых строк | 52 |</p>
+<p>| Очищенных (включитьd) | 15 |</p>
+<p>| Исключено | 5 групп (19л, info, competitor brand) |</p>
+<h3>Ограничения</h3>
+<p>1. **Низкий локальный объём** — «водовоз новороссийск» всего 13 показов/мес в 970. Выводы опираются также на смежные запросы («доставка воды», «техническая вода»).</p>
+<p>2. **SERP не проверен** — все кластеры `serp_check_status=не проверено`. Интенты назначены вручную.</p>
+<p>3. **8 seed без данных** — long-tail с гео не возвращают статистику в 970.</p>
+<p>4. **Конкуренция с 19л** — «доставка воды новороссийск» 568/mo, ~70% запросов — бутыли (исключены из ядра).</p>
+<p>5. **Preview vs prod** — осмотрен preview; телефон на preview ещё placeотложитьer.</p>
+<p>6. **Нет GSC/Вебмастер** — нет данных о реальных показах/CTR.</p>
+<h3>Главные риски</h3>
+<p>| Риск | Вероятность | Митигация |</p>
+<p>|------|-------------|-----------|</p>
+<p>| Каннибализация с 19л SERP | Высокая | H1 «водовоз от 7,5 м³», таблица vs 19л |</p>
+<p>| Низкая частота по «водовоз» | Средняя | Перехват «доставка воды» + «техническая вода» |</p>
+<p>| FAQ не индексируется | Средняя | Ответы в DOM, schema FAQPage |</p>
+<p>| Placeотложитьer телефон на preview | Высокая | PR #1, prod deploy |</p>
+<h3>Чек-лист качества</h3>
+<li>[x] Wordstat частоты не выдуманы</li>
+<li>[x] Регион 970 указан явно</li>
+<li>[x] CSV + HTML + XLSX созданы</li>
+<li>[ ] SERP проверен вручную</li>
+<li>[ ] Цены подтверждены бизнесом</li>
+<li>[ ] Prod-телефон на сайте</li>
+<h3>Оценка полноты</h3>
+<p>**75%** — достаточно для старта SEO-работ и правок лендинга. Для production-ready нужны: live SERP, цены, GSC через 30 дней после prod.</p></article><article><h3>TODO</h3><h2>10. TODO после исследования</h2>
+<h3>Уже сделано</h3>
+<li>[x] Бриф с регионом 970 (`00-brief.md`)</li>
+<li>[x] Инвентаризация preview-сайта (`01-site-inventory.md`)</li>
+<li>[x] 20 Wordstat-вызовов по Новороссийску (`02-seed-map.md`)</li>
+<li>[x] CSV: raw, clean, clusters, URL-map</li>
+<li>[x] Контент-брифы P0/P1 (`07-content-briefs.md`)</li>
+<li>[x] HTML-отчёт и Excel-книга</li>
+<h3>Проверить вручную</h3>
+<li>[ ] **SERP Яндекс:** «водовоз новороссийск» — кто в топ-10? *(SEO)*</li>
+<li>[ ] **SERP Яндекс:** «доставка воды новороссийск» — доля 19л vs водовоз *(SEO)*</li>
+<li>[ ] **SERP Яндекс:** «техническая вода» + «новороссийск» *(SEO)*</li>
+<li>[ ] **Факт:** можно ли публиковать цены «от X ₽»? *(владелец)*</li>
+<li>[ ] **Prod:** телефон +7 988 317-44-84 на preview/prod *(разработчик)*</li>
+<li>[ ] **FAQ:** ответы видны в HTML *(редактор)*</li>
+<h3>Сделать дальше</h3>
+<p>| Приоритет | Задача | Ответственный | Файл/URL | Комментарий |</p>
+<p>|---|---|---|---|---|</p>
+<p>| P0 | H1/title «водовоз от 7,5 м³», не generic «доставка воды» | SEO + редактор | `/` | Бриф B01, CL08 |</p>
+<p>| P0 | Блок «Техническая вода» `#services-technical` | разработчик + редактор | `/#services-technical` | Бриф B02, CL03 |</p>
+<p>| P0 | Таблица «водовоз vs 19 л» | редактор | `/` | Бриф B03 |</p>
+<p>| P0 | Телефон +7 988 317-44-84 | разработчик | весь сайт | PR #1 |</p>
+<p>| P0 | FAQ в DOM + schema | разработчик + редактор | `/#faq` | Бриф B06 |</p>
+<p>| P1 | Цены или «от X ₽ за 7,5 м³» | владелец + редактор | `/#pricing` | CRO |</p>
+<p>| P1 | Яндекс.Вебмастер + Метрика на prod | аналитик | akvaservis-nsk.ru | После deploy |</p>
+<p>| P2 | B2B-копия пожарный резерв | редактор | `/#services` | CL06 |</p>
+<h3>Backlog</h3>
+<li>[ ] Пересборка ядра через 30 дней GSC *(SEO)*</li>
+<li>[ ] Wordstat `wordstat_get_regions` по топ-запросам *(SEO)*</li>
+<li>[ ] Отдельная страница `/vodovoz-novorossijsk/` — только если SERP покажет need *(SEO)*</li></article><article><h3>План внедрения</h3><h2>12. План внедрения (roadmap)</h2>
+<h3>Спринт 1 — 7 дней (P0)</h3>
+<p>| # | Задача | Роль | Результат |</p>
+<p>|---|--------|------|-----------|</p>
+<p>| 1 | Заменить телефон на +7 988 317-44-84 | разработчик | Рабочие CTA |</p>
+<p>| 2 | Обновить H1/title/description под «водовоз от 7,5 м³» | SEO + редактор | CL08 positioning |</p>
+<p>| 3 | Добавить секцию «Техническая вода» + якорь | разработчик | CL03 coverage |</p>
+<p>| 4 | Таблица «водовоз vs 19 л» на hero | редактор | Снижение bounce |</p>
+<p>| 5 | FAQ: ответы в HTML + новый вопрос про 19л | редактор + dev | GEO/schema |</p>
+<p>| 6 | Проверить SERP топ-3 запросов | SEO | Валидация гипотез |</p>
+<h3>Спринт 2 — 30 дней (P1)</h3>
+<p>| # | Задача | Роль | Результат |</p>
+<p>|---|--------|------|-----------|</p>
+<p>| 7 | Цены: «от X ₽» или калькулятор объёма | владелец + dev | CRO |</p>
+<p>| 8 | Deploy на akvaservis-nsk.ru, canonical OK | разработчик | Prod indexation |</p>
+<p>| 9 | Яндекс.Вебмастер + переобход | SEO | Индексация |</p>
+<p>| 10 | Усилить карточки: стройка, бассейн, дом | редактор | CL04–CL05 |</p>
+<p>| 11 | Фото автопарка / кейсы | владелец | Trust |</p>
+<p>| 12 | Обновить © 2024 → 2026 | редактор | Детали |</p>
+<h3>Спринт 3 — 90 дней (P2 + аналитика)</h3>
+<p>| # | Задача | Роль | Результат |</p>
+<p>|---|--------|------|-----------|</p>
+<p>| 13 | Анализ GSC: запросы, CTR, позиции | SEO + аналитик | Data-driven iteration |</p>
+<p>| 14 | Доработка пожарного резерва (B2B) | редактор | CL06 |</p>
+<p>| 15 | Пересборка семантики с GSC-данными | SEO | v2 ядра |</p>
+<p>| 16 | A/B CTA: WhatsApp vs форма | аналитик | CRO |</p>
+<p>| 17 | Контекст Яндекс по «водовоз новороссийск» | маркетинг | Paid test |</p>
+<h3>KPI на 90 дней</h3>
+<li>Индексация prod без ошибок в Вебмастере</li>
+<li>Появление в топ-30 по «водовоз новороссийск», «доставка технической воды»</li>
+<li>Заявки из organic (отслеживать UTM WhatsApp)</li>
+<li>Bounce rate &lt; 60% с organic (после таблицы vs 19л)</li></article>
+  </section>
+
+  <section>
+    <h2>11. Итоговые рекомендации</h2>
+    <h3>Что улучшить первым</h3>
+    <ol>
+      <li>Развести информационные и коммерческие интенты по разным страницам.</li>
+      <li>Создать или обновить все P0-страницы.</li>
+      <li>Проверить live SERP по P0/P1 запросам.</li>
+      <li>Подключить GSC и Яндекс.Вебмастер.</li>
+      <li>Добавить кейсы, доверие, FAQ/GEO-блоки и сильные CTA.</li>
+    </ol>
+    <h3>План 7/30/90 дней</h3>
+    <ul>
+      <li>7 дней: проверить SERP, конкурентов, URL-структуру и первые ТЗ.</li>
+      <li>30 дней: опубликовать P0-страницы, перелинковать, добавить FAQ.</li>
+      <li>90 дней: сравнить показы/клики/CTR, обновить title/description, пересобрать ядро по фактическим данным.</li>
+    </ul>
+  </section>
+</main>
+<footer>Сгенерировано Core. Частотности не выдумываются; ограничения должны быть явно указаны в отчёте качества.</footer>
+</body>
+</html>
