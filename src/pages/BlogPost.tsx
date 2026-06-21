@@ -1,10 +1,12 @@
+import { useEffect } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 
-const posts: Record<string, { title: string; date: string; tag: string; content: React.ReactNode }> = {
+const posts: Record<string, { title: string; date: string; tag: string; desc: string; content: React.ReactNode }> = {
   "skolko-vody-nuzhno-dlya-basseyna": {
     title: "Сколько воды нужно для наполнения бассейна и как её доставить",
     date: "15 июня 2026",
     tag: "Бассейны",
+    desc: "Рассчитываем объём воды для бассейнов разного размера. Почему водовоз быстрее водопровода и как заказать наполнение бассейна в Новороссийске.",
     content: (
       <>
         <p>Наполнение бассейна — одна из самых частых причин вызова водовоза в Новороссийске. Городской водопровод справляется слабо: давление низкое, времени уходит много, а счёт за воду неприятно удивляет. Водовоз привозит сразу 7,5–10 м³ и заполняет даже большой бассейн за 1–3 рейса.</p>
@@ -33,6 +35,7 @@ const posts: Record<string, { title: string; date: string; tag: string; content:
     title: "Вода на стройку в Новороссийске: нормы, расчёт и доставка",
     date: "10 июня 2026",
     tag: "Строительство",
+    desc: "Нормы расхода воды на строительстве, расчёт объёма для бетона и кладки. Как организовать регулярный подвоз водовозом в Новороссийске.",
     content: (
       <>
         <p>Без воды на стройке не обойтись: она нужна для замешивания бетона, кладки кирпича, штукатурки, ухода за бетоном в жару и много чего ещё. Разбираемся, сколько воды реально расходует стройка и как организовать её подвоз в Новороссийске.</p>
@@ -63,6 +66,7 @@ const posts: Record<string, { title: string; date: string; tag: string; content:
     title: "Чем техническая вода отличается от питьевой и где её применяют",
     date: "5 июня 2026",
     tag: "Полезно знать",
+    desc: "Разница между технической и питьевой водой: стандарты, применение, где можно использовать техническую воду. Доставка водовозом в Новороссийске.",
     content: (
       <>
         <p>Многие путают техническую и питьевую воду, считая, что разница лишь в цене. На самом деле разница принципиальная — и использовать их нужно строго по назначению.</p>
@@ -94,6 +98,7 @@ const posts: Record<string, { title: string; date: string; tag: string; content:
     title: "Подвоз воды на дачный участок: когда это выгоднее скважины",
     date: "1 июня 2026",
     tag: "Частный дом",
+    desc: "Сравниваем стоимость скважины и регулярного подвоза воды водовозом на дачу. Когда доставка выгоднее для сезонного использования в Новороссийске.",
     content: (
       <>
         <p>Дача без воды — это полдачи. Но не всегда стоит сразу бурить скважину. Разбираемся, когда регулярный подвоз водовозом выгоднее и удобнее.</p>
@@ -124,6 +129,7 @@ const posts: Record<string, { title: string; date: string; tag: string; content:
     title: "Как заказать водовоз в Новороссийске: пошаговая инструкция",
     date: "25 мая 2026",
     tag: "Инструкция",
+    desc: "Пошаговая инструкция: как заказать водовоз в Новороссийске, что подготовить, сколько ждать и как оплатить. АкваСервис — выезд 1–3 часа.",
     content: (
       <>
         <p>Многие заказывают водовоз впервые и не знают, что нужно подготовить и как всё проходит. Объясняем просто и по шагам.</p>
@@ -153,6 +159,26 @@ const posts: Record<string, { title: string; date: string; tag: string; content:
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? posts[slug] : null;
+
+  useEffect(() => {
+    if (!post || !slug) return;
+    document.title = `${post.title} — АкваСервис Новороссийск`;
+    const setMeta = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
+      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
+      el.content = content;
+    };
+    const setOg = (prop: string, content: string) => {
+      let el = document.querySelector(`meta[property="${prop}"]`) as HTMLMetaElement;
+      if (!el) { el = document.createElement("meta"); el.setAttribute("property", prop); document.head.appendChild(el); }
+      el.content = content;
+    };
+    setMeta("description", post.desc);
+    setOg("og:title", `${post.title} — АкваСервис`);
+    setOg("og:description", post.desc);
+    const canon = document.querySelector("link[rel='canonical']") as HTMLLinkElement;
+    if (canon) canon.href = `https://vodanovoros.ru/blog/${slug}`;
+  }, [slug, post]);
 
   if (!post) return <Navigate to="/blog" replace />;
 

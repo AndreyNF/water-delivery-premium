@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const posts = [
@@ -39,6 +40,25 @@ const posts = [
 ];
 
 export default function Blog() {
+  useEffect(() => {
+    document.title = "Блог о доставке воды — АкваСервис Новороссийск";
+    const setMeta = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
+      if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
+      el.content = content;
+    };
+    const setOg = (prop: string, content: string) => {
+      let el = document.querySelector(`meta[property="${prop}"]`) as HTMLMetaElement;
+      if (!el) { el = document.createElement("meta"); el.setAttribute("property", prop); document.head.appendChild(el); }
+      el.content = content;
+    };
+    setMeta("description", "Полезные статьи о доставке воды водовозом в Новороссийске: бассейны, стройка, дача, техническая вода. АкваСервис.");
+    setOg("og:title", "Блог о доставке воды — АкваСервис Новороссийск");
+    setOg("og:description", "Полезные статьи о доставке воды водовозом в Новороссийске: бассейны, стройка, дача, техническая вода.");
+    const canon = document.querySelector("link[rel='canonical']") as HTMLLinkElement;
+    if (canon) canon.href = "https://vodanovoros.ru/blog";
+  }, []);
+
   return (
     <div style={{ fontFamily: "Inter, sans-serif", background: "var(--surface)", minHeight: "100vh" }}>
       <div style={{ maxWidth: 800, margin: "0 auto", padding: "48px 20px" }}>
