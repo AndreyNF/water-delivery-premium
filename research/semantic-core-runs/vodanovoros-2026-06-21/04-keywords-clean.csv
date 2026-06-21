@@ -1,0 +1,22 @@
+query,canonical_query,source_sources,frequency_region,frequency_value,intent_initial,intent_confidence,cluster_candidate,include_status,exclude_reason,notes
+водовоз новороссийск,водовоз новороссийск,ws01|ws11,970,27,T,high,CL01,include,,
+водовозов новороссийск,водовоз новороссийск,ws01|ws11,970,27,T,high,CL01,include,,
+веселый водовоз новороссийск,водовоз новороссийск,ws01|ws11,970,15,T,high,CL01,exclude,competitor brand,
+доставка воды новороссийск,доставка воды новороссийск,ws02|ws09,970,830,Mixed,high,CL08,include reposition,,bottle SERP risk
+доставка воды новороссийск 19,доставка воды 19л,ws02|ws09,970,211,I,high,CL08,exclude,bottle 19l,
+доставка воды новороссийск 19 литров на дом,доставка воды 19л,ws02|ws09,970,70,I,high,CL08,exclude,bottle 19l,
+аквакуб новороссийск вода доставка,доставка воды бутыли,ws02|ws09,970,57,I,high,CL08,exclude,competitor bottle,
+доставка воды новороссийск цены,доставка воды новороссийск,ws02,970,32,I,medium,CL08,include,,
+доставка воды новороссийск 10 тонн,доставка воды водовозом,ws02,970,2,T,high,CL02,include,,tanker volume
+доставка питьевой воды новороссийск,доставка питьевой воды новороссийск,ws02|ws09,970,25,T,high,CL09,include,,
+водовоз доставка воды,водовоз доставка воды,ws03|ws13,970,7,T,high,CL02,include,,10995 proxy 119
+техническая вода,техническая вода,ws04|ws12,970,85,Mixed,high,CL03,include,,10995 proxy 1419
+доставка технической воды,доставка технической воды,ws04|ws05|ws12,970,3,T,high,CL03,include,,970 low; krai 60
+подвоз воды,подвоз воды,ws06,970,119,T,high,CL04,include,,
+подвоз воды в новороссийске,подвоз воды новороссийск,ws06,970,26,T,high,CL04,include,,
+заявка на подвоз воды,подвоз воды,ws06,970,8,T,high,CL04,include,,
+подвоз воды водовозом,подвоз воды водовозом,ws06,970,2,T,high,CL04,include,,
+заказ воды куб,заказ воды куб,ws08,970,6,T,high,CL06,include,,
+заказ воды новороссийск 16 кубов,заказ воды куб,ws08,970,5,T,high,CL06,include,,
+доставка воды кубами,доставка воды кубами,ws09,970,42,T,high,CL06,include,,
+доставка воды,доставка воды,ws09,970,1119,Mixed,medium,CL08,hold,,generic head
