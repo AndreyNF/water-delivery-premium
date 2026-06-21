@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import MaxIcon from "@/components/ui/MaxIcon";
 import { MAX_LINK, PHONE, PHONE_HREF } from "./shared";
@@ -9,6 +10,7 @@ const NAV = [
   ["Цены", "#pricing"],
   ["FAQ", "#faq"],
   ["Контакты", "#contact"],
+  ["Блог", "/blog"],
 ];
 
 export default function AppleHeader() {
@@ -46,9 +48,13 @@ export default function AppleHeader() {
           </a>
 
           <nav className="hidden md:flex items-center gap-7">
-            {NAV.map(([l, h]) => (
-              <a key={l} href={h} className="nav-link">{l}</a>
-            ))}
+            {NAV.map(([l, h]) =>
+              h.startsWith("/") ? (
+                <Link key={l} to={h} className="nav-link">{l}</Link>
+              ) : (
+                <a key={l} href={h} className="nav-link">{l}</a>
+              )
+            )}
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
@@ -110,18 +116,31 @@ export default function AppleHeader() {
             className="md:hidden px-6 pt-2 pb-6 space-y-0"
             style={{ borderTop: "1px solid var(--border-c)" }}
           >
-            {NAV.map(([l, h]) => (
-              <a
-                key={l}
-                href={h}
-                onClick={() => setMob(false)}
-                className="flex items-center justify-between py-4 text-sm font-medium"
-                style={{ color: "var(--ink)", borderBottom: "1px solid var(--border-subtle)" }}
-              >
-                {l}
-                <Icon name="ChevronRight" size={15} style={{ color: "var(--ink-tertiary)" }} />
-              </a>
-            ))}
+            {NAV.map(([l, h]) =>
+              h.startsWith("/") ? (
+                <Link
+                  key={l}
+                  to={h}
+                  onClick={() => setMob(false)}
+                  className="flex items-center justify-between py-4 text-sm font-medium"
+                  style={{ color: "var(--ink)", borderBottom: "1px solid var(--border-subtle)", textDecoration: "none" }}
+                >
+                  {l}
+                  <Icon name="ChevronRight" size={15} style={{ color: "var(--ink-tertiary)" }} />
+                </Link>
+              ) : (
+                <a
+                  key={l}
+                  href={h}
+                  onClick={() => setMob(false)}
+                  className="flex items-center justify-between py-4 text-sm font-medium"
+                  style={{ color: "var(--ink)", borderBottom: "1px solid var(--border-subtle)" }}
+                >
+                  {l}
+                  <Icon name="ChevronRight" size={15} style={{ color: "var(--ink-tertiary)" }} />
+                </a>
+              )
+            )}
             <div className="flex flex-col gap-3 pt-5">
               <a href={MAX_LINK} target="_blank" rel="noopener" className="btn-apple w-full justify-center">
                 <MaxIcon size={17} />
