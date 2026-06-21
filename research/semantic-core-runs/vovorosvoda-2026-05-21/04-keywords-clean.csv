@@ -1,0 +1,21 @@
+query,canonical_query,source_sources,frequency_region,frequency_value,intent_initial,intent_confidence,cluster_candidate,include_status,exclude_reason,notes
+водовоз новороссийск,водовоз новороссийск,ws01,970,27,T,high,CL01,include,,
+водовозов новороссийск,водовоз новороссийск,ws01,970,27,T,high,CL01,include,,
+веселый водовоз новороссийск,водовоз новороссийск,ws01,970,15,T,high,CL01,exclude,competitor brand,
+доставка воды новороссийск,доставка воды новороссийск,ws02|ws14,970,830,Mixed,high,CL08,include reposition,,bottle SERP risk
+доставка воды новороссийск 19,доставка воды 19л,ws02,970,211,I,high,CL08,exclude,bottle 19l,
+доставка воды новороссийск 19 литров на дом,доставка воды 19л,ws02,970,70,I,high,CL08,exclude,bottle 19l,
+аквакуб новороссийск вода доставка,доставка воды бутыли,ws02,970,57,I,high,CL08,exclude,competitor bottle,
+доставка воды новороссийск цены,доставка воды новороссийск,ws02,970,32,I,medium,CL08,include,,
+доставка питьевой воды новороссийск,доставка питьевой воды новороссийск,ws02|ws11,970,25,T,high,CL09,include,,
+водовоз доставка воды,водовоз доставка воды,ws03|ws17,970,7,T,high,CL02,include,,10995 proxy 119
+техническая вода,техническая вода,ws04|ws16,970,85,Mixed,high,CL03,include,,10995 proxy 1419
+доставка технической воды,доставка технической воды,ws04|ws05|ws16,970,3,T,high,CL03,include,,970 low; krai 60
+подвоз воды,подvoz воды,ws08,970,119,T,high,CL04,include,,
+подвоз воды в новороссийске,подвоз воды новороссийск,ws08,970,26,T,high,CL04,include,,
+водовозка,водовозка,ws09,970,61,Mixed,medium,CL05,include,,filter equipment queries
+заказ воды куб,заказ воды куб,ws10,970,6,T,high,CL06,include,,
+заказ воды новороссийск 16 кубов,заказ воды куб,ws10,970,5,T,high,CL06,include,,
+промывка скважины,промывка скважины,ws12,970,21,I,medium,CL07,include,,
+заполняем бассейн водой,наполнение бассейна,ws13,970,3,T,medium,CL10,include,,
+доставка воды кубами,доставка воды кубами,ws14,970,42,T,high,CL06,include,,
