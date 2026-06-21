@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import MaxIcon from "@/components/ui/MaxIcon";
 import { useFade, Section, MAX_LINK, PHONE_HREF, PHONE } from "./shared";
@@ -178,13 +179,18 @@ export function ContactSection() {
             </div>
             <span style={{ fontSize: 13, fontWeight: 500, color: "rgba(255,255,255,0.55)" }}>АкваСервис Новороссийск</span>
           </div>
-          <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
-            © 2026 ·{" "}
-            <a href={PHONE_HREF} style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
-              {PHONE}
-            </a>
-            {" · "}Доставка воды водовозом · 24/7
-          </p>
+          <div className="flex items-center gap-4 flex-wrap">
+            <Link to="/blog" style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+              Блог
+            </Link>
+            <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", margin: 0 }}>
+              © 2026 ·{" "}
+              <a href={PHONE_HREF} style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+                {PHONE}
+              </a>
+              {" · "}Доставка воды водовозом · 24/7
+            </p>
+          </div>
         </div>
       </div>
     </section>
